@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  const API_BASE = window.STUDYHUB_CONFIG?.API_BASE || "http://localhost:3000/api";
+  const API_BASE = "https://studyhub-api-4ecd.onrender.com/api";
   const PROFILE_KEY = "studyHubProfile";
   const TOKEN_KEY = "studyHubAuthToken";
 
