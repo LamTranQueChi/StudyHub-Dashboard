@@ -36,10 +36,26 @@ if (fs.existsSync(databasePath) && !isDatabaseHealthy(databasePath)) {
 
 const isNewDatabase = !fs.existsSync(databasePath) || fs.statSync(databasePath).size === 0;
 const db = new Database(databasePath);
+
 if (isNewDatabase && fs.existsSync(sqlSeedPath)) {
+  // Tạm tắt khóa ngoại khi nhập dữ liệu ban đầu
+  db.pragma('foreign_keys = OFF');
+
+  // Nhập toàn bộ dữ liệu từ file SQL
   db.exec(fs.readFileSync(sqlSeedPath, 'utf8'));
 }
+
+// Bật lại kiểm tra khóa ngoại sau khi nhập xong
 db.pragma('foreign_keys = ON');
+
+const foreignKeyErrors = db.pragma('foreign_key_check');
+
+if (foreignKeyErrors.length > 0) {
+  throw new Error(
+    `Database có lỗi khóa ngoại: ${JSON.stringify(foreignKeyErrors.slice(0, 10))}`
+  );
+}
+
 db.pragma('journal_mode = WAL');
 
 db.exec(`
