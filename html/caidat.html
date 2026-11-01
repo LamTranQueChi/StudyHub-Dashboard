@@ -1,0 +1,353 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyHub - Cài đặt tài khoản</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/caidat.css">
+    <link rel="stylesheet" href="../css/theme.css">
+</head>
+
+<body class="settings-account-page">
+
+    <div id="sidebar-container"></div>
+
+    <div class="main-layout">
+
+        <div id="topbar-container"></div>
+
+        <main class="settings-page">
+            <div class="settings-container">
+
+                <section class="settings-heading">
+                    <div>
+                        <p class="eyebrow">TÀI KHOẢN CỦA BẠN</p>
+                        <h1>Cài đặt tài khoản</h1>
+                        <p class="heading-description">
+                            Quản lý ảnh đại diện và thông tin cá nhân
+                            của bạn trên StudyHub.
+                        </p>
+                    </div>
+                </section>
+
+                <section class="settings-panel" id="profilePanel">
+
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Thông tin cá nhân</h2>
+                            <p>Cập nhật thông tin được hiển thị trên StudyHub.</p>
+                        </div>
+                    </div>
+
+                    <!-- Ảnh đại diện -->
+                    <div class="avatar-setting">
+
+                        <div class="profile-avatar">
+                            <img
+                                id="profileAvatarImage"
+                                src="../assets/images/avatar_macdinh.jpg"
+                                alt="Ảnh đại diện hiện tại"
+                            >
+                        </div>
+
+                        <div class="avatar-actions">
+                            <strong>Ảnh đại diện</strong>
+
+                            <p>
+                                Chọn ảnh JPG, PNG hoặc WEBP,
+                                dung lượng tối đa 2 MB.
+                            </p>
+
+                            <div class="avatar-buttons">
+                                <label
+                                    for="avatarInput"
+                                    class="button-secondary"
+                                >
+                                    <span class="material-symbols-outlined">
+                                        photo_camera
+                                    </span>
+                                    Chọn ảnh
+                                </label>
+
+                                <input
+                                    type="file"
+                                    id="avatarInput"
+                                    accept="image/jpeg,image/png,image/webp"
+                                    hidden
+                                >
+
+                                <button
+                                    type="button"
+                                    id="resetAvatarButton"
+                                    class="button-secondary"
+                                >
+                                    Dùng ảnh mặc định
+                                </button>
+                            </div>
+
+                            <p
+                                id="avatarMessage"
+                                class="form-message"
+                                role="status"
+                                aria-live="polite"
+                            ></p>
+                        </div>
+
+                    </div>
+
+                    <!-- Form hồ sơ -->
+                    <form
+                        id="profileForm"
+                        autocomplete="on"
+                    >
+                        <div class="form-grid">
+
+                            <div class="form-group">
+                                <label for="fullName">Họ và tên</label>
+                                <input
+                                    id="fullName"
+                                    name="fullName"
+                                    type="text"
+                                    value="Lâm Trần Quế Chi"
+                                    maxlength="80"
+                                    autocomplete="name"
+                                    readonly
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="studentId">Mã sinh viên</label>
+                                <input
+                                    id="studentId"
+                                    name="studentId"
+                                    type="text"
+                                    value="110124012"
+                                    maxlength="30"
+                                    autocomplete="off"
+                                    readonly
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input
+                                    id="email"
+                                    name="email"
+                                    type="email"
+                                    value="110124012@st.tvu.edu.vn"
+                                    maxlength="120"
+                                    autocomplete="email"
+                                    readonly
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">Số điện thoại</label>
+                                <input
+                                    id="phone"
+                                    name="phone"
+                                    type="tel"
+                                    value="012345678"
+                                    pattern="[-0-9+(). ]{9,16}"
+                                    maxlength="16"
+                                    autocomplete="tel"
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="studentClass">Lớp</label>
+                                <input
+                                    id="studentClass"
+                                    name="studentClass"
+                                    type="text"
+                                    value="DA24TTA"
+                                    maxlength="30"
+                                    readonly
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="major">Ngành học</label>
+                                <input
+                                    id="major"
+                                    name="major"
+                                    type="text"
+                                    value="Công nghệ thông tin"
+                                    maxlength="80"
+                                    readonly
+                                >
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="bio">Giới thiệu bản thân</label>
+                                <textarea
+                                    id="bio"
+                                    name="bio"
+                                    rows="4"
+                                    maxlength="300"
+                                    placeholder="Viết vài dòng giới thiệu về bạn..."
+                                >Sinh viên Công nghệ thông tin, quan tâm đến Frontend Development.</textarea>
+
+                                <small>
+                                    <span id="bioCount">0</span>/300 ký tự
+                                </small>
+                            </div>
+
+                            <div class="form-group full-width">
+                                <label for="profileNote">Ghi chú cá nhân</label>
+                                <textarea
+                                    id="profileNote"
+                                    name="profileNote"
+                                    rows="3"
+                                    maxlength="500"
+                                    placeholder="Nhập ghi chú của bạn..."
+                                ></textarea>
+                            </div>
+
+                        </div>
+
+                        <div class="form-actions">
+                            <button
+                                type="submit"
+                                class="button-primary"
+                            >
+                                <span class="material-symbols-outlined">
+                                    save
+                                </span>
+                                Lưu thay đổi
+                            </button>
+                        </div>
+
+                        <p
+                            class="form-message"
+                            id="profileMessage"
+                            role="status"
+                            aria-live="polite"
+                        ></p>
+
+                    </form>
+
+                </section>
+
+                <!-- Tùy chọn giao diện -->
+                <section class="settings-panel preferences-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Tùy chọn giao diện</h2>
+                            <p>Cá nhân hóa trải nghiệm sử dụng StudyHub.</p>
+                        </div>
+                    </div>
+
+                    <div class="preferences-grid">
+                        <div class="form-group">
+                            <label for="themeSelect">Giao diện</label>
+                            <select id="themeSelect" name="theme">
+                                <option value="light">Sáng</option>
+                                <option value="dark">Tối</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button
+                            type="button"
+                            id="savePreferencesButton"
+                            class="button-primary"
+                        >
+                            <span class="material-symbols-outlined">save</span>
+                            Lưu tùy chọn
+                        </button>
+                    </div>
+
+                    <p
+                        id="preferencesMessage"
+                        class="form-message"
+                        role="status"
+                        aria-live="polite"
+                    ></p>
+                </section>
+
+                <!-- Đổi mật khẩu -->
+                <section class="settings-panel password-panel" id="passwordPanel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Đổi mật khẩu</h2>
+                            <p> Hãy đổi mật khẩu sau lần đăng nhập đầu tiên!</p>
+                        </div>
+                    </div>
+                    <form id="changePasswordForm" autocomplete="off">
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="currentPassword">Mật khẩu hiện tại</label>
+                                <input id="currentPassword" name="currentPassword" type="password" minlength="8" maxlength="64" autocomplete="current-password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="newPassword">Mật khẩu mới</label>
+                                <input id="newPassword" name="newPassword" type="password" minlength="8" maxlength="64" autocomplete="new-password" required>
+                            </div>
+                            <div class="form-group full-width">
+                                <label for="confirmPassword">Xác nhận mật khẩu mới</label>
+                                <input id="confirmPassword" name="confirmPassword" type="password" minlength="8" maxlength="64" autocomplete="new-password" required>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="button-primary">
+                                <span class="material-symbols-outlined">lock_reset</span>
+                                Đổi mật khẩu
+                            </button>
+                        </div>
+                        <p id="passwordMessage" class="form-message" role="status" aria-live="polite"></p>
+                    </form>
+                </section>
+
+                <!-- Đăng xuất -->
+                <section class="settings-panel logout-panel">
+                    <div class="panel-heading">
+                        <div>
+                            <h2>Đăng xuất</h2>
+                            <p>Kết thúc phiên đăng nhập trên thiết bị này.</p>
+                        </div>
+                    </div>
+                    <button type="button" id="logoutButton" class="button-danger">
+                        <span class="material-symbols-outlined">logout</span>
+                        Đăng xuất tài khoản
+                    </button>
+                </section>
+
+            </div>
+        </main>
+
+        <div id="footer-container"></div>
+
+    </div>
+
+    <!-- Áp dụng giao diện đã lưu trước khi khởi tạo các chức năng khác -->
+    <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+    <script src="../js/theme.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/caidat.js"></script>
+
+</body>
+</html>

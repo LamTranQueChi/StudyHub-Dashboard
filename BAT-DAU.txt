@@ -1,0 +1,30 @@
+STUDYHUB - HUONG DAN CHAY BAN DA SUA
+
+YEU CAU: Cai Node.js 22.
+
+1. Giai nen toan bo ZIP vao mot thu muc moi.
+2. Mo VS Code -> File -> Open Folder -> chon thu muc dashboard-hoc-tap.
+3. Mo Terminal trong VS Code va chay:
+   cd backend
+   npm install
+   npm start
+4. Giu cua so Backend mo. Kiem tra API:
+   http://localhost:3000/api/health
+5. Mo mot cua so VS Code/Terminal khac, chon Open Folder la thu muc dashboard-hoc-tap.
+6. Mo index.html bang Live Server (khong mo file bang cach double-click).
+
+DATABASE:
+- Backend su dung backend/data/studyhub.sqlite.
+- File nay da duoc tao lai tu studyhub.sql va kiem tra SQLite integrity_check = ok.
+- Du lieu mau hien co: 10 sinh vien, 8 hoc ky (5 hoc ky co dang ky mon), 33 mon trong chuong trinh, 330 luot dang ky, 33 bai tap, 330 bai nop, 132 buoi lich lop.
+- Neu database bi hong, backend se giu file loi voi ten .corrupt-* va tao lai tu studyhub.sql.
+- KHONG chay node src/seed.js vi script seed demo co the xoa va tao lai du lieu.
+- Khong xoa file database cu/backup neu chua sao luu.
+
+DANG NHAP MAU:
+Email: 110124012@st.tvu.edu.vn
+Mat khau: 15092006
+
+Neu dang nhap loi:
+- Kiem tra Terminal Backend, khong chi xem Console trinh duyet.
+- Gui lai nguyen dong loi dau tien trong Terminal.

@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub - Danh sách bài tập</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        rel="stylesheet"
+    >
+
+    <!-- CSS dùng chung và CSS riêng của trang bài tập -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/baitap.css">
+    <link rel="stylesheet" href="../css/theme.css">
+</head>
+
+<body>
+    <!-- Sidebar -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-layout">
+        <!-- Topbar -->
+        <div id="topbar-container"></div>
+
+        <!-- Nội dung chính -->
+        <main class="assignment-page">
+
+            <!-- Tiêu đề trang -->
+            <section class="assignment-header">
+                <div class="assignment-heading">
+                    <div class="breadcrumb">
+                        <span class="material-symbols-outlined">assignment</span>
+                        <span>Quản lý học vụ &amp; Nhiệm vụ</span>
+                    </div>
+
+                    <h1>Danh sách bài tập</h1>
+
+                    <p class="page-description">
+                        Theo dõi hạn chót, tiến độ nộp bài và kết quả đánh giá các môn học
+                    </p>
+                </div>
+
+                <div class="header-actions">
+                    <button class="btn btn-light" id="historyButton" type="button">
+                        <span class="material-symbols-outlined">history</span>
+                        <span>Lịch sử nộp</span>
+                    </button>
+
+                    <button class="btn btn-primary" id="addNoteButton" type="button">
+                        <span class="material-symbols-outlined">add</span>
+                        <span>Thêm ghi chú</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Các thẻ thống kê -->
+            <section class="assignment-stats">
+
+                <article class="stat-card">
+                    <div class="stat-icon stat-blue">
+                        <span class="material-symbols-outlined">folder_open</span>
+                    </div>
+
+                    <div class="stat-content">
+                        <p>Tổng bài tập</p>
+                        <div class="stat-value">
+                            <strong id="totalTaskStat">0</strong>
+                            <span>nhiệm vụ</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-extra">
+                        <span class="material-symbols-outlined">layers</span>
+                    </div>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon stat-red">
+                        <span class="material-symbols-outlined">priority_high</span>
+                    </div>
+
+                    <div class="stat-content">
+                        <p>Cần nộp gấp</p>
+                        <div class="stat-value">
+                            <strong class="danger-text" id="pendingTaskStat">0</strong>
+                            <span class="danger-text">bài sắp trễ hạn</span>
+                        </div>
+                    </div>
+
+                    <span class="priority-badge">
+                        <span class="status-dot red-dot"></span>
+                        Ưu tiên
+                    </span>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-icon stat-green">
+                        <span class="material-symbols-outlined">task_alt</span>
+                    </div>
+
+                    <div class="stat-content">
+                        <p>Đã hoàn thành</p>
+                        <div class="stat-value">
+                            <strong class="success-text" id="completedTaskStat">0</strong>
+                            <span>bài đã gửi</span>
+                        </div>
+                    </div>
+
+                    <span class="completion-rate" id="completionRateStat">0%</span>
+                </article>
+
+            </section>
+
+            <!-- Thanh lọc và tìm kiếm -->
+            <section class="assignment-toolbar">
+                <div class="filter-tabs" id="filterTabs">
+                    <button
+                        class="filter-tab active"
+                        type="button"
+                        data-filter="all"
+                    >
+                        Tất cả <span class="tab-count" id="allTaskCount">0</span>
+                    </button>
+
+                    <button
+                        class="filter-tab"
+                        type="button"
+                        data-filter="pending"
+                    >
+                        Chưa hoàn thành <span class="tab-count pending-count" id="pendingTaskCount">0</span>
+                    </button>
+
+                    <button
+                        class="filter-tab"
+                        type="button"
+                        data-filter="completed"
+                    >
+                        Đã hoàn thành <span class="tab-count completed-count" id="completedTaskCount">0</span>
+                    </button>
+                </div>
+
+                <div class="toolbar-actions">
+                    <label class="assignment-search">
+                        <span class="material-symbols-outlined">search</span>
+                        <input
+                            type="search"
+                            id="assignmentSearchInput"
+                            placeholder="Tìm tên bài, môn học..."
+                            aria-label="Tìm bài tập"
+                        >
+                    </label>
+
+                    <button
+                        class="filter-button"
+                        id="sortButton"
+                        type="button"
+                        aria-label="Sắp xếp bài tập"
+                        title="Sắp xếp bài tập"
+                    >
+                        <span class="material-symbols-outlined">tune</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Danh sách bài tập -->
+            <section class="assignments-list" id="assignmentsContainer" aria-live="polite"></section>
+
+            <!-- Không có kết quả -->
+            <div class="no-results" id="noResults" hidden>
+                <span class="material-symbols-outlined">search_off</span>
+                <h3>Không tìm thấy bài tập</h3>
+                <p>Thử thay đổi từ khóa hoặc bộ lọc của bạn.</p>
+            </div>
+
+            <!-- Ghi chú đã lưu -->
+            <section class="notes-section" id="notesSection" hidden>
+                <h2>Ghi chú học tập</h2>
+                <ul id="notesList"></ul>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- JavaScript dùng chung và JavaScript riêng -->
+    <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/baitap.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+</html>

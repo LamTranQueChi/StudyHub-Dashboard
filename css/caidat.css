@@ -1,0 +1,1175 @@
+/*  1. FONT VA CO BAN  */
+
+.settings-page,
+.settings-page *,
+.settings-page *::before,
+.settings-page *::after {
+    box-sizing: border-box;
+}
+.settings-page {
+    width: 100%;
+    min-width: 0;
+
+    /* Topbar fixed khong chiem cho trong luong trang.
+       Margin nay chua cho topbar dung mot lan. */
+    margin-top: var(--topbar-height, 70px);
+
+    padding: 20px 28px 30px;
+    overflow-x: clip;
+
+    font-family: "Nunito Sans", Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #172b4d;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+/* Dam bao cac phan tu trong trang dung font tieng Viet */
+.settings-page h1,
+.settings-page h2,
+.settings-page h3,
+.settings-page p,
+.settings-page label,
+.settings-page input,
+.settings-page textarea,
+.settings-page select,
+.settings-page button,
+.settings-page small,
+.settings-page strong {
+    font-family: "Nunito Sans", Arial, sans-serif;
+}
+
+.settings-page button,
+.settings-page input,
+.settings-page textarea,
+.settings-page select {
+    font-size: 14px;
+}
+
+.settings-page .material-symbols-outlined {
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+/* 2. KHUNG NOI DUNG */
+.settings-container {
+    width: 100%;
+    max-width: 1280px;
+    min-width: 0;
+    margin: 0 auto;
+}
+.settings-heading {
+    width: 100%;
+    margin: 0 0 18px;
+    padding: 0;
+}
+.settings-heading .eyebrow {
+    margin: 0 0 8px;
+    color: #0891b2;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+.settings-heading h1 {
+    margin: 0 0 8px;
+    color: #10233f;
+    font-size: clamp(27px, 2.5vw, 34px);
+    font-weight: 800;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+.settings-heading .heading-description {
+    margin: 0;
+    color: #64748b;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+.settings-layout,
+.settings-content {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+}
+
+/* 3. KHUNG THONG TIN */
+
+.settings-panel {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 22px;
+    background: #ffffff;
+    border: 1px solid #e8edf5;
+    border-radius: 22px;
+    box-shadow: 0 5px 18px rgba(25, 52, 90, 0.04);
+}
+.panel-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+
+    border-bottom: 1px solid #edf1f7;
+}
+.panel-heading h2 {
+    margin: 0 0 7px;
+    color: #10233f;
+    font-size: 23px;
+    font-weight: 800;
+    line-height: 1.4;
+}
+.panel-heading p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/*  4. ANH DAI DIEN */
+.avatar-setting {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    width: 100%;
+    min-width: 0;
+
+    padding: 16px;
+    margin-bottom: 18px;
+
+    background: #f8fbff;
+    border: 1px solid #e6edf7;
+    border-radius: 18px;
+}
+.profile-avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 112px;
+    width: 112px;
+    height: 112px;
+    min-width: 0;
+
+    overflow: hidden;
+
+    background: #eef4fb;
+    border: 3px solid #dcecff;
+    border-radius: 50%;
+}
+.profile-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    border-radius: 50%;
+}
+.avatar-actions {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+.avatar-actions > strong {
+    display: block;
+    margin-bottom: 7px;
+
+    color: #172b4d;
+    font-size: 17px;
+    font-weight: 800;
+}
+.avatar-actions > p {
+    margin: 0 0 14px;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.7;
+    overflow-wrap: anywhere;
+}
+.avatar-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+/*5. CAC NUT BAM */
+.button-primary,
+.button-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    max-width: 100%;
+    min-height: 44px;
+    padding: 10px 16px;
+
+    border-radius: 11px;
+
+    font-family: "Nunito Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.5;
+    text-align: center;
+
+    cursor: pointer;
+
+    transition:
+        background-color 0.2s ease,
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+.button-primary {
+    color: #ffffff;
+    background: #079bd3;
+    border: 1px solid #079bd3;
+}
+.button-primary:hover {
+    background: #087fb0;
+    border-color: #087fb0;
+}
+.button-primary:focus-visible {
+    outline: 3px solid rgba(14, 165, 233, 0.25);
+    outline-offset: 2px;
+}
+.button-secondary {
+    color: #174267;
+    background: #ffffff;
+    border: 1px solid #dbe5f1;
+}
+.button-secondary:hover {
+    background: #edf6ff;
+    border-color: #b8d8f5;
+}
+.button-secondary:focus-visible {
+    outline: 3px solid rgba(14, 165, 233, 0.2);
+    outline-offset: 2px;
+}
+.button-primary .material-symbols-outlined,
+.button-secondary .material-symbols-outlined {
+    flex: 0 0 auto;
+    font-size: 19px;
+}
+
+/*  6. FORM VA CAC O NHAP LIEU */
+#profileForm {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px 18px;
+
+    width: 100%;
+    min-width: 0;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    width: 100%;
+    min-width: 0;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    display: block;
+    margin: 0;
+
+    color: #203550;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    display: block;
+
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+
+    padding: 12px 14px;
+
+    color: #172b4d;
+    background: #ffffff;
+
+    border: 1px solid #dbe4ef;
+    border-radius: 11px;
+    outline: none;
+
+    font-family: "Nunito Sans", Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.6;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input {
+    min-height: 50px;
+}
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+    border-color: #bfd0e4;
+}
+
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    border-color: #0ea5e9;
+    box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.12);
+}
+
+.form-group input[readonly] {
+    color: #64748b;
+    background: #f1f5f9;
+    cursor: not-allowed;
+}
+
+.form-group textarea {
+    min-height: 108px;
+    resize: vertical;
+}
+
+.form-group textarea::placeholder,
+.form-group input::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+
+.form-group small {
+    display: block;
+    margin: 0;
+
+    color: #7b8ba1;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* 7. NUT LUU VA THONG BAO*/
+
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    margin-top: 18px;
+}
+
+.form-message {
+    min-height: 0;
+    margin: 10px 0 0;
+
+    color: #087f5b;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.6;
+
+    overflow-wrap: anywhere;
+}
+
+.form-message:empty {
+    display: none;
+}
+
+.form-message.error {
+    color: #d7193f;
+}
+
+/*  8. AN CAC TAB CU NEU CON */
+
+.settings-menu,
+.settings-tab,
+#preferencesPanel,
+#securityPanel,
+#resetProfileButton {
+    display: none !important;
+}
+
+/* 9. TABLET */
+
+@media (max-width: 1200px) {
+    .settings-container {
+        max-width: 100%;
+    }
+
+    .settings-page {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+}
+
+@media (max-width: 900px) {
+    .settings-page {
+        padding: 22px 20px 32px;
+    }
+
+    .settings-heading {
+        margin-bottom: 22px;
+    }
+
+    .settings-panel {
+        padding: 22px;
+        border-radius: 18px;
+    }
+
+    .avatar-setting {
+        gap: 18px;
+        padding: 18px;
+    }
+
+    .profile-avatar {
+        flex-basis: 96px;
+        width: 96px;
+        height: 96px;
+    }
+
+    .form-grid {
+        gap: 20px 16px;
+    }
+}
+
+/* 10. DIEN THOAI */
+
+@media (max-width: 600px) {
+    .settings-page {
+        /* Topbar tren mobile cao 64px */
+        margin-top: var(--topbar-height, 64px);
+        padding: 20px 12px 28px;
+    }
+
+    .settings-heading {
+        margin-bottom: 20px;
+    }
+
+    .settings-heading h1 {
+        font-size: 25px;
+        line-height: 1.35;
+    }
+
+    .settings-heading .heading-description {
+        font-size: 14px;
+    }
+
+    .settings-panel {
+        padding: 18px 14px;
+        border-radius: 16px;
+    }
+
+    .panel-heading {
+        padding-bottom: 12px;
+        margin-bottom: 12px;
+    }
+
+    .panel-heading h2 {
+        font-size: 20px;
+    }
+
+    .avatar-setting {
+        align-items: flex-start;
+        gap: 14px;
+        padding: 14px;
+        margin-bottom: 22px;
+    }
+
+    .profile-avatar {
+        flex-basis: 76px;
+        width: 76px;
+        height: 76px;
+    }
+
+    .avatar-actions > strong {
+        font-size: 15px;
+    }
+
+    .avatar-actions > p {
+        font-size: 13px;
+    }
+
+    .avatar-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .avatar-buttons .button-secondary,
+    .avatar-buttons label.button-secondary {
+        width: 100%;
+    }
+
+    .form-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+    }
+
+    .form-group.full-width {
+        grid-column: 1 / -1;
+    }
+
+    .form-actions {
+        width: 100%;
+        margin-top: 22px;
+    }
+
+    .form-actions .button-primary {
+        width: 100%;
+    }
+}
+
+/*11. DIEN THOAI NHO */
+
+@media (max-width: 380px) {
+    .settings-page {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .settings-panel {
+        padding: 16px 12px;
+    }
+
+    .avatar-setting {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .avatar-actions,
+    .avatar-buttons {
+        width: 100%;
+    }
+
+    .settings-heading h1 {
+        font-size: 23px;
+    }
+}
+
+/* ===== THONG BAO NOI (TOAST) ===== */
+.settings-toast {
+    position: fixed;
+    top: 24px;
+    right: 24px;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: max-content;
+    max-width: min(380px, calc(100vw - 32px));
+    padding: 14px 18px;
+    background: #ffffff;
+    color: #243047;
+    border: 1px solid #e2e8f0;
+    border-left: 4px solid #22c55e;
+    border-radius: 12px;
+    box-shadow: 0 10px 35px rgba(15, 23, 42, 0.16);
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-12px);
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+    pointer-events: none;
+}
+
+.settings-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.settings-toast.error {
+    border-left-color: #ef4444;
+}
+
+.settings-toast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #15803d;
+    font-weight: 800;
+}
+
+.settings-toast.error .settings-toast-icon {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.settings-toast-text {
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 480px) {
+    .settings-toast {
+        top: 12px;
+        right: 12px;
+        max-width: calc(100vw - 24px);
+    }
+}
+
+/* GIAO DIEN TOI - rieng cho trang Cai dat
+   Theme chung cua toan website se duoc xu ly trong style.css */
+
+html[data-theme="dark"] .settings-page,
+body.dark-theme .settings-page {
+    background-color: #111827;
+    color: #e5e7eb;
+}
+
+html[data-theme="dark"] .settings-heading h1,
+body.dark-theme .settings-heading h1,
+html[data-theme="dark"] .settings-panel h1,
+body.dark-theme .settings-panel h1,
+html[data-theme="dark"] .settings-panel h2,
+body.dark-theme .settings-panel h2,
+html[data-theme="dark"] .settings-panel h3,
+body.dark-theme .settings-panel h3,
+html[data-theme="dark"] .settings-panel strong,
+body.dark-theme .settings-panel strong,
+html[data-theme="dark"] .form-group label,
+body.dark-theme .form-group label {
+    color: #f9fafb;
+}
+
+html[data-theme="dark"] .settings-heading .eyebrow,
+body.dark-theme .settings-heading .eyebrow {
+    color: #67e8f9;
+}
+
+html[data-theme="dark"] .settings-heading .heading-description,
+body.dark-theme .settings-heading .heading-description,
+html[data-theme="dark"] .panel-heading p,
+body.dark-theme .panel-heading p,
+html[data-theme="dark"] .avatar-actions > p,
+body.dark-theme .avatar-actions > p,
+html[data-theme="dark"] .form-group small,
+body.dark-theme .form-group small {
+    color: #cbd5e1;
+}
+
+html[data-theme="dark"] .settings-panel,
+body.dark-theme .settings-panel {
+    background-color: #1f2937;
+    color: #e5e7eb;
+    border-color: #374151;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .16);
+}
+
+html[data-theme="dark"] .panel-heading,
+body.dark-theme .panel-heading {
+    border-bottom-color: #374151;
+}
+
+html[data-theme="dark"] .avatar-setting,
+body.dark-theme .avatar-setting {
+    background-color: #273449;
+    border-color: #374151;
+}
+
+html[data-theme="dark"] .profile-avatar,
+body.dark-theme .profile-avatar {
+    background-color: #111827;
+    border-color: #475569;
+}
+
+html[data-theme="dark"] .form-group input,
+body.dark-theme .form-group input,
+html[data-theme="dark"] .form-group textarea,
+body.dark-theme .form-group textarea,
+html[data-theme="dark"] .form-group select,
+body.dark-theme .form-group select {
+    background-color: #111827;
+    color: #f9fafb;
+    border-color: #4b5563;
+}
+
+html[data-theme="dark"] .form-group input::placeholder,
+body.dark-theme .form-group input::placeholder,
+html[data-theme="dark"] .form-group textarea::placeholder,
+body.dark-theme .form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .form-group input[readonly],
+body.dark-theme .form-group input[readonly] {
+    background-color: #273449;
+    color: #cbd5e1;
+}
+
+html[data-theme="dark"] .button-secondary,
+body.dark-theme .button-secondary {
+    background-color: #273449;
+    color: #e5e7eb;
+    border-color: #475569;
+}
+
+html[data-theme="dark"] .button-secondary:hover,
+body.dark-theme .button-secondary:hover {
+    background-color: #334155;
+    border-color: #64748b;
+}
+
+html[data-theme="dark"] .form-message,
+body.dark-theme .form-message {
+    color: #86efac;
+}
+
+html[data-theme="dark"] .form-message.error,
+body.dark-theme .form-message.error {
+    color: #fca5a5;
+}
+
+/* Toast co the duoc JS them truc tiep vao body */
+body.dark-theme .settings-toast,
+html[data-theme="dark"] .settings-toast {
+    background-color: #1f2937;
+    color: #f3f4f6;
+    border-color: #374151;
+}
+
+body.dark-theme .settings-toast-icon,
+html[data-theme="dark"] .settings-toast-icon {
+    background-color: #14532d;
+    color: #bbf7d0;
+}
+
+body.dark-theme .settings-toast.error .settings-toast-icon,
+html[data-theme="dark"] .settings-toast.error .settings-toast-icon {
+    background-color: #7f1d1d;
+    color: #fecaca;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .settings-toast,
+    .button-primary,
+    .button-secondary {
+        transition: none !important;
+    }
+}
+
+/* ===== BỔ SUNG: TÀI KHOẢN, ĐỔI MẬT KHẨU, ĐĂNG XUẤT ===== */
+.settings-page .form-group input[readonly] {
+    background: var(--theme-surface-muted, #f1f5f9);
+    color: var(--theme-text-muted, #64748b);
+    cursor: not-allowed;
+}
+.button-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-height: 44px;
+    padding: 10px 18px;
+    border: 1px solid #dc2626;
+    border-radius: 11px;
+    background: #dc2626;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+}
+.button-danger:hover { background: #b91c1c; border-color: #b91c1c; }
+html[data-theme="dark"] .settings-page .form-group input[readonly],
+body.dark-theme .settings-page .form-group input[readonly] {
+    background: #273449;
+    color: #cbd5e1;
+}
+
+/* Tạo khoảng cách giữa các khung lớn trên trang Cài đặt */
+.settings-page .settings-panel + .settings-panel {
+    margin-top: 24px;
+}
+
+/* ===== CÁC TRƯỜNG ĐỊNH DANH ĐÃ ĐƯỢC KHÓA ===== */
+.settings-page .form-group input[readonly].profile-field-locked {
+    background: #eef4ff;
+    color: #64748b;
+    border-color: #dbe5f3;
+    cursor: not-allowed;
+}
+
+.settings-page .form-group input[readonly].profile-field-locked:hover {
+    border-color: #b8cbe3;
+}
+
+.settings-page .form-group input[readonly].profile-field-locked:focus {
+    outline: 2px solid rgba(14, 165, 233, 0.18);
+    box-shadow: none;
+}
+
+html[data-theme="dark"] .settings-page .form-group input[readonly].profile-field-locked,
+body.dark-theme .settings-page .form-group input[readonly].profile-field-locked {
+    background: #273449;
+    color: #cbd5e1;
+    border-color: #475569;
+}
+
+/* =====================================================
+   STUDYHUB — TOAST THÔNG BÁO CAO CẤP
+   Căn giữa phía trên màn hình, không làm lệch bố cục.
+   Áp dụng cho toast được tạo từ caidat.js.
+   ===================================================== */
+#studyHubToastContainer {
+    position: fixed !important;
+    top: 26px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: min(460px, calc(100vw - 32px)) !important;
+    pointer-events: none !important;
+}
+
+#studyHubToastContainer .studyhub-toast {
+    --toast-accent: #059669;
+    --toast-soft: #d1fae5;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 19px 18px !important;
+    overflow: hidden !important;
+    border: 1px solid #dce7f2 !important;
+    border-radius: 18px !important;
+    border-left: 1px solid #dce7f2 !important;
+    background: rgba(255, 255, 255, .97) !important;
+    color: #172b4d !important;
+    box-shadow: 0 20px 55px rgba(15, 35, 65, .18),
+                0 4px 14px rgba(15, 35, 65, .06) !important;
+    backdrop-filter: blur(18px) !important;
+    -webkit-backdrop-filter: blur(18px) !important;
+    font: 600 14px/1.6 "Nunito Sans", Arial, sans-serif !important;
+    pointer-events: auto !important;
+    animation: studyHubToastProIn .36s cubic-bezier(.2, .8, .2, 1) both !important;
+}
+
+#studyHubToastContainer .studyhub-toast::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: var(--toast-accent);
+}
+
+#studyHubToastContainer .studyhub-toast.error {
+    --toast-accent: #dc2626;
+    --toast-soft: #fee2e2;
+    border-color: #f3d9dc !important;
+    background: rgba(255, 250, 250, .98) !important;
+    color: #7f1d1d !important;
+}
+
+#studyHubToastContainer .studyhub-toast-icon {
+    display: grid !important;
+    place-items: center !important;
+    flex: 0 0 42px !important;
+    width: 42px !important;
+    height: 42px !important;
+    border-radius: 14px !important;
+    background: var(--toast-soft) !important;
+    color: var(--toast-accent) !important;
+    font-size: 22px !important;
+    font-weight: 900 !important;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .65) !important;
+}
+
+#studyHubToastContainer .studyhub-toast-message {
+    flex: 1 !important;
+    min-width: 0 !important;
+    padding-top: 0 !important;
+    color: inherit !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    overflow-wrap: anywhere !important;
+}
+
+#studyHubToastContainer .studyhub-toast-close {
+    display: grid !important;
+    place-items: center !important;
+    flex: 0 0 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 9px !important;
+    background: transparent !important;
+    color: #64748b !important;
+    font-size: 23px !important;
+    line-height: 1 !important;
+    transition: background .2s ease, color .2s ease, transform .2s ease !important;
+}
+
+#studyHubToastContainer .studyhub-toast-close:hover {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    transform: rotate(90deg) !important;
+}
+
+#studyHubToastContainer .studyhub-toast.studyhub-toast-out {
+    animation: studyHubToastProOut .22s ease-in forwards !important;
+}
+
+@keyframes studyHubToastProIn {
+    from { opacity: 0; transform: translateY(-18px) scale(.97); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes studyHubToastProOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to   { opacity: 0; transform: translateY(-10px) scale(.98); }
+}
+
+/* Hỗ trợ giao diện tối */
+html[data-theme="dark"] #studyHubToastContainer .studyhub-toast,
+body.dark-theme #studyHubToastContainer .studyhub-toast {
+    background: rgba(31, 41, 55, .98) !important;
+    color: #f3f4f6 !important;
+    border-color: #475569 !important;
+}
+
+html[data-theme="dark"] #studyHubToastContainer .studyhub-toast.error,
+body.dark-theme #studyHubToastContainer .studyhub-toast.error {
+    background: rgba(55, 30, 36, .98) !important;
+    color: #fee2e2 !important;
+    border-color: #7f1d1d !important;
+}
+
+html[data-theme="dark"] #studyHubToastContainer .studyhub-toast-close:hover,
+body.dark-theme #studyHubToastContainer .studyhub-toast-close:hover {
+    background: #374151 !important;
+    color: #fff !important;
+}
+
+@media (max-width: 480px) {
+    #studyHubToastContainer {
+        top: 14px !important;
+        width: calc(100vw - 24px) !important;
+    }
+
+    #studyHubToastContainer .studyhub-toast {
+        gap: 11px !important;
+        padding: 15px 14px !important;
+        border-radius: 15px !important;
+    }
+
+    #studyHubToastContainer .studyhub-toast-icon {
+        flex-basis: 36px !important;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 11px !important;
+        font-size: 20px !important;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #studyHubToastContainer .studyhub-toast,
+    #studyHubToastContainer .studyhub-toast.studyhub-toast-out {
+        animation-duration: .01ms !important;
+    }
+}
+
+/* Ghi de ca CSS cu va style duoc tao tu caidat.js */
+#studyHubToastContainer {
+    position: fixed !important;
+    top: 22px !important;
+    left: 50% !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: translateX(-50%) !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    width: min(460px, calc(100vw - 32px)) !important;
+    max-width: calc(100vw - 32px) !important;
+    pointer-events: none !important;
+}
+
+#studyHubToastContainer .studyhub-toast {
+    --toast-accent: #0891b2;
+    position: relative !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    padding: 18px 20px !important;
+    border: 1px solid #c7f0e2 !important;
+    border-left: 5px solid #10b981 !important;
+    border-radius: 16px !important;
+    background: rgba(255, 255, 255, .98) !important;
+    color: #164e3b !important;
+    box-shadow: 0 18px 48px rgba(15, 23, 42, .16), 0 3px 10px rgba(15, 23, 42, .05) !important;
+    backdrop-filter: blur(16px) !important;
+    -webkit-backdrop-filter: blur(16px) !important;
+    font: 600 14px/1.55 "Nunito Sans", Arial, sans-serif !important;
+    overflow: hidden !important;
+}
+
+#studyHubToastContainer .studyhub-toast::before {
+    content: "" !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    height: 3px !important;
+    background: linear-gradient(90deg, #10b981, #6ee7b7) !important;
+}
+
+#studyHubToastContainer .studyhub-toast.error {
+    border-color: #fecaca !important;
+    border-left-color: #ef4444 !important;
+    background: rgba(255, 250, 250, .99) !important;
+    color: #991b1b !important;
+}
+
+#studyHubToastContainer .studyhub-toast.error::before {
+    background: linear-gradient(90deg, #ef4444, #fca5a5) !important;
+}
+
+#studyHubToastContainer .studyhub-toast-icon {
+    display: grid !important;
+    place-items: center !important;
+    flex: 0 0 40px !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 13px !important;
+    background: #d1fae5 !important;
+    color: #047857 !important;
+    font-size: 22px !important;
+    font-weight: 900 !important;
+}
+
+#studyHubToastContainer .studyhub-toast.error .studyhub-toast-icon {
+    background: #fee2e2 !important;
+    color: #b91c1c !important;
+}
+
+#studyHubToastContainer .studyhub-toast-message {
+    flex: 1 1 auto !important;
+    min-width: 0 !important;
+    padding-top: 0 !important;
+    font-size: 14px !important;
+    font-weight: 800 !important;
+    overflow-wrap: anywhere !important;
+}
+
+#studyHubToastContainer .studyhub-toast-close {
+    display: grid !important;
+    place-items: center !important;
+    flex: 0 0 30px !important;
+    width: 30px !important;
+    height: 30px !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 9px !important;
+    background: transparent !important;
+    color: #64748b !important;
+    font-size: 22px !important;
+    line-height: 1 !important;
+    cursor: pointer !important;
+    opacity: .8 !important;
+    transition: background .2s ease, color .2s ease !important;
+}
+
+#studyHubToastContainer .studyhub-toast-close:hover {
+    background: #f1f5f9 !important;
+    color: #0f172a !important;
+    opacity: 1 !important;
+}
+
+#studyHubToastContainer .studyhub-toast.studyhub-toast-out {
+    animation: studyHubToastOut .22s ease-in forwards !important;
+}
+
+@keyframes studyHubToastIn {
+    from { opacity: 0; transform: translateY(-14px) scale(.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes studyHubToastOut {
+    from { opacity: 1; transform: translateY(0) scale(1); }
+    to { opacity: 0; transform: translateY(-10px) scale(.98); }
+}
+
+html[data-theme="dark"] #studyHubToastContainer .studyhub-toast,
+body.dark-theme #studyHubToastContainer .studyhub-toast {
+    background: rgba(31, 41, 55, .98) !important;
+    color: #f3f4f6 !important;
+    border-color: #374151 !important;
+}
+
+html[data-theme="dark"] #studyHubToastContainer .studyhub-toast.error,
+body.dark-theme #studyHubToastContainer .studyhub-toast.error {
+    background: rgba(55, 25, 31, .98) !important;
+    color: #fecaca !important;
+    border-color: #7f1d1d !important;
+}
+
+@media (max-width: 480px) {
+    #studyHubToastContainer {
+        top: 12px !important;
+        width: calc(100vw - 24px) !important;
+        max-width: calc(100vw - 24px) !important;
+    }
+
+    #studyHubToastContainer .studyhub-toast {
+        gap: 11px !important;
+        padding: 15px 13px !important;
+        border-radius: 14px !important;
+    }
+
+    #studyHubToastContainer .studyhub-toast-icon {
+        flex-basis: 36px !important;
+        width: 36px !important;
+        height: 36px !important;
+        border-radius: 11px !important;
+        font-size: 20px !important;
+    }
+}

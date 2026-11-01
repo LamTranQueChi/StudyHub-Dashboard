@@ -1,0 +1,458 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub - Danh sách môn học</title>
+
+    <!-- Font chữ và icon -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/monhoc.css">
+    <link rel="stylesheet" href="../css/theme.css">
+</head>
+
+<body>
+
+    <!-- Sidebar được nạp từ components -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-layout">
+
+        <!-- Topbar được nạp từ components -->
+        <div id="topbar-container"></div>
+
+        <main class="subjects-page">
+            <div class="subjects-container">
+
+                <!-- Tiêu đề trang -->
+                <section class="page-top">
+                    <div>
+                        <div class="breadcrumb">
+                            <span>Học kỳ II</span>
+                            <span>•</span>
+                            <span>2024 - 2025</span>
+                            <span>•</span>
+                            <strong>Chuyên ngành KTPM</strong>
+                        </div>
+
+                        <h1>Danh sách môn học</h1>
+                    </div>
+
+                    <div class="quick-stats">
+                        <div class="quick-stat">
+                            <span class="quick-stat-icon green">
+                                <span class="material-symbols-outlined">auto_stories</span>
+                            </span>
+
+                            <div>
+                                <small>Tổng số tín chỉ</small>
+                                <p><strong>21</strong> tín chỉ</p>
+                            </div>
+                        </div>
+
+                        <div class="quick-stat">
+                            <span class="quick-stat-icon blue">
+                                <span class="material-symbols-outlined">donut_large</span>
+                            </span>
+
+                            <div class="progress-stat">
+                                <small>Tiến độ kỳ học</small>
+
+                                <div>
+                                    <strong>68%</strong>
+                                    <span class="small-progress">
+                                        <i></i>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Tìm kiếm và bộ lọc -->
+                <section class="search-filter-panel">
+
+                    <label class="course-search" for="courseSearchInput">
+                        <span class="material-symbols-outlined">search</span>
+
+                        <input
+                            id="courseSearchInput"
+                            type="search"
+                            placeholder="Tìm kiếm môn học, giảng viên, mã môn..."
+                        >
+                    </label>
+
+                    <div class="filter-buttons" id="filterButtonGroup">
+                        <button
+                            type="button"
+                            class="filter-pill active"
+                            data-filter="all"
+                        >
+                            Tất cả <span>6</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filter-pill"
+                            data-filter="active"
+                        >
+                            Đang học <span>4</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="filter-pill"
+                            data-filter="completed"
+                        >
+                            Đã hoàn thành <span>2</span>
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Danh sách môn học -->
+                <section class="course-grid" id="courseGrid">
+
+                    <!-- Môn 1 -->
+                    <article class="course-card" data-status="active">
+                        <div>
+                            <div class="course-card-top">
+                                <div class="course-meta">
+                                    <div class="course-icon icon-web">
+                                        <span class="material-symbols-outlined">terminal</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="course-code">CS204 • 3 tín chỉ</span>
+                                        <span class="status active-status">Đang học</span>
+                                    </div>
+                                </div>
+
+                                <div class="grade-box">
+                                    <small>Điểm quá trình</small>
+                                    <strong>9.0<small>/10</small></strong>
+                                </div>
+                            </div>
+
+                            <h2>Lập trình JavaScript DOM &amp; ES6+</h2>
+
+                            <div class="course-details">
+                                <p>
+                                    <span class="material-symbols-outlined">person</span>
+                                    GV: ThS. Trần Văn Nam
+                                </p>
+
+                                <p>
+                                    <span class="material-symbols-outlined">meeting_room</span>
+                                    Phòng A.202 (Khu Công Nghệ)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="course-progress">
+                            <div>
+                                <span>Tiến độ bài tập (6/8)</span>
+                                <strong>75%</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <span style="width: 75%"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Môn 2 -->
+                    <article class="course-card" data-status="active">
+                        <div>
+                            <div class="course-card-top">
+                                <div class="course-meta">
+                                    <div class="course-icon icon-database">
+                                        <span class="material-symbols-outlined">database</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="course-code">DB102 • 4 tín chỉ</span>
+                                        <span class="status active-status">Đang học</span>
+                                    </div>
+                                </div>
+
+                                <div class="grade-box">
+                                    <small>Điểm quá trình</small>
+                                    <strong>8.5<small>/10</small></strong>
+                                </div>
+                            </div>
+
+                            <h2>Cơ sở dữ liệu quan hệ</h2>
+
+                            <div class="course-details">
+                                <p>
+                                    <span class="material-symbols-outlined">person</span>
+                                    GV: TS. Nguyễn Thị Bích
+                                </p>
+
+                                <p>
+                                    <span class="material-symbols-outlined">meeting_room</span>
+                                    Phòng B.101 (Giảng đường 1)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="course-progress">
+                            <div>
+                                <span>Tiến độ bài tập (5/6)</span>
+                                <strong>83%</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <span class="green-progress" style="width: 83%"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Môn 3 -->
+                    <article class="course-card" data-status="completed">
+                        <div>
+                            <div class="course-card-top">
+                                <div class="course-meta">
+                                    <div class="course-icon icon-design">
+                                        <span class="material-symbols-outlined">palette</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="course-code">FE101 • 3 tín chỉ</span>
+                                        <span class="status completed-status">Đã hoàn thành</span>
+                                    </div>
+                                </div>
+
+                                <div class="grade-box completed-grade">
+                                    <small>Điểm tổng kết</small>
+                                    <strong>9.2<small>/10</small></strong>
+                                </div>
+                            </div>
+
+                            <h2>Thiết kế Web HTML5/CSS3</h2>
+
+                            <div class="course-details">
+                                <p>
+                                    <span class="material-symbols-outlined">person</span>
+                                    GV: ThS. Lê Hoàng Quân
+                                </p>
+
+                                <p>
+                                    <span class="material-symbols-outlined">meeting_room</span>
+                                    Phòng C.305 (Studio Design)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="course-progress">
+                            <div>
+                                <span>Tiến độ bài tập (10/10)</span>
+                                <strong class="green-text">100%</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <span class="complete-progress" style="width: 100%"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Môn 4 -->
+                    <article class="course-card" data-status="active">
+                        <div>
+                            <div class="course-card-top">
+                                <div class="course-meta">
+                                    <div class="course-icon icon-network">
+                                        <span class="material-symbols-outlined">lan</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="course-code">NW201 • 3 tín chỉ</span>
+                                        <span class="status active-status">Đang học</span>
+                                    </div>
+                                </div>
+
+                                <div class="grade-box">
+                                    <small>Điểm quá trình</small>
+                                    <strong>7.5<small>/10</small></strong>
+                                </div>
+                            </div>
+
+                            <h2>Mạng máy tính &amp; Truyền thông</h2>
+
+                            <div class="course-details">
+                                <p>
+                                    <span class="material-symbols-outlined">person</span>
+                                    GV: TS. Vũ Đức Trí
+                                </p>
+
+                                <p>
+                                    <span class="material-symbols-outlined">meeting_room</span>
+                                    Phòng C.203 (Lab Cisco)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="course-progress">
+                            <div>
+                                <span>Tiến độ bài tập (4/7)</span>
+                                <strong>57%</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <span style="width: 57%"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Môn 5 -->
+                    <article class="course-card" data-status="active">
+                        <div>
+                            <div class="course-card-top">
+                                <div class="course-meta">
+                                    <div class="course-icon icon-java">
+                                        <span class="material-symbols-outlined">code</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="course-code">OOP301 • 4 tín chỉ</span>
+                                        <span class="status active-status">Đang học</span>
+                                    </div>
+                                </div>
+
+                                <div class="grade-box">
+                                    <small>Điểm quá trình</small>
+                                    <strong>8.0<small>/10</small></strong>
+                                </div>
+                            </div>
+
+                            <h2>Lập trình Hướng đối tượng Java</h2>
+
+                            <div class="course-details">
+                                <p>
+                                    <span class="material-symbols-outlined">person</span>
+                                    GV: ThS. Đặng Minh Châu
+                                </p>
+
+                                <p>
+                                    <span class="material-symbols-outlined">meeting_room</span>
+                                    Phòng D.104 (Khu Thực hành)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="course-progress">
+                            <div>
+                                <span>Tiến độ bài tập (6/9)</span>
+                                <strong>66%</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <span style="width: 66%"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Môn 6 -->
+                    <article class="course-card" data-status="completed">
+                        <div>
+                            <div class="course-card-top">
+                                <div class="course-meta">
+                                    <div class="course-icon icon-os">
+                                        <span class="material-symbols-outlined">memory</span>
+                                    </div>
+
+                                    <div>
+                                        <span class="course-code">OS202 • 4 tín chỉ</span>
+                                        <span class="status completed-status">Đã hoàn thành</span>
+                                    </div>
+                                </div>
+
+                                <div class="grade-box completed-grade">
+                                    <small>Điểm tổng kết</small>
+                                    <strong>8.5<small>/10</small></strong>
+                                </div>
+                            </div>
+
+                            <h2>Hệ điều hành &amp; Linux</h2>
+
+                            <div class="course-details">
+                                <p>
+                                    <span class="material-symbols-outlined">person</span>
+                                    GV: PGS.TS. Phạm Tuấn Anh
+                                </p>
+
+                                <p>
+                                    <span class="material-symbols-outlined">meeting_room</span>
+                                    Phòng B.402 (Phòng Máy A)
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="course-progress">
+                            <div>
+                                <span>Tiến độ bài tập (8/8)</span>
+                                <strong class="green-text">100%</strong>
+                            </div>
+
+                            <div class="progress-track">
+                                <span class="complete-progress" style="width: 100%"></span>
+                            </div>
+                        </div>
+                    </article>
+
+                </section>
+
+                <!-- Thông báo khi không có kết quả -->
+                <section class="no-results" id="noResultsNotice" hidden>
+                    <span class="material-symbols-outlined">manage_search</span>
+                    <h2>Không tìm thấy môn học phù hợp</h2>
+                    <p>Hãy thử tìm theo tên môn học, mã môn hoặc tên giảng viên.</p>
+                </section>
+
+                <!-- Lối tắt lịch học -->
+                <section class="schedule-banner">
+                    <div class="schedule-banner-info">
+                        <div class="schedule-banner-icon">
+                            <span class="material-symbols-outlined">event_note</span>
+                        </div>
+
+                        <div>
+                            <h2>Lịch học tiếp theo trong tuần</h2>
+                            <p>Bạn có 3 buổi học trực tiếp tại phòng máy trong 48 giờ tới</p>
+                        </div>
+                    </div>
+
+                    <div class="schedule-actions">
+                        <button type="button" class="button-light" id="syllabusButton">
+                            Tải đề cương môn
+                        </button>
+
+                        <a class="button-primary" href="lichhoc.html">
+                            Xem thời khóa biểu
+                            <span class="material-symbols-outlined">arrow_forward</span>
+                        </a>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- Footer được nạp từ components -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/monhoc.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+</html>

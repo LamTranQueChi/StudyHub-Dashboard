@@ -1,0 +1,403 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StudyHub - Tổng quan học tập</title>
+
+    <!-- Font Nunito Sans: đồng bộ với trang Cài đặt -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800;900&display=swap"
+    >
+
+    <!-- Material Symbols -->
+    <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    
+</head>
+
+<body>
+    <!-- Sidebar được nạp từ components/sidebar.html -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-layout">
+        <!-- Topbar được nạp từ components/topbar.html -->
+        <div id="topbar-container"></div>
+
+        <!-- Nội dung dashboard -->
+        <main class="dashboard">
+
+            <!-- Tiêu đề -->
+            <div class="page-heading">
+                <h1>Tổng quan học tập</h1>
+
+                <div class="update-status">
+                    <span class="status-dot"></span>
+                    <span>Cập nhật lúc 08:30 hôm nay</span>
+                </div>
+            </div>
+
+            <!-- Thống kê -->
+            <section class="overview-section">
+                <div class="stats-grid">
+
+                    <article class="stat-card">
+                        <div class="stat-icon mint">
+                            <span class="material-symbols-outlined">
+                                calendar_today
+                            </span>
+                        </div>
+
+                        <div class="stat-info">
+                            <span class="stat-label">Môn học</span>
+                            <strong>6</strong>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-icon pink">
+                            <span class="material-symbols-outlined">
+                                assignment_late
+                            </span>
+                        </div>
+
+                        <div class="stat-info">
+                            <span class="stat-label">Bài tập cần nộp</span>
+                            <strong class="text-danger">4</strong>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-icon blue">
+                            <span class="material-symbols-outlined">
+                                verified_user
+                            </span>
+                        </div>
+
+                        <div class="stat-info">
+                            <span class="stat-label">Điểm trung bình</span>
+                            <strong class="text-primary">7.8</strong>
+                        </div>
+                    </article>
+
+                    <article class="stat-card">
+                        <div class="stat-icon orange">
+                            <span class="material-symbols-outlined">
+                                military_tech
+                            </span>
+                        </div>
+
+                        <div class="stat-info">
+                            <span class="stat-label">Tỷ lệ tích lũy</span>
+                            <strong>86%</strong>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Môn học -->
+            <section class="courses-section">
+                <div class="section-heading">
+                    <h2>Môn học của bạn</h2>
+
+                    <a href="monhoc.html"
+                       class="view-all"
+                       data-page="mon-hoc">
+                        <span>Xem tất cả</span>
+                        <span class="material-symbols-outlined">
+                            arrow_forward
+                        </span>
+                    </a>
+                </div>
+
+                <div class="courses-grid">
+
+                    <article class="course-card"
+                             data-search="cơ sở dữ liệu csdl">
+
+                        <div class="course-header">
+                            <div class="course-icon mint">
+                                <span class="material-symbols-outlined">
+                                    database
+                                </span>
+                            </div>
+
+                            <div class="course-info">
+                                <h3>Cơ sở dữ liệu</h3>
+                                <p>Học phần chuyên ngành</p>
+                            </div>
+                        </div>
+
+                        <div class="course-footer">
+                            <div class="course-score">
+                                <strong>8.5</strong>
+                                <span>/ 10</span>
+                            </div>
+
+                            <span class="assignment-count">3 bài tập</span>
+                        </div>
+                    </article>
+
+                    <article class="course-card"
+                             data-search="lập trình web frontend">
+
+                        <div class="course-header">
+                            <div class="course-icon blue">
+                                <span class="material-symbols-outlined">
+                                    code
+                                </span>
+                            </div>
+
+                            <div class="course-info">
+                                <h3>Lập trình Web</h3>
+                                <p>Thực hành Frontend</p>
+                            </div>
+                        </div>
+
+                        <div class="course-footer">
+                            <div class="course-score">
+                                <strong class="text-primary">9.0</strong>
+                                <span>/ 10</span>
+                            </div>
+
+                            <span class="assignment-count">2 bài tập</span>
+                        </div>
+                    </article>
+
+                    <article class="course-card"
+                             data-search="mạng máy tính hạ tầng">
+
+                        <div class="course-header">
+                            <div class="course-icon purple">
+                                <span class="material-symbols-outlined">
+                                    lan
+                                </span>
+                            </div>
+
+                            <div class="course-info">
+                                <h3>Mạng máy tính</h3>
+                                <p>Mạng &amp; Hạ tầng</p>
+                            </div>
+                        </div>
+
+                        <div class="course-footer">
+                            <div class="course-score">
+                                <strong>7.5</strong>
+                                <span>/ 10</span>
+                            </div>
+
+                            <span class="assignment-count">1 bài tập</span>
+                        </div>
+                    </article>
+
+                    <article class="course-card"
+                             data-search="hệ điều hành linux tiến trình">
+
+                        <div class="course-header">
+                            <div class="course-icon cyan">
+                                <span class="material-symbols-outlined">
+                                    terminal
+                                </span>
+                            </div>
+
+                            <div class="course-info">
+                                <h3>Hệ điều hành</h3>
+                                <p>Linux &amp; Tiến trình</p>
+                            </div>
+                        </div>
+
+                        <div class="course-footer">
+                            <div class="course-score">
+                                <strong>8.0</strong>
+                                <span>/ 10</span>
+                            </div>
+
+                            <span class="assignment-count">2 bài tập</span>
+                        </div>
+                    </article>
+
+                </div>
+            </section>
+
+            <section class="grade-charts-section" id="gradeCharts">
+                <div class="section-heading"><h2>Phân tích kết quả học tập</h2><span>Dữ liệu từ tài khoản đang đăng nhập</span></div>
+                <div class="grade-charts-grid">
+                    <article class="panel"><h3>Điểm số theo môn học</h3><canvas id="gradeTrendChart" aria-label="Biểu đồ điểm theo môn học"></canvas></article>
+                    <article class="panel"><h3>Phân bố điểm số</h3><canvas id="gradeDistributionChart" aria-label="Biểu đồ phân bố điểm"></canvas></article>
+                </div>
+            </section>
+
+            <!-- Bài tập và lịch học -->
+            <section class="bottom-grid">
+
+                <!-- Bài tập sắp đến hạn -->
+                <article class="panel assignments-panel">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <div class="panel-icon orange">
+                                <span class="material-symbols-outlined">
+                                    assignment
+                                </span>
+                            </div>
+
+                            <h2>Bài tập sắp đến hạn</h2>
+                        </div>
+
+                        <span class="panel-badge">3</span>
+                    </div>
+
+                    <div class="assignment-list">
+
+                        <div class="assignment-item"
+                             data-search="bài tập javascript dom">
+
+                            <div class="assignment-main">
+                                <div class="assignment-icon pink">
+                                    <span class="material-symbols-outlined">
+                                        description
+                                    </span>
+                                </div>
+
+                                <div class="assignment-info">
+                                    <h3>Bài tập JavaScript DOM</h3>
+                                    <p>Nộp trước 23/10/2026</p>
+                                </div>
+                            </div>
+
+                            <span class="deadline danger">Còn 2 ngày</span>
+                        </div>
+
+                        <div class="assignment-item"
+                             data-search="bài tập csdl truy vấn">
+
+                            <div class="assignment-main">
+                                <div class="assignment-icon blue">
+                                    <span class="material-symbols-outlined">
+                                        task
+                                    </span>
+                                </div>
+
+                                <div class="assignment-info">
+                                    <h3>Bài tập CSDL - Truy vấn</h3>
+                                    <p>Nộp trước 26/10/2026</p>
+                                </div>
+                            </div>
+
+                            <span class="deadline warning">Còn 5 ngày</span>
+                        </div>
+
+                        <div class="assignment-item"
+                             data-search="báo cáo thực hành">
+
+                            <div class="assignment-main">
+                                <div class="assignment-icon soft-blue">
+                                    <span class="material-symbols-outlined">
+                                        feed
+                                    </span>
+                                </div>
+
+                                <div class="assignment-info">
+                                    <h3>Báo cáo thực hành</h3>
+                                    <p>Nộp trước 30/10/2026</p>
+                                </div>
+                            </div>
+
+                            <span class="deadline info">Còn 1 tuần</span>
+                        </div>
+
+                    </div>
+                </article>
+
+                <!-- Lịch học hôm nay -->
+                <article class="panel schedule-panel">
+                    <div class="panel-heading">
+                        <div class="panel-title">
+                            <div class="panel-icon orange">
+                                <span class="material-symbols-outlined">
+                                    calendar_month
+                                </span>
+                            </div>
+
+                            <h2>Lịch học hôm nay</h2>
+                        </div>
+
+                        <div class="schedule-date">
+                            <span class="material-symbols-outlined">
+                                event
+                            </span>
+                            <span>Thứ 5, 23/10/2026</span>
+                        </div>
+                    </div>
+
+                    <div class="schedule-list">
+
+                        <div class="schedule-item">
+                            <span class="schedule-line blue-line"></span>
+
+                            <time class="schedule-time">
+                                07:00 - 08:30
+                            </time>
+
+                            <div class="schedule-info">
+                                <h3>Lập trình Web</h3>
+                                <p>P. A202 • Giảng viên: Trần Văn A</p>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item">
+                            <span class="schedule-line green-line"></span>
+
+                            <time class="schedule-time">
+                                09:00 - 10:30
+                            </time>
+
+                            <div class="schedule-info">
+                                <h3>Cơ sở dữ liệu</h3>
+                                <p>P. B101 • Giảng viên: Nguyễn Thị B</p>
+                            </div>
+                        </div>
+
+                        <div class="schedule-item">
+                            <span class="schedule-line cyan-line"></span>
+
+                            <time class="schedule-time">
+                                13:30 - 15:00
+                            </time>
+
+                            <div class="schedule-info">
+                                <h3>Mạng máy tính</h3>
+                                <p>P. C203 • Giảng viên: Lê Văn C</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </article>
+
+            </section>
+        </main>
+
+        <!-- Footer được nạp từ components/footer.html -->
+        <div id="footer-container"></div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+    <script src="../js/char.js"></script>
+    <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/dashboard.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+</html>

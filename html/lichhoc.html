@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub - Thời khóa biểu & Lịch học</title>
+
+    <!-- Font và icon phổ biến -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- CSS dùng chung và CSS riêng trang lịch học -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/lichhoc.css">
+    <link rel="stylesheet" href="../css/theme.css">
+</head>
+<body>
+    <!-- Các thành phần dùng chung được nạp từ components -->
+    <div id="sidebar-container"></div>
+
+    <div class="main-layout">
+        <div id="topbar-container"></div>
+
+        <main class="schedule-page">
+            <div class="schedule-content">
+
+                <section class="schedule-page-header">
+                    <div class="schedule-heading">
+                        <div class="semester-label">
+                            <span class="semester-dot"></span>
+                            Học kỳ II · Tuần 09
+                        </div>
+                        <h1>Thời khóa biểu &amp; Lịch học</h1>
+                        <p>Theo dõi lịch học tập trung, phòng máy thực hành và ca học trực tuyến hằng tuần.</p>
+                    </div>
+
+                    <div class="schedule-header-actions">
+                        <button type="button" class="btn btn-light" id="syncCalendarButton">
+                            <span class="material-symbols-outlined">calendar_month</span>
+                            Đồng bộ Google Calendar
+                        </button>
+                        <button type="button" class="btn btn-primary" id="exportScheduleButton">
+                            <span class="material-symbols-outlined">download</span>
+                            Xuất TKB (PDF)
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Buổi học nổi bật; không sử dụng mã QR -->
+                <section class="featured-class">
+                    <div class="featured-main">
+                        <div>
+                            <div class="class-status">
+                                <span class="status-dot"></span>
+                                Đang diễn ra hôm nay
+                            </div>
+                            <div class="class-time">
+                                <span class="material-symbols-outlined">schedule</span>
+                                07:00 - 09:00 (Tiết 1 - 3)
+                            </div>
+                            <h2>Lập trình JavaScript DOM &amp; ES6+</h2>
+
+                            <div class="class-details">
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <span class="material-symbols-outlined">person</span>
+                                    </div>
+                                    <div>
+                                        <span class="detail-label">Giảng viên</span>
+                                        <strong>ThS. Trần Anh Tuấn</strong>
+                                    </div>
+                                </div>
+
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <span class="material-symbols-outlined">meeting_room</span>
+                                    </div>
+                                    <div>
+                                        <span class="detail-label">Địa điểm</span>
+                                        <strong>Phòng A102 (Tầng 1 - Khu A)</strong>
+                                    </div>
+                                </div>
+
+                                <div class="detail-item">
+                                    <div class="detail-icon">
+                                        <span class="material-symbols-outlined">groups</span>
+                                    </div>
+                                    <div>
+                                        <span class="detail-label">Nhóm lớp</span>
+                                        <strong>CNTT21A • 48 sinh viên</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="progress-section">
+                            <div class="progress-heading">
+                                <span>Tiến độ buổi học (Đã trôi qua 65 phút / 120 phút)</span>
+                                <strong>54%</strong>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-value"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <aside class="attendance-card">
+                        <div class="attendance-card-heading">
+                            <h3>Điểm danh trực tuyến</h3>
+                            <span class="open-badge">Đang mở</span>
+                        </div>
+                        <div class="attendance-info">
+                            <div class="attendance-symbol">
+                                <span class="material-symbols-outlined">how_to_reg</span>
+                            </div>
+                            <div>
+                                <strong>Buổi học hôm nay</strong>
+                                <p>Vui lòng xác nhận có mặt để ghi nhận điểm danh của bạn.</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success" id="attendanceButton">
+                            <span class="material-symbols-outlined">person_check</span>
+                            Tôi đã vào lớp học
+                        </button>
+                        <p class="attendance-message" id="attendanceMessage" aria-live="polite"></p>
+                    </aside>
+                </section>
+
+                <section class="weekly-schedule">
+                    <div class="weekly-filter-row">
+                        <div class="day-filter-list" aria-label="Lọc lịch học theo ngày">
+                            <button type="button" class="day-filter-pill active" data-day="all">Tất cả (Tuần này)</button>
+                            <button type="button" class="day-filter-pill" data-day="tue">Thứ 2 (21/10)</button>
+                            <button type="button" class="day-filter-pill" data-day="wed">Thứ 3 (22/10)</button>
+                            <button type="button" class="day-filter-pill" data-day="thu">Thứ 4 (23/10)</button>
+                            <button type="button" class="day-filter-pill" data-day="fri">Thứ 5 (24/10) <span class="today-dot"></span></button>
+                            <button type="button" class="day-filter-pill" data-day="sat">Thứ 6 (25/10)</button>
+                            <button type="button" class="day-filter-pill" data-day="sun">Thứ 7 (26/10)</button>
+                        </div>
+
+                        <div class="schedule-tools">
+                            <label class="schedule-search">
+                                <span class="material-symbols-outlined">search</span>
+                                <input type="search" id="scheduleSearch" placeholder="Tìm môn học, giảng viên hoặc mã học phần..." aria-label="Tìm lịch học">
+                            </label>
+                            <div class="view-switcher">
+                                <button type="button" class="active" aria-label="Xem dạng danh sách" title="Dạng danh sách">
+                                    <span class="material-symbols-outlined">view_agenda</span>
+                                </button>
+                                <button type="button" aria-label="Xem dạng lịch" title="Dạng lịch">
+                                    <span class="material-symbols-outlined">calendar_view_week</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="schedule-list" id="schedule-container">
+                        <article class="schedule-item" data-day="fri">
+                            <div class="date-box">
+                                <span>THỨ 5</span>
+                                <strong>24/10</strong>
+                            </div>
+                            <div class="time-box">
+                                <strong><span class="material-symbols-outlined">schedule</span> 07:00 - 09:00</strong>
+                                <span>Ca sáng (3 tiết)</span>
+                            </div>
+                            <div class="lesson-info">
+                                <div class="lesson-title-row">
+                                    <h3>Lập trình JavaScript DOM &amp; ES6+</h3>
+                                    <span class="lesson-type type-practice">Thực hành</span>
+                                </div>
+                                <p><span class="material-symbols-outlined">person</span> ThS. Trần Anh Tuấn <span class="meta-separator">•</span> Mã HP: IT2041</p>
+                            </div>
+                            <div class="lesson-actions">
+                                <span class="room-badge"><span class="material-symbols-outlined">meeting_room</span> Phòng A102</span>
+                                <span class="lesson-status status-live"><span class="status-dot"></span> Đang diễn ra</span>
+                                <button type="button" class="more-button" aria-label="Thao tác khác"><span class="material-symbols-outlined">more_vert</span></button>
+                            </div>
+                        </article>
+
+                        <article class="schedule-item" data-day="fri">
+                            <div class="date-box">
+                                <span>THỨ 5</span>
+                                <strong>24/10</strong>
+                            </div>
+                            <div class="time-box">
+                                <strong><span class="material-symbols-outlined">schedule</span> 09:30 - 11:45</strong>
+                                <span>Ca sáng (3 tiết)</span>
+                            </div>
+                            <div class="lesson-info">
+                                <div class="lesson-title-row">
+                                    <h3>Cơ sở dữ liệu nâng cao &amp; SQL</h3>
+                                    <span class="lesson-type type-theory">Lý thuyết</span>
+                                </div>
+                                <p><span class="material-symbols-outlined">person</span> TS. Nguyễn Thị Mai <span class="meta-separator">•</span> Mã HP: IT2032</p>
+                            </div>
+                            <div class="lesson-actions">
+                                <span class="room-badge"><span class="material-symbols-outlined">meeting_room</span> Phòng B101</span>
+                                <span class="lesson-status status-soon"><span class="material-symbols-outlined">timer</span> Sắp tới (30 phút nữa)</span>
+                                <button type="button" class="more-button" aria-label="Thao tác khác"><span class="material-symbols-outlined">more_vert</span></button>
+                            </div>
+                        </article>
+
+                        <article class="schedule-item" data-day="fri">
+                            <div class="date-box">
+                                <span>THỨ 5</span>
+                                <strong>24/10</strong>
+                            </div>
+                            <div class="time-box">
+                                <strong><span class="material-symbols-outlined">schedule</span> 13:30 - 16:00</strong>
+                                <span>Ca chiều (3 tiết)</span>
+                            </div>
+                            <div class="lesson-info">
+                                <div class="lesson-title-row">
+                                    <h3>Kiến trúc Mạng máy tính &amp; Giao thức TCP/IP</h3>
+                                    <span class="lesson-type type-lab">Thực hành Lab</span>
+                                </div>
+                                <p><span class="material-symbols-outlined">person</span> ThS. Lê Văn Cường <span class="meta-separator">•</span> Mã HP: NW3012</p>
+                            </div>
+                            <div class="lesson-actions">
+                                <span class="room-badge"><span class="material-symbols-outlined">meeting_room</span> Phòng C203</span>
+                                <span class="lesson-status status-not-started">Chưa bắt đầu</span>
+                                <button type="button" class="more-button" aria-label="Thao tác khác"><span class="material-symbols-outlined">more_vert</span></button>
+                            </div>
+                        </article>
+
+                        <article class="schedule-item" data-day="sat">
+                            <div class="date-box">
+                                <span>THỨ 6</span>
+                                <strong>25/10</strong>
+                            </div>
+                            <div class="time-box">
+                                <strong><span class="material-symbols-outlined">schedule</span> 07:45 - 10:15</strong>
+                                <span>Ca sáng (3 tiết)</span>
+                            </div>
+                            <div class="lesson-info">
+                                <div class="lesson-title-row">
+                                    <h3>Nguyên lý Hệ điều hành &amp; Linux CLI</h3>
+                                    <span class="lesson-type type-theory">Lý thuyết</span>
+                                </div>
+                                <p><span class="material-symbols-outlined">person</span> PGS. TS. Hoàng Minh Đạt <span class="meta-separator">•</span> Mã HP: OS1010</p>
+                            </div>
+                            <div class="lesson-actions">
+                                <span class="room-badge"><span class="material-symbols-outlined">meeting_room</span> Phòng B304</span>
+                                <span class="lesson-status status-soon">Sắp tới (Ngày mai)</span>
+                                <button type="button" class="more-button" aria-label="Thao tác khác"><span class="material-symbols-outlined">more_vert</span></button>
+                            </div>
+                        </article>
+
+                        <article class="schedule-item schedule-finished" data-day="tue">
+                            <div class="date-box">
+                                <span>THỨ 2</span>
+                                <strong>21/10</strong>
+                            </div>
+                            <div class="time-box">
+                                <strong><span class="material-symbols-outlined">schedule</span> 13:30 - 15:30</strong>
+                                <span>Ca chiều (2 tiết)</span>
+                            </div>
+                            <div class="lesson-info">
+                                <div class="lesson-title-row">
+                                    <h3>Toán rời rạc &amp; Lý thuyết Đồ thị</h3>
+                                    <span class="lesson-type type-general">Đại cương</span>
+                                </div>
+                                <p><span class="material-symbols-outlined">person</span> TS. Phạm Quốc Hưng <span class="meta-separator">•</span> Mã HP: MA1023</p>
+                            </div>
+                            <div class="lesson-actions">
+                                <span class="room-badge"><span class="material-symbols-outlined">meeting_room</span> Phòng D105</span>
+                                <span class="lesson-status status-finished"><span class="material-symbols-outlined">check_circle</span> Đã kết thúc</span>
+                                <button type="button" class="more-button" aria-label="Thao tác khác"><span class="material-symbols-outlined">more_vert</span></button>
+                            </div>
+                        </article>
+
+                        <p class="empty-message" id="emptyMessage" hidden>Không tìm thấy buổi học phù hợp.</p>
+                    </div>
+                </section>
+
+                <section class="guidance-grid">
+                    <article class="guidance-card">
+                        <div class="guidance-main">
+                            <div class="guidance-icon blue-icon">
+                                <span class="material-symbols-outlined">verified_user</span>
+                            </div>
+                            <div>
+                                <h3>Lưu ý Quy chế Điểm danh</h3>
+                                <p>Sinh viên vắng quá <strong>20% tổng số tiết</strong> sẽ không đủ điều kiện dự thi kết thúc học phần. Hệ thống điểm danh tự động đóng sau 15 phút đầu giờ học.</p>
+                            </div>
+                        </div>
+                        <div class="guidance-footer">
+                            <span class="attendance-rate"><span class="material-symbols-outlined">check</span> Tỷ lệ chuyên cần kỳ này: 96.5%</span>
+                            <button type="button" class="text-link" id="attendanceHistoryButton">Xem lịch sử điểm danh <span class="material-symbols-outlined">arrow_forward</span></button>
+                        </div>
+                    </article>
+
+                    <article class="guidance-card">
+                        <div class="guidance-main">
+                            <div class="guidance-icon red-icon">
+                                <span class="material-symbols-outlined">support_agent</span>
+                            </div>
+                            <div>
+                                <h3>Hỗ trợ Đổi phòng &amp; Báo lỗi thiết bị</h3>
+                                <p>Nếu phòng máy hỏng máy chiếu, điều hòa hoặc giảng viên có thông báo chuyển giảng đường đột xuất, vui lòng gửi phản hồi ngay tới Ban Quản lý Giảng đường.</p>
+                            </div>
+                        </div>
+                        <div class="guidance-footer">
+                            <span class="hotline">Hotline giảng đường: <strong>(024) 3754 7865</strong></span>
+                            <button type="button" class="btn btn-danger-soft" id="reportRoomButton"><span class="material-symbols-outlined">campaign</span> Báo đổi phòng</button>
+                        </div>
+                    </article>
+                </section>
+
+            </div>
+        </main>
+
+        <div id="footer-container"></div>
+    </div>
+
+    <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/lichhoc.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+</html>

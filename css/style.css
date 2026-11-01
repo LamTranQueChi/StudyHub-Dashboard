@@ -1,0 +1,965 @@
+/* =========================================================
+   STUDYHUB - style.css
+   CSS DÙNG CHUNG: reset, biến giao diện, sidebar, topbar, footer.
+   Màu sáng/tối được điều khiển bằng theme.css.
+   CSS riêng của từng trang đặt trong file CSS của trang đó.
+   ========================================================= */
+
+/* =========================================================
+   1. BIẾN MÀU VÀ KÍCH THƯỚC
+   ========================================================= */
+:root {
+    --primary: #079fe3;
+    --primary-dark: #006591;
+    --primary-light: #e0f2fe;
+
+    --background: #f7f8ff;
+    --white: #ffffff;
+    --text: #0b1c30;
+    --text-secondary: #536171;
+    --border: #edf0f7;
+    --surface-soft: #eff4ff;
+    --surface-hover: #eff6ff;
+    --topbar-bg: rgba(255, 255, 255, 0.97);
+    --input-bg: #ffffff;
+    --input-border: #d9e0ea;
+
+    --mint: #e3faf3;
+    --pink: #ffebef;
+    --blue: #e0f2fe;
+    --purple: #f3e8ff;
+    --cyan: #e0f7fa;
+    --orange: #fff3df;
+    --danger: #d7193f;
+    --success: #00845f;
+
+    --sidebar-width: 275px;
+    --topbar-height: 70px;
+    --radius-card: 24px;
+    --radius-small: 14px;
+    --shadow-card: 0 1px 2px rgba(15, 35, 65, 0.035);
+}
+
+/* =========================================================
+   2. RESET VÀ KIỂU CƠ BẢN
+   ========================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Nunito Sans", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--text);
+    background: var(--background);
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+    display: inline-block;
+    flex-shrink: 0;
+    font-family: "Material Symbols Outlined";
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    font-feature-settings: "liga";
+    -webkit-font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+}
+
+/* Bootstrap Icons nếu dự án có sử dụng */
+.bi {
+    flex-shrink: 0;
+    line-height: 1;
+}
+
+/* =========================================================
+   3. SIDEBAR - MỘT BỘ QUY TẮC DÙNG CHUNG CHO MỌI TRANG
+   ========================================================= */
+.sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: var(--sidebar-width);
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 30px 17px;
+    background: var(--white);
+    border-right: 1px solid var(--border);
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 0 9px;
+}
+
+.brand-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 43px;
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    background: #0ca5e9;
+    color: #ffffff;
+}
+
+.brand-icon .material-symbols-outlined {
+    font-size: 27px;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.brand-text h2 {
+    color: var(--primary-dark);
+    font-size: 22px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.6px;
+}
+
+.brand-text span {
+    color: var(--text);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+/* Nút X đóng sidebar: chỉ hiện trên màn hình nhỏ */
+.sidebar-close {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+    margin-left: auto;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-soft);
+    color: var(--text);
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-close:hover {
+    background: var(--surface-hover);
+}
+
+.sidebar-close .material-symbols-outlined {
+    font-size: 22px;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.sidebar .nav-link {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    min-height: 40px;
+    padding: 9px 17px;
+    border-radius: 30px;
+    color: var(--text);
+    font-size: 15px;
+    font-weight: 600;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.sidebar .nav-link .material-symbols-outlined,
+.sidebar .nav-link .bi {
+    flex-shrink: 0;
+    font-size: 20px;
+}
+
+.sidebar .nav-link:hover {
+    background: var(--surface-hover);
+    color: var(--primary-dark);
+}
+
+.sidebar .nav-link:active {
+    transform: scale(0.98);
+}
+
+.sidebar .nav-link.active {
+    background: var(--primary);
+    color: #ffffff;
+    font-weight: 700;
+    box-shadow: 0 3px 8px rgba(12, 165, 233, 0.08);
+}
+
+/* Thẻ học kỳ ở cuối sidebar */
+.sidebar .semester-card {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    min-width: 0;
+    padding: 14px 17px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--white);
+    color: var(--text);
+    font: inherit;
+    text-align: left;
+    box-shadow: var(--shadow-card);
+    transition: background-color 0.2s ease,
+                color 0.2s ease,
+                border-color 0.2s ease;
+}
+
+.sidebar .semester-card:hover {
+    background: var(--surface-hover);
+    border-color: var(--border);
+}
+
+.sidebar .semester-card:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+}
+
+.sidebar .semester-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 34px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+}
+
+.sidebar .semester-icon .material-symbols-outlined {
+    font-size: 19px;
+}
+
+.sidebar .semester-info {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.sidebar .semester-info strong {
+    color: var(--text);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.sidebar .semester-info > span {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+.sidebar .semester-edit-icon {
+    flex: 0 0 auto;
+    color: var(--text-secondary);
+    font-size: 18px;
+}
+/* =========================================================
+   4. BỐ CỤC NỘI DUNG CHÍNH
+   ========================================================= */
+.main-layout {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    min-height: 100vh;
+    margin-left: var(--sidebar-width);
+}
+
+/* =========================================================
+   5. TOPBAR
+   ========================================================= */
+.topbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: var(--sidebar-width);
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: var(--topbar-height);
+    padding: 0 30px;
+    background: var(--topbar-bg);
+    border-bottom: 1px solid var(--border);
+}
+
+.search-box {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: min(100%, 414px);
+    min-width: 0;
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 30px;
+    background: var(--surface-soft);
+    color: var(--text);
+}
+
+.search-box .material-symbols-outlined,
+.search-box .bi {
+    flex-shrink: 0;
+    font-size: 18px;
+}
+
+/* Ô nhập luôn trong suốt, không viền - tránh bị theme.css đè nền đen */
+.search-box input,
+.search-box input:hover,
+.search-box input:focus {
+    width: 100%;
+    min-width: 0;
+    height: 100%;
+    padding: 0;
+    border: 0 !important;
+    border-radius: 0;
+    outline: 0 !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    -webkit-appearance: none;
+    appearance: none;
+    color: var(--text);
+    font-size: 13px;
+}
+
+.search-box input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 100px var(--surface-soft) inset !important;
+    -webkit-text-fill-color: var(--text) !important;
+}
+
+.search-box input::placeholder {
+    color: var(--text-secondary);
+}
+
+.topbar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 22px;
+    min-width: 0;
+}
+
+.notification-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 39px;
+    width: 39px;
+    height: 39px;
+    border: 0;
+    border-radius: 50%;
+    background: var(--surface-soft);
+    color: var(--text);
+    transition: background-color 0.2s ease;
+}
+
+.notification-btn:hover {
+    background: var(--surface-hover);
+}
+
+.notification-btn .material-symbols-outlined,
+.notification-btn .bi {
+    font-size: 20px;
+}
+
+.notification-dot {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 8px;
+    height: 8px;
+    border: 1px solid var(--white);
+    border-radius: 50%;
+    background: #ff637b;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    min-width: 0;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    text-align: right;
+}
+
+.user-info strong {
+    overflow: hidden;
+    max-width: 240px;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 700;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-info span {
+    overflow: hidden;
+    max-width: 240px;
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.user-avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    min-height: 40px;
+    padding: 0;
+    overflow: hidden;
+    border: 2px solid var(--primary-light);
+    border-radius: 50%;
+    background: var(--primary-light);
+    color: var(--primary-dark);
+    transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.user-avatar img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+.user-avatar .material-symbols-outlined,
+.user-avatar .bi {
+    font-size: 21px;
+}
+
+.user-avatar:hover {
+    border-color: var(--primary);
+}
+
+/* Nút ba gạch mở sidebar: chỉ hiện trên màn hình nhỏ (<= 900px) */
+.sidebar-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--surface-soft);
+    color: var(--text);
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-toggle:hover {
+    background: var(--surface-hover);
+}
+
+.sidebar-toggle .material-symbols-outlined {
+    font-size: 25px;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+/* =========================================================
+   6. FOOTER
+   ========================================================= */
+.footer {
+    margin-top: auto;
+    padding: 20px 30px;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+    color: var(--text-secondary);
+    text-align: center;
+    font-size: 12px;
+}
+
+.footer p + p {
+    margin-top: 4px;
+}
+
+/* Chuyển màu mượt khi theme.css cập nhật các biến màu */
+body,
+.sidebar,
+.topbar,
+.footer,
+.search-box,
+.notification-btn,
+.semester-card {
+    transition-property: background-color, color, border-color;
+    transition-duration: 0.2s;
+    transition-timing-function: ease;
+}
+
+/* =========================================================
+   7. HỘP CHỌN HỌC KỲ
+   ========================================================= */
+.semester-modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+}
+
+.semester-modal {
+    width: 100%;
+    max-width: 400px;
+    padding: 26px;
+    border-radius: 18px;
+    background: var(--white, #ffffff);
+    color: var(--text, #183b56);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.semester-modal h2 {
+    margin: 0 0 8px;
+    font-size: 21px;
+}
+
+.semester-modal-description {
+    margin: 0 0 22px;
+    color: var(--text-secondary, #64748b);
+}
+
+.semester-modal label {
+    display: block;
+    margin: 14px 0 7px;
+    font-weight: 600;
+}
+
+.semester-modal select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border, #d9e0ea);
+    border-radius: 10px;
+    background: var(--input-bg, #ffffff);
+    color: var(--text, #183b56);
+}
+
+.semester-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+/* Nút Hủy: dùng biến màu để đẹp cả khi giao diện tối */
+.semester-modal-actions button {
+    padding: 10px 16px;
+    border: 1px solid var(--input-border, #d9e0ea);
+    border-radius: 9px;
+    background: var(--input-bg, #ffffff);
+    color: var(--text, #334155);
+    cursor: pointer;
+}
+
+.semester-modal-actions button:hover {
+    background: var(--surface-hover, #eff6ff);
+}
+
+.semester-modal-actions .semester-save {
+    border-color: #079fe3;
+    background: #079fe3;
+    color: #ffffff;
+}
+
+.semester-modal-actions .semester-save:hover {
+    background: #007fbd;
+}
+
+/* =========================================================
+   8. RESPONSIVE
+   Sidebar desktop giữ nguyên kích thước chung.
+   Từ 900px trở xuống, sidebar chuyển thành menu trượt,
+   mở bằng nút ba gạch trên topbar.
+   ========================================================= */
+@media (max-width: 1200px) {
+    :root {
+        --sidebar-width: 245px;
+    }
+
+    .topbar {
+        padding-right: 24px;
+        padding-left: 24px;
+    }
+
+    .topbar-right {
+        gap: 14px;
+    }
+
+    .user-info strong,
+    .user-info span {
+        max-width: 190px;
+    }
+}
+
+@media (max-width: 900px) {
+    .sidebar-toggle {
+        display: inline-flex;
+    }
+
+    .sidebar-close {
+        display: inline-flex;
+    }
+
+    .topbar {
+        left: 0;
+        gap: 12px;
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .search-box {
+        flex: 1 1 auto;
+        min-width: 0;
+    }
+
+    .topbar-right {
+        gap: 10px;
+    }
+
+    .user-info strong {
+        max-width: 150px;
+        font-size: 12px;
+    }
+
+    .user-info span {
+        max-width: 150px;
+        font-size: 11px;
+    }
+
+    .sidebar {
+        width: min(280px, 85vw);
+        height: 100vh;
+        height: 100dvh;
+        z-index: 1001;
+        transform: translateX(-105%);
+        visibility: hidden;
+        pointer-events: none;
+        transition: transform 0.28s ease, visibility 0.28s ease;
+        box-shadow: none;
+    }
+
+    .sidebar.sidebar-open {
+        transform: translateX(0);
+        visibility: visible;
+        pointer-events: auto;
+        box-shadow: 8px 0 30px rgba(15, 23, 42, 0.16);
+    }
+
+    .sidebar-overlay {
+        display: block;
+        position: fixed;
+        inset: 0;
+        z-index: 1000;
+        background: rgba(15, 23, 42, 0.45);
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: opacity 0.28s ease, visibility 0.28s ease;
+    }
+
+    .sidebar-overlay.overlay-visible {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+    }
+
+    body.sidebar-menu-open {
+        overflow: hidden;
+    }
+
+    .main-layout {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --sidebar-width: 0px;
+        --topbar-height: 64px;
+    }
+
+    .sidebar-toggle {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+    }
+
+    .sidebar-toggle .material-symbols-outlined {
+        font-size: 22px;
+    }
+
+    .topbar {
+        gap: 8px;
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .search-box {
+        flex: 1 1 0;
+        width: auto;
+        height: 36px;
+        gap: 6px;
+        padding: 0 10px;
+    }
+
+    .search-box input {
+        font-size: 12px;
+    }
+
+    .topbar-right {
+        flex: 0 0 auto;
+        gap: 7px;
+    }
+
+    .notification-btn {
+        flex-basis: 34px;
+        width: 34px;
+        height: 34px;
+    }
+
+    .notification-btn .material-symbols-outlined {
+        font-size: 18px;
+    }
+
+    .user-info {
+        display: none;
+    }
+
+    .user-avatar {
+        flex-basis: 34px;
+        width: 34px;
+        height: 34px;
+        min-width: 34px;
+        min-height: 34px;
+    }
+
+    .footer {
+        padding: 18px 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    body,
+    .sidebar,
+    .sidebar-overlay,
+    .sidebar-toggle,
+    .sidebar-close,
+    .topbar,
+    .footer,
+    .search-box,
+    .notification-btn,
+    .semester-card {
+        transition: none;
+    }
+}
+
+
+/* Thông báo khi chọn học kỳ chưa có dữ liệu */
+.semester-notice {
+    text-align: center;
+}
+.semester-notice-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: var(--primary-light, #e0f2fe);
+    color: var(--primary-dark, #006591);
+}
+.semester-notice-icon .material-symbols-outlined {
+    font-size: 29px;
+}
+.semester-notice .semester-modal-description {
+    margin-top: 12px;
+    margin-bottom: 0;
+    line-height: 1.6;
+}
+.semester-notice .semester-modal-actions {
+    justify-content: center;
+}
+.semester-modal {
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+}
+.semester-modal-hint {
+    margin-top: 14px;
+    color: var(--text-secondary, #64748b);
+    font-size: 12px;
+    line-height: 1.5;
+}
+.semester-modal input[readonly] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border, #d9e0ea);
+    border-radius: 10px;
+    background: var(--surface-soft, #eff4ff);
+    color: var(--text, #183b56);
+}
+@media (max-width: 480px) {
+    .semester-modal { padding: 20px; border-radius: 14px; }
+    .semester-modal-actions { flex-wrap: wrap; }
+    .semester-modal-actions button { flex: 1 1 auto; }
+}
+
+
+/* Thông báo nổi khi lưu học kỳ */
+.save-toast {
+    position: fixed;
+    top: 24px;
+    left: 50%;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: max-content;
+    max-width: calc(100% - 32px);
+    padding: 14px 22px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: var(--white);
+    color: var(--text);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.15);
+    opacity: 0;
+    visibility: hidden;
+    transform: translate(-50%, -20px);
+    transition: opacity 0.3s ease,
+                transform 0.3s ease,
+                visibility 0.3s ease;
+    pointer-events: none;
+}
+
+.save-toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.save-toast .toast-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.save-toast .toast-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.save-toast .toast-title {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.save-toast .toast-message {
+    color: var(--text-secondary);
+    font-size: 12px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .save-toast {
+        transition: none;
+    }
+}

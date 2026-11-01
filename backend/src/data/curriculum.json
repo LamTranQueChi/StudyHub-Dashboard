@@ -1,0 +1,1721 @@
+{
+  "source_file": "ChuongTrinhDaoTao.xlsx",
+  "semesters": [
+    {
+      "source_term": 1,
+      "school_year": "2024-2025",
+      "label": "Học kỳ 1 - Năm học 2024 - 2025",
+      "courses": [
+        {
+          "code": "190081",
+          "name": "Học phần I: Đường lối QP và an ninh của ĐCSVN",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 1,
+            "Mã MH": 190081,
+            "Tên môn học": "Học phần I: Đường lối QP và an ninh của ĐCSVN",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 45,
+            "lý thuyết": 37,
+            "thực hành": 0
+          }
+        },
+        {
+          "code": "190083",
+          "name": "Học phần III: Quân sự chung",
+          "credits": 1,
+          "tuition_credits": 1,
+          "source_data": {
+            "STT": 2,
+            "Mã MH": 190083,
+            "Tên môn học": "Học phần III: Quân sự chung",
+            "Số tín chỉ": 1,
+            "Số tín chỉ học phí": 1,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 30,
+            "lý thuyết": 14,
+            "thực hành": 16
+          }
+        },
+        {
+          "code": "190084",
+          "name": "Học phần IV: Kỹ thuật chiến đấu bộ binh và chiến thuật",
+          "credits": 2,
+          "tuition_credits": 2,
+          "source_data": {
+            "STT": 3,
+            "Mã MH": 190084,
+            "Tên môn học": "Học phần IV: Kỹ thuật chiến đấu bộ binh và chiến thuật",
+            "Số tín chỉ": 2,
+            "Số tín chỉ học phí": 2,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 60,
+            "lý thuyết": 4,
+            "thực hành": 56
+          }
+        },
+        {
+          "code": "220228",
+          "name": "Kỹ thuật lập trình",
+          "credits": 4,
+          "tuition_credits": 4,
+          "source_data": {
+            "STT": 4,
+            "Mã MH": 220228,
+            "Tên môn học": "Kỹ thuật lập trình",
+            "Số tín chỉ": 4,
+            "Số tín chỉ học phí": 4,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 90,
+            "lý thuyết": 30,
+            "thực hành": 60
+          }
+        },
+        {
+          "code": "410291",
+          "name": "Anh văn không chuyên 1",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 5,
+            "Mã MH": 410291,
+            "Tên môn học": "Anh văn không chuyên 1",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        }
+      ],
+      "sequence_no": 1
+    },
+    {
+      "source_term": 2,
+      "school_year": "2024-2025",
+      "label": "Học kỳ 2 - Năm học 2024 - 2025",
+      "courses": [
+        {
+          "code": "150003",
+          "name": "Kỹ năng mềm - Xây dựng Hồ sơ năng lực điện tử",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 1,
+            "Mã MH": 150003,
+            "Tên môn học": "Kỹ năng mềm - Xây dựng Hồ sơ năng lực điện tử",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150004",
+          "name": "Kỹ năng mềm - Đàm phán",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 2,
+            "Mã MH": 150004,
+            "Tên môn học": "Kỹ năng mềm - Đàm phán",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150005",
+          "name": "Kỹ năng mềm - Giải quyết vấn đề",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 3,
+            "Mã MH": 150005,
+            "Tên môn học": "Kỹ năng mềm - Giải quyết vấn đề",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150006",
+          "name": "Kỹ năng mềm - Giao tiếp",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 4,
+            "Mã MH": 150006,
+            "Tên môn học": "Kỹ năng mềm - Giao tiếp",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150007",
+          "name": "Kỹ năng mềm - Kiểm soát sự căng thẳng",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 5,
+            "Mã MH": 150007,
+            "Tên môn học": "Kỹ năng mềm - Kiểm soát sự căng thẳng",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150008",
+          "name": "Kỹ năng mềm - Làm việc nhóm",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 6,
+            "Mã MH": 150008,
+            "Tên môn học": "Kỹ năng mềm - Làm việc nhóm",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150010",
+          "name": "Kỹ năng mềm - Quản lý tài chính cá nhân",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 7,
+            "Mã MH": 150010,
+            "Tên môn học": "Kỹ năng mềm - Quản lý tài chính cá nhân",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150011",
+          "name": "Kỹ năng mềm - Quản lý thời gian và tổ chức công việc",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 8,
+            "Mã MH": 150011,
+            "Tên môn học": "Kỹ năng mềm - Quản lý thời gian và tổ chức công việc",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150012",
+          "name": "Kỹ năng mềm - Thuyết trình",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 9,
+            "Mã MH": 150012,
+            "Tên môn học": "Kỹ năng mềm - Thuyết trình",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150013",
+          "name": "Kỹ năng mềm - Tìm kiếm thông tin và đọc hiểu tài liệu",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 10,
+            "Mã MH": 150013,
+            "Tên môn học": "Kỹ năng mềm - Tìm kiếm thông tin và đọc hiểu tài liệu",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150014",
+          "name": "Kỹ năng mềm - Tư duy phản biện",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 11,
+            "Mã MH": 150014,
+            "Tên môn học": "Kỹ năng mềm - Tư duy phản biện",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150015",
+          "name": "Kỹ năng mềm - Tư duy sáng tạo",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 12,
+            "Mã MH": 150015,
+            "Tên môn học": "Kỹ năng mềm - Tư duy sáng tạo",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150016",
+          "name": "Kỹ năng mềm - Bảo vệ môi trường",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 13,
+            "Mã MH": 150016,
+            "Tên môn học": "Kỹ năng mềm - Bảo vệ môi trường",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "150018",
+          "name": "Kỹ năng mềm – Khởi nghiệp",
+          "credits": 0.67,
+          "tuition_credits": 0.67,
+          "source_data": {
+            "STT": 14,
+            "Mã MH": 150018,
+            "Tên môn học": "Kỹ năng mềm – Khởi nghiệp",
+            "Số tín chỉ": 0.67,
+            "Số tín chỉ học phí": 0.67,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 15,
+            "lý thuyết": 5,
+            "thực hành": 10
+          }
+        },
+        {
+          "code": "410292",
+          "name": "Anh văn không chuyên 2",
+          "credits": 4,
+          "tuition_credits": 4,
+          "source_data": {
+            "STT": 15,
+            "Mã MH": 410292,
+            "Tên môn học": "Anh văn không chuyên 2",
+            "Số tín chỉ": 4,
+            "Số tín chỉ học phí": 4,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 90,
+            "lý thuyết": 30,
+            "thực hành": 60
+          }
+        }
+      ],
+      "sequence_no": 2
+    },
+    {
+      "source_term": 1,
+      "school_year": "2025-2026",
+      "label": "Học kỳ 1 - Năm học 2025 - 2026",
+      "courses": [
+        {
+          "code": "410293",
+          "name": "Anh văn không chuyên 3",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 1,
+            "Mã MH": 410293,
+            "Tên môn học": "Anh văn không chuyên 3",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        }
+      ],
+      "sequence_no": 3
+    },
+    {
+      "source_term": 2,
+      "school_year": "2025-2026",
+      "label": "Học kỳ 2 - Năm học 2025 - 2026",
+      "courses": [
+        {
+          "code": "120004",
+          "name": "Vật lý đại cương",
+          "credits": 2,
+          "tuition_credits": 2,
+          "source_data": {
+            "STT": 1,
+            "Mã MH": 120004,
+            "Tên môn học": "Vật lý đại cương",
+            "Số tín chỉ": 2,
+            "Số tín chỉ học phí": 2,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 45,
+            "lý thuyết": 15,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220236",
+          "name": "Thiết kế Web",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 2,
+            "Mã MH": 220236,
+            "Tên môn học": "Thiết kế Web",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220237",
+          "name": "Lý thuyết xếp hàng",
+          "credits": 2,
+          "tuition_credits": 2,
+          "source_data": {
+            "STT": 3,
+            "Mã MH": 220237,
+            "Tên môn học": "Lý thuyết xếp hàng",
+            "Số tín chỉ": 2,
+            "Số tín chỉ học phí": 2,
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 45,
+            "lý thuyết": 15,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "410294",
+          "name": "Anh văn không chuyên 4",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 4,
+            "Mã MH": 410294,
+            "Tên môn học": "Anh văn không chuyên 4",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Môn học đã học và đạt": "x",
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        }
+      ],
+      "sequence_no": 4
+    },
+    {
+      "source_term": 1,
+      "school_year": "2026-2027",
+      "label": "Học kỳ 1 - Năm học 2026 - 2027",
+      "courses": [
+        {
+          "code": "180001",
+          "name": "Tư tưởng Hồ Chí Minh",
+          "credits": 2,
+          "tuition_credits": 2,
+          "source_data": {
+            "STT": 1,
+            "Mã MH": 180001,
+            "Tên môn học": "Tư tưởng Hồ Chí Minh",
+            "Số tín chỉ": 2,
+            "Số tín chỉ học phí": 2,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 30,
+            "lý thuyết": 30,
+            "thực hành": 0
+          }
+        },
+        {
+          "code": "220239",
+          "name": "Phân tích và thiết kế hệ thống thông tin",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 2,
+            "Mã MH": 220239,
+            "Tên môn học": "Phân tích và thiết kế hệ thống thông tin",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220241",
+          "name": "Đồ họa ứng dụng",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 3,
+            "Mã MH": 220241,
+            "Tên môn học": "Đồ họa ứng dụng",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220265",
+          "name": "Thực tập đồ án cơ sở ngành",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 4,
+            "Mã MH": 220265,
+            "Tên môn học": "Thực tập đồ án cơ sở ngành",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 6,
+            "lý thuyết": 0,
+            "thực hành": 0
+          }
+        },
+        {
+          "code": "220267",
+          "name": "Điện toán đám mây",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 5,
+            "Mã MH": 220267,
+            "Tên môn học": "Điện toán đám mây",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        }
+      ],
+      "sequence_no": 5
+    },
+    {
+      "source_term": 2,
+      "school_year": "2026-2027",
+      "label": "Học kỳ 2 - Năm học 2026 - 2027",
+      "courses": [
+        {
+          "code": "180053",
+          "name": "Lịch sử Đảng Cộng sản Việt Nam",
+          "credits": 2,
+          "tuition_credits": 2,
+          "source_data": {
+            "STT": 1,
+            "Mã MH": 180053,
+            "Tên môn học": "Lịch sử Đảng Cộng sản Việt Nam",
+            "Số tín chỉ": 2,
+            "Số tín chỉ học phí": 2,
+            "Môn bắt buộc": "x",
+            "Đã học": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 30,
+            "lý thuyết": 30,
+            "thực hành": 0
+          }
+        },
+        {
+          "code": "220126",
+          "name": "An toàn và bảo mật thông tin",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 2,
+            "Mã MH": 220126,
+            "Tên môn học": "An toàn và bảo mật thông tin",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220242",
+          "name": "Cơ sở trí tuệ nhân tạo",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 3,
+            "Mã MH": 220242,
+            "Tên môn học": "Cơ sở trí tuệ nhân tạo",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220269",
+          "name": "Khai phá dữ liệu",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 4,
+            "Mã MH": 220269,
+            "Tên môn học": "Khai phá dữ liệu",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "430000",
+          "name": "Nguyên lý kế toán",
+          "credits": 2,
+          "tuition_credits": 2,
+          "source_data": {
+            "STT": 5,
+            "Mã MH": 430000,
+            "Tên môn học": "Nguyên lý kế toán",
+            "Số tín chỉ": 2,
+            "Số tín chỉ học phí": 2,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 45,
+            "lý thuyết": 15,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "450006",
+          "name": "Tâm lý học đại cương",
+          "credits": 2,
+          "tuition_credits": 2,
+          "source_data": {
+            "STT": 6,
+            "Mã MH": 450006,
+            "Tên môn học": "Tâm lý học đại cương",
+            "Số tín chỉ": 2,
+            "Số tín chỉ học phí": 2,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 45,
+            "lý thuyết": 15,
+            "thực hành": 30
+          }
+        }
+      ],
+      "sequence_no": 6
+    },
+    {
+      "source_term": 1,
+      "school_year": "2027-2028",
+      "label": "Học kỳ 1 - Năm học 2027 - 2028",
+      "courses": [
+        {
+          "code": "220057",
+          "name": "Xử lý ảnh",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 1,
+            "Mã MH": 220057,
+            "Tên môn học": "Xử lý ảnh",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220243",
+          "name": "Phát triển ứng dụng Web với mã nguồn mở",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 2,
+            "Mã MH": 220243,
+            "Tên môn học": "Phát triển ứng dụng Web với mã nguồn mở",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220245",
+          "name": "Tương tác người - máy",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 3,
+            "Mã MH": 220245,
+            "Tên môn học": "Tương tác người - máy",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220248",
+          "name": "Máy học ứng dụng",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 4,
+            "Mã MH": 220248,
+            "Tên môn học": "Máy học ứng dụng",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 60,
+            "lý thuyết": 30,
+            "thực hành": 30
+          }
+        },
+        {
+          "code": "220266",
+          "name": "Thực tập đồ án chuyên ngành",
+          "credits": 3,
+          "tuition_credits": 3,
+          "source_data": {
+            "STT": 5,
+            "Mã MH": 220266,
+            "Tên môn học": "Thực tập đồ án chuyên ngành",
+            "Số tín chỉ": 3,
+            "Số tín chỉ học phí": 3,
+            "Môn bắt buộc": "x",
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 6,
+            "lý thuyết": 0,
+            "thực hành": 0
+          }
+        }
+      ],
+      "sequence_no": 7
+    },
+    {
+      "source_term": 2,
+      "school_year": "2027-2028",
+      "label": "Học kỳ 2 - Năm học 2027 - 2028",
+      "courses": [
+        {
+          "code": "2",
+          "name": "Đồ án tốt nghiệp",
+          "credits": 7,
+          "tuition_credits": 7,
+          "source_data": {
+            "STT": 1,
+            "Mã MH": 2,
+            "Tên môn học": "Đồ án tốt nghiệp",
+            "Số tín chỉ": 7,
+            "Số tín chỉ học phí": 7,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 0,
+            "lý thuyết": 0,
+            "thực hành": 0
+          }
+        },
+        {
+          "code": "220027",
+          "name": "Quản trị mạng",
+          "credits": 4,
+          "tuition_credits": 4,
+          "source_data": {
+            "STT": 2,
+            "Mã MH": 220027,
+            "Tên môn học": "Quản trị mạng",
+            "Số tín chỉ": 4,
+            "Số tín chỉ học phí": 4,
+            "Số tín chỉ tối thiểu": 0,
+            "Số tín chỉ tối đa": 0,
+            "Tổng tiết": 90,
+            "lý thuyết": 30,
+            "thực hành": 60
+          }
+        }
+      ],
+      "sequence_no": 8
+    }
+  ],
+  "courses": [
+    {
+      "code": "190081",
+      "name": "Học phần I: Đường lối QP và an ninh của ĐCSVN",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 1,
+        "Mã MH": 190081,
+        "Tên môn học": "Học phần I: Đường lối QP và an ninh của ĐCSVN",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 45,
+        "lý thuyết": 37,
+        "thực hành": 0
+      }
+    },
+    {
+      "code": "190083",
+      "name": "Học phần III: Quân sự chung",
+      "credits": 1,
+      "tuition_credits": 1,
+      "source_data": {
+        "STT": 2,
+        "Mã MH": 190083,
+        "Tên môn học": "Học phần III: Quân sự chung",
+        "Số tín chỉ": 1,
+        "Số tín chỉ học phí": 1,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 30,
+        "lý thuyết": 14,
+        "thực hành": 16
+      }
+    },
+    {
+      "code": "190084",
+      "name": "Học phần IV: Kỹ thuật chiến đấu bộ binh và chiến thuật",
+      "credits": 2,
+      "tuition_credits": 2,
+      "source_data": {
+        "STT": 3,
+        "Mã MH": 190084,
+        "Tên môn học": "Học phần IV: Kỹ thuật chiến đấu bộ binh và chiến thuật",
+        "Số tín chỉ": 2,
+        "Số tín chỉ học phí": 2,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 60,
+        "lý thuyết": 4,
+        "thực hành": 56
+      }
+    },
+    {
+      "code": "220228",
+      "name": "Kỹ thuật lập trình",
+      "credits": 4,
+      "tuition_credits": 4,
+      "source_data": {
+        "STT": 4,
+        "Mã MH": 220228,
+        "Tên môn học": "Kỹ thuật lập trình",
+        "Số tín chỉ": 4,
+        "Số tín chỉ học phí": 4,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 90,
+        "lý thuyết": 30,
+        "thực hành": 60
+      }
+    },
+    {
+      "code": "410291",
+      "name": "Anh văn không chuyên 1",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 5,
+        "Mã MH": 410291,
+        "Tên môn học": "Anh văn không chuyên 1",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "150003",
+      "name": "Kỹ năng mềm - Xây dựng Hồ sơ năng lực điện tử",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 1,
+        "Mã MH": 150003,
+        "Tên môn học": "Kỹ năng mềm - Xây dựng Hồ sơ năng lực điện tử",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150004",
+      "name": "Kỹ năng mềm - Đàm phán",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 2,
+        "Mã MH": 150004,
+        "Tên môn học": "Kỹ năng mềm - Đàm phán",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150005",
+      "name": "Kỹ năng mềm - Giải quyết vấn đề",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 3,
+        "Mã MH": 150005,
+        "Tên môn học": "Kỹ năng mềm - Giải quyết vấn đề",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150006",
+      "name": "Kỹ năng mềm - Giao tiếp",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 4,
+        "Mã MH": 150006,
+        "Tên môn học": "Kỹ năng mềm - Giao tiếp",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150007",
+      "name": "Kỹ năng mềm - Kiểm soát sự căng thẳng",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 5,
+        "Mã MH": 150007,
+        "Tên môn học": "Kỹ năng mềm - Kiểm soát sự căng thẳng",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150008",
+      "name": "Kỹ năng mềm - Làm việc nhóm",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 6,
+        "Mã MH": 150008,
+        "Tên môn học": "Kỹ năng mềm - Làm việc nhóm",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150010",
+      "name": "Kỹ năng mềm - Quản lý tài chính cá nhân",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 7,
+        "Mã MH": 150010,
+        "Tên môn học": "Kỹ năng mềm - Quản lý tài chính cá nhân",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150011",
+      "name": "Kỹ năng mềm - Quản lý thời gian và tổ chức công việc",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 8,
+        "Mã MH": 150011,
+        "Tên môn học": "Kỹ năng mềm - Quản lý thời gian và tổ chức công việc",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150012",
+      "name": "Kỹ năng mềm - Thuyết trình",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 9,
+        "Mã MH": 150012,
+        "Tên môn học": "Kỹ năng mềm - Thuyết trình",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150013",
+      "name": "Kỹ năng mềm - Tìm kiếm thông tin và đọc hiểu tài liệu",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 10,
+        "Mã MH": 150013,
+        "Tên môn học": "Kỹ năng mềm - Tìm kiếm thông tin và đọc hiểu tài liệu",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150014",
+      "name": "Kỹ năng mềm - Tư duy phản biện",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 11,
+        "Mã MH": 150014,
+        "Tên môn học": "Kỹ năng mềm - Tư duy phản biện",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150015",
+      "name": "Kỹ năng mềm - Tư duy sáng tạo",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 12,
+        "Mã MH": 150015,
+        "Tên môn học": "Kỹ năng mềm - Tư duy sáng tạo",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150016",
+      "name": "Kỹ năng mềm - Bảo vệ môi trường",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 13,
+        "Mã MH": 150016,
+        "Tên môn học": "Kỹ năng mềm - Bảo vệ môi trường",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "150018",
+      "name": "Kỹ năng mềm – Khởi nghiệp",
+      "credits": 0.67,
+      "tuition_credits": 0.67,
+      "source_data": {
+        "STT": 14,
+        "Mã MH": 150018,
+        "Tên môn học": "Kỹ năng mềm – Khởi nghiệp",
+        "Số tín chỉ": 0.67,
+        "Số tín chỉ học phí": 0.67,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 15,
+        "lý thuyết": 5,
+        "thực hành": 10
+      }
+    },
+    {
+      "code": "410292",
+      "name": "Anh văn không chuyên 2",
+      "credits": 4,
+      "tuition_credits": 4,
+      "source_data": {
+        "STT": 15,
+        "Mã MH": 410292,
+        "Tên môn học": "Anh văn không chuyên 2",
+        "Số tín chỉ": 4,
+        "Số tín chỉ học phí": 4,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 90,
+        "lý thuyết": 30,
+        "thực hành": 60
+      }
+    },
+    {
+      "code": "410293",
+      "name": "Anh văn không chuyên 3",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 1,
+        "Mã MH": 410293,
+        "Tên môn học": "Anh văn không chuyên 3",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "120004",
+      "name": "Vật lý đại cương",
+      "credits": 2,
+      "tuition_credits": 2,
+      "source_data": {
+        "STT": 1,
+        "Mã MH": 120004,
+        "Tên môn học": "Vật lý đại cương",
+        "Số tín chỉ": 2,
+        "Số tín chỉ học phí": 2,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 45,
+        "lý thuyết": 15,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220236",
+      "name": "Thiết kế Web",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 2,
+        "Mã MH": 220236,
+        "Tên môn học": "Thiết kế Web",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220237",
+      "name": "Lý thuyết xếp hàng",
+      "credits": 2,
+      "tuition_credits": 2,
+      "source_data": {
+        "STT": 3,
+        "Mã MH": 220237,
+        "Tên môn học": "Lý thuyết xếp hàng",
+        "Số tín chỉ": 2,
+        "Số tín chỉ học phí": 2,
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 45,
+        "lý thuyết": 15,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "410294",
+      "name": "Anh văn không chuyên 4",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 4,
+        "Mã MH": 410294,
+        "Tên môn học": "Anh văn không chuyên 4",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Môn học đã học và đạt": "x",
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "180001",
+      "name": "Tư tưởng Hồ Chí Minh",
+      "credits": 2,
+      "tuition_credits": 2,
+      "source_data": {
+        "STT": 1,
+        "Mã MH": 180001,
+        "Tên môn học": "Tư tưởng Hồ Chí Minh",
+        "Số tín chỉ": 2,
+        "Số tín chỉ học phí": 2,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 30,
+        "lý thuyết": 30,
+        "thực hành": 0
+      }
+    },
+    {
+      "code": "220239",
+      "name": "Phân tích và thiết kế hệ thống thông tin",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 2,
+        "Mã MH": 220239,
+        "Tên môn học": "Phân tích và thiết kế hệ thống thông tin",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220241",
+      "name": "Đồ họa ứng dụng",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 3,
+        "Mã MH": 220241,
+        "Tên môn học": "Đồ họa ứng dụng",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220265",
+      "name": "Thực tập đồ án cơ sở ngành",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 4,
+        "Mã MH": 220265,
+        "Tên môn học": "Thực tập đồ án cơ sở ngành",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 6,
+        "lý thuyết": 0,
+        "thực hành": 0
+      }
+    },
+    {
+      "code": "220267",
+      "name": "Điện toán đám mây",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 5,
+        "Mã MH": 220267,
+        "Tên môn học": "Điện toán đám mây",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "180053",
+      "name": "Lịch sử Đảng Cộng sản Việt Nam",
+      "credits": 2,
+      "tuition_credits": 2,
+      "source_data": {
+        "STT": 1,
+        "Mã MH": 180053,
+        "Tên môn học": "Lịch sử Đảng Cộng sản Việt Nam",
+        "Số tín chỉ": 2,
+        "Số tín chỉ học phí": 2,
+        "Môn bắt buộc": "x",
+        "Đã học": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 30,
+        "lý thuyết": 30,
+        "thực hành": 0
+      }
+    },
+    {
+      "code": "220126",
+      "name": "An toàn và bảo mật thông tin",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 2,
+        "Mã MH": 220126,
+        "Tên môn học": "An toàn và bảo mật thông tin",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220242",
+      "name": "Cơ sở trí tuệ nhân tạo",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 3,
+        "Mã MH": 220242,
+        "Tên môn học": "Cơ sở trí tuệ nhân tạo",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220269",
+      "name": "Khai phá dữ liệu",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 4,
+        "Mã MH": 220269,
+        "Tên môn học": "Khai phá dữ liệu",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "430000",
+      "name": "Nguyên lý kế toán",
+      "credits": 2,
+      "tuition_credits": 2,
+      "source_data": {
+        "STT": 5,
+        "Mã MH": 430000,
+        "Tên môn học": "Nguyên lý kế toán",
+        "Số tín chỉ": 2,
+        "Số tín chỉ học phí": 2,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 45,
+        "lý thuyết": 15,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "450006",
+      "name": "Tâm lý học đại cương",
+      "credits": 2,
+      "tuition_credits": 2,
+      "source_data": {
+        "STT": 6,
+        "Mã MH": 450006,
+        "Tên môn học": "Tâm lý học đại cương",
+        "Số tín chỉ": 2,
+        "Số tín chỉ học phí": 2,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 45,
+        "lý thuyết": 15,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220057",
+      "name": "Xử lý ảnh",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 1,
+        "Mã MH": 220057,
+        "Tên môn học": "Xử lý ảnh",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220243",
+      "name": "Phát triển ứng dụng Web với mã nguồn mở",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 2,
+        "Mã MH": 220243,
+        "Tên môn học": "Phát triển ứng dụng Web với mã nguồn mở",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220245",
+      "name": "Tương tác người - máy",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 3,
+        "Mã MH": 220245,
+        "Tên môn học": "Tương tác người - máy",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220248",
+      "name": "Máy học ứng dụng",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 4,
+        "Mã MH": 220248,
+        "Tên môn học": "Máy học ứng dụng",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 60,
+        "lý thuyết": 30,
+        "thực hành": 30
+      }
+    },
+    {
+      "code": "220266",
+      "name": "Thực tập đồ án chuyên ngành",
+      "credits": 3,
+      "tuition_credits": 3,
+      "source_data": {
+        "STT": 5,
+        "Mã MH": 220266,
+        "Tên môn học": "Thực tập đồ án chuyên ngành",
+        "Số tín chỉ": 3,
+        "Số tín chỉ học phí": 3,
+        "Môn bắt buộc": "x",
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 6,
+        "lý thuyết": 0,
+        "thực hành": 0
+      }
+    },
+    {
+      "code": "2",
+      "name": "Đồ án tốt nghiệp",
+      "credits": 7,
+      "tuition_credits": 7,
+      "source_data": {
+        "STT": 1,
+        "Mã MH": 2,
+        "Tên môn học": "Đồ án tốt nghiệp",
+        "Số tín chỉ": 7,
+        "Số tín chỉ học phí": 7,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 0,
+        "lý thuyết": 0,
+        "thực hành": 0
+      }
+    },
+    {
+      "code": "220027",
+      "name": "Quản trị mạng",
+      "credits": 4,
+      "tuition_credits": 4,
+      "source_data": {
+        "STT": 2,
+        "Mã MH": 220027,
+        "Tên môn học": "Quản trị mạng",
+        "Số tín chỉ": 4,
+        "Số tín chỉ học phí": 4,
+        "Số tín chỉ tối thiểu": 0,
+        "Số tín chỉ tối đa": 0,
+        "Tổng tiết": 90,
+        "lý thuyết": 30,
+        "thực hành": 60
+      }
+    }
+  ]
+}

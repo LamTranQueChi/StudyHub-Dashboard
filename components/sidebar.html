@@ -1,0 +1,64 @@
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-top">
+        <div class="brand">
+            <div class="brand-icon">
+                <span class="material-symbols-outlined">school</span>
+            </div>
+            <div class="brand-text">
+                <h2>StudyHub</h2>
+                <span>STUDENT PORTAL</span>
+            </div>
+            <!-- Nút X đóng sidebar, chỉ hiện khi màn hình <= 900px -->
+            <button class="sidebar-close" id="sidebarClose" type="button" aria-label="Đóng menu">
+                <span class="material-symbols-outlined" aria-hidden="true">close</span>
+            </button>
+        </div>
+        <nav class="sidebar-nav" aria-label="Điều hướng chính">
+            <a href="dashboard.html" class="nav-link" data-page="tong-quan">
+                <span class="material-symbols-outlined">dashboard</span>
+                <span>Tổng quan</span>
+            </a>
+            <a href="sinhvien.html" class="nav-link" data-page="sinh-vien">
+                <span class="material-symbols-outlined">group</span>
+                <span>Sinh viên</span>
+            </a>
+            <a href="monhoc.html" class="nav-link" data-page="mon-hoc">
+                <span class="material-symbols-outlined">menu_book</span>
+                <span>Môn học</span>
+            </a>
+            <a href="baitap.html" class="nav-link" data-page="bai-tap">
+                <span class="material-symbols-outlined">assignment</span>
+                <span>Bài tập</span>
+            </a>
+            <a href="lichhoc.html" class="nav-link" data-page="lich-hoc">
+                <span class="material-symbols-outlined">calendar_month</span>
+                <span>Lịch học</span>
+            </a>
+            <a href="caidat.html" class="nav-link" data-page="cai-dat">
+                <span class="material-symbols-outlined">settings</span>
+                <span>Cài đặt</span>
+            </a>
+        </nav>
+    </div>
+    <button type="button" class="semester-card" id="semesterCard"
+            aria-label="Chỉnh sửa thông tin học kỳ"
+            title="Nhấn để chỉnh sửa học kỳ">
+        <span class="semester-icon">
+            <span class="material-symbols-outlined">verified</span>
+        </span>
+        <span class="semester-info">
+            <strong id="sidebarSemester">Học kỳ II</strong>
+            <span id="sidebarSchoolYear">Năm học 2024-2025</span>
+        </span>
+        <span class="material-symbols-outlined semester-edit-icon"
+              aria-hidden="true">edit</span>
+    </button>
+</aside>
+<!-- Thông báo nổi khi lưu học kỳ -->
+<div id="saveToast" class="save-toast" role="status" aria-live="polite">
+    <span class="toast-icon material-symbols-outlined">check_circle</span>
+    <div class="toast-content">
+        <span class="toast-title">Lưu thành công!</span>
+        <span class="toast-message">Thông tin học kỳ đã được cập nhật.</span>
+    </div>
+</div>

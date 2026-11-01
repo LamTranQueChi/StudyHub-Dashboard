@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyHub - Hồ sơ sinh viên</title>
+
+    <!-- Thư viện phổ biến: Google Fonts và Material Symbols -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <!-- CSS chung của dự án và CSS riêng trang hồ sơ -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/sinhvien.css">
+</head>
+<body>
+    <div id="sidebar-container"></div>
+
+    <div class="main-layout">
+        <div id="topbar-container"></div>
+
+        <main class="student-page">
+            <div class="student-content">
+
+                <section class="page-heading-card">
+                    <div class="heading-left">
+                        <div class="heading-icon">
+                            <span class="material-symbols-outlined">badge</span>
+                        </div>
+                        <div>
+                            <h1>Hồ sơ sinh viên</h1>
+                            <p>Tra cứu thông tin học tập, bảng điểm và tiến độ học kỳ</p>
+                        </div>
+                    </div>
+
+                    <label class="student-select-wrap" for="studentSelect">
+                        <span class="material-symbols-outlined">switch_account</span>
+                        <span class="select-label">Hồ sơ:</span>
+                        <select id="studentSelect" aria-label="Hồ sơ sinh viên"><option value="SV001" selected>Lâm Trần Quế Chi (SV001)</option></select>
+                    </label>
+                </section>
+
+                <section class="student-summary">
+                    <article class="profile-card">
+                        <div class="profile-main">
+                            <div class="avatar-wrap">
+                                <img id="studentAvatar" src="../assets/images/avatar_macdinh.jpg" alt="Ảnh đại diện sinh viên">
+                                <span class="verified-mark"><span class="material-symbols-outlined">check</span></span>
+                            </div>
+
+                            <div class="profile-details">
+                                <div class="profile-title-row">
+                                    <h2 id="studentName">Lâm Trần Quế Chi</h2>
+                                    <span class="study-status">Đang học</span>
+                                </div>
+                                <p class="student-code" id="studentCode">MSSV: SV001</p>
+                                <ul class="profile-facts">
+                                    <li><span class="material-symbols-outlined">groups</span><span>Lớp: <strong id="studentClass">DA24TTA</strong></span></li>
+                                    <li><span class="material-symbols-outlined">laptop_mac</span><span>Ngành học: <strong id="studentMajor">Công nghệ thông tin</strong></span></li>
+                                    <li><span class="material-symbols-outlined">mail</span><span>Email: <strong id="studentEmail">110124012@st.tyu.edu.vn</strong></span></li>
+                                    <li><span class="material-symbols-outlined">call</span><span>Số điện thoại: <strong id="studentPhone">0900000000</strong></span></li>
+                                    <li><span class="material-symbols-outlined">description</span><span>Giới thiệu: <strong id="studentBio">Sinh viên Công nghệ thông tin, quan tâm đến Frontend Development.</strong></span></li>
+                                    <li><span class="material-symbols-outlined">sticky_note_2</span><span>Ghi chú cá nhân: <strong id="studentProfileNote">Tui là sinh viên năm 3</strong></span></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="profile-status-bar">
+                            <div class="verified-text">
+                                <span class="material-symbols-outlined">verified_user</span>
+                                <span>Tình trạng hồ sơ: <strong>Đã xác thực</strong></span>
+                            </div>
+                            <button class="button button-primary" id="editProfileButton" type="button">
+                                <span class="material-symbols-outlined">edit</span> Cập nhật
+                            </button>
+                        </div>
+                    </article>
+
+                    <div class="stat-cards">
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <div class="stat-icon icon-blue"><span class="material-symbols-outlined">grade</span></div>
+                                <span class="stat-tag tag-green">Giỏi</span>
+                            </div>
+                            <div class="stat-body">
+                                <p>Điểm TB tích lũy</p>
+                                <div class="stat-number blue-number">8.1<span>/10</span></div>
+                            </div>
+                            <p class="stat-note note-green"><span class="material-symbols-outlined">trending_up</span> +0.3 so với HK trước</p>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <div class="stat-icon icon-green"><span class="material-symbols-outlined">auto_stories</span></div>
+                                <span class="stat-tag tag-blue">37%</span>
+                            </div>
+                            <div class="stat-body">
+                                <p>Tín chỉ hoàn thành</p>
+                                <div class="stat-number">48<span>/130</span></div>
+                            </div>
+                            <div class="mini-progress"><span></span></div>
+                        </article>
+
+                        <article class="stat-card">
+                            <div class="stat-top">
+                                <div class="stat-icon icon-red"><span class="material-symbols-outlined">event_available</span></div>
+                                <span class="stat-tag tag-blue">Chăm chỉ</span>
+                            </div>
+                            <div class="stat-body">
+                                <p>Tỷ lệ chuyên cần</p>
+                                <div class="stat-number red-number">96%</div>
+                            </div>
+                            <p class="stat-note"><span class="material-symbols-outlined">done_all</span> Vắng: 0 buổi có phép</p>
+                        </article>
+                    </div>
+                </section>
+
+                <section id="semesterGradeNotice" class="panel" hidden style="margin-bottom:18px;padding:22px;">
+                    <h2 id="semesterGradeNoticeTitle">Thông tin học kỳ</h2>
+                    <p id="semesterGradeNoticeText"></p>
+                </section>
+
+                <section class="academic-layout">
+                    <article class="panel grades-panel">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <div class="panel-icon icon-blue"><span class="material-symbols-outlined">checklist</span></div>
+                                <div>
+                                    <h2>Bảng điểm chi tiết học kỳ</h2>
+                                    <p id="gradeSemesterCaption">Đang tải kết quả học tập...</p>
+                                </div>
+                            </div>
+                            <button type="button" class="text-button" id="exportGradesButton">
+                                Xuất PDF <span class="material-symbols-outlined">download</span>
+                            </button>
+                        </div>
+
+                        <div class="table-wrap">
+                            <table class="grades-table">
+                                <thead>
+                                    <tr>
+                                        <th>Môn học</th>
+                                        <th>Số TC</th>
+                                        <th>Điểm tổng kết</th>
+                                        <th>Điểm chữ</th>
+                                        <th>Trạng thái</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="semesterGradesBody"><tr><td colspan="5">Đang tải bảng điểm...</td></tr></tbody>
+                            </table>
+                        </div>
+                    </article>
+
+                    <article class="panel chart-panel">
+                        <div class="panel-heading">
+                            <div class="panel-title">
+                                <div class="panel-icon icon-green"><span class="material-symbols-outlined">bar_chart</span></div>
+                                <div>
+                                    <h2>Phân bố điểm số</h2>
+                                    <p>So sánh phổ điểm theo từng môn</p>
+                                </div>
+                            </div>
+                            <span class="scale-tag">Thang điểm 10</span>
+                        </div>
+
+                        <div class="chart-box" id="semesterGradeChart">
+                            <div class="bar-chart" id="semesterGradeBars">
+                                <p class="chart-empty">Đang tải dữ liệu điểm...</p>
+                            </div>
+                            <div class="chart-legend" id="semesterGradeLegend"></div>
+                        </div>
+
+                        <div class="evaluation-box">
+                            <span class="material-symbols-outlined evaluation-icon">emoji_events</span>
+                            <div>
+                                <h3>Đánh giá chung học kỳ</h3>
+                                <p id="semesterGradeEvaluation">Đang tải nhận xét học kỳ...</p>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+            </div>
+        </main>
+
+        <div id="footer-container"></div>
+    </div>
+
+    <script src="../js/config.js"></script>
+  <script src="../js/auth.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/sinhvien.js"></script>
+    <script src="../js/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,1146 @@
+.schedule-page {
+    min-height: 100vh;
+    padding: 88px 26px 30px;
+    background: #f7f8ff;
+    color: #0b1c30;
+    font-family: "Nunito Sans", Arial, sans-serif;
+}
+
+.schedule-content {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+.schedule-page h1,
+.schedule-page h2,
+.schedule-page h3,
+.schedule-page p {
+    margin-top: 0;
+}
+
+.schedule-page-header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.schedule-heading {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    min-width: 0;
+}
+
+.semester-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    width: fit-content;
+    padding: 5px 14px;
+    border-radius: 20px;
+    background: #dce9ff;
+    color: #006591;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .4px;
+    text-transform: uppercase;
+}
+
+.semester-dot,
+.status-dot,
+.today-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    flex: 0 0 7px;
+    border-radius: 50%;
+    background: #00845f;
+}
+
+.schedule-page h1 {
+    margin-bottom: 0;
+    font-size: 30px;
+    line-height: 1.25;
+    font-weight: 800;
+    letter-spacing: -.5px;
+}
+
+.schedule-heading > p {
+    margin-bottom: 0;
+    color: #536171;
+    font-size: 13px;
+}
+
+.schedule-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    flex-shrink: 0;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 10px 17px;
+    border: 0;
+    border-radius: 24px;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background .2s ease, transform .2s ease;
+}
+
+.btn .material-symbols-outlined {
+    font-size: 17px;
+}
+
+.btn:active {
+    transform: scale(.98);
+}
+
+.btn-light {
+    color: #0b1c30;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(15, 35, 65, .04);
+}
+
+.btn-light:hover {
+    background: #eaf1ff;
+}
+
+.btn-primary {
+    color: #fff;
+    background: #0ca5e9;
+}
+
+.btn-primary:hover {
+    background: #078dcc;
+}
+
+.btn-success {
+    width: 100%;
+    color: #fff;
+    background: #00734f;
+}
+
+.btn-success:hover {
+    background: #005f41;
+}
+
+.btn-danger-soft {
+    color: #92002a;
+    background: #ffdadb;
+}
+
+.btn-danger-soft:hover {
+    background: #ffc8cc;
+}
+
+/* Buổi học nổi bật */
+.featured-class {
+    position: relative;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    gap: 26px;
+    padding: 26px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(14, 165, 233, .07);
+}
+
+.featured-class::before {
+    content: "";
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    left: -110px;
+    bottom: -150px;
+    border-radius: 50%;
+    background: rgba(108, 248, 187, .28);
+    filter: blur(30px);
+    pointer-events: none;
+}
+
+.featured-main {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+    min-width: 0;
+}
+
+.class-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 14px;
+    border-radius: 20px;
+    color: #005c3e;
+    background: #65f5bd;
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+.class-time {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: 10px;
+    color: #536171;
+    font-size: 12px;
+}
+
+.class-time .material-symbols-outlined {
+    font-size: 16px;
+}
+
+.featured-main h2 {
+    margin: 8px 0 12px;
+    font-size: 22px;
+    line-height: 1.3;
+}
+
+.class-details {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    min-width: 0;
+}
+
+.detail-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    border-radius: 50%;
+    color: #006591;
+    background: #dce9ff;
+}
+
+.detail-icon .material-symbols-outlined {
+    font-size: 20px;
+}
+
+.detail-item > div:last-child {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.detail-label {
+    color: #536171;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.detail-item strong {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.progress-section {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.progress-heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    color: #263446;
+    font-size: 11px;
+}
+
+.progress-heading strong {
+    color: #006591;
+}
+
+.progress-track {
+    width: 100%;
+    height: 9px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #e5eeff;
+}
+
+.progress-value {
+    width: 54%;
+    height: 100%;
+    border-radius: 20px;
+    background: #0ca5e9;
+}
+
+/* Thẻ điểm danh thay cho QR */
+.attendance-card {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 16px;
+    width: 31%;
+    min-width: 270px;
+    padding: 20px;
+    border-radius: 14px;
+    background: #eff4ff;
+}
+
+.attendance-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.attendance-card h3 {
+    margin-bottom: 0;
+    font-size: 13px;
+}
+
+.open-badge {
+    padding: 4px 9px;
+    border-radius: 20px;
+    color: #005c3e;
+    background: #65f5bd;
+    font-size: 10px;
+    font-weight: 800;
+    white-space: nowrap;
+}
+
+.attendance-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.attendance-symbol {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 76px;
+    height: 76px;
+    flex: 0 0 76px;
+    border-radius: 12px;
+    color: #006591;
+    background: #fff;
+}
+
+.attendance-symbol .material-symbols-outlined {
+    font-size: 40px;
+}
+
+.attendance-info strong {
+    font-size: 12px;
+}
+
+.attendance-info p {
+    margin: 5px 0 0;
+    color: #536171;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.attendance-message {
+    margin: 0;
+    color: #00734f;
+    font-size: 11px;
+}
+
+/* Bộ lọc ngày và tìm kiếm */
+.weekly-schedule {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.weekly-filter-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.day-filter-list {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    overflow-x: auto;
+    padding-bottom: 3px;
+}
+
+.day-filter-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    flex-shrink: 0;
+    padding: 9px 17px;
+    border: 0;
+    border-radius: 24px;
+    color: #263446;
+    background: #fff;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.day-filter-pill:hover {
+    background: #e5eeff;
+}
+
+.day-filter-pill.active {
+    color: #fff;
+    background: #0ca5e9;
+}
+
+.day-filter-pill.active .today-dot {
+    background: #fff;
+}
+
+.today-dot {
+    width: 6px;
+    height: 6px;
+    background: #006591;
+}
+
+.schedule-tools {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.schedule-search {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    width: min(100%, 340px);
+    height: 36px;
+    padding: 0 12px;
+    border-radius: 22px;
+    color: #536171;
+    background: #eff4ff;
+}
+
+.schedule-search .material-symbols-outlined {
+    font-size: 18px;
+}
+
+.schedule-search input {
+    width: 100%;
+    min-width: 0;
+    border: 0;
+    outline: 0;
+    color: #0b1c30;
+    background: transparent;
+    font-family: inherit;
+    font-size: 11px;
+}
+
+.view-switcher {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 4px;
+    border-radius: 24px;
+    background: #fff;
+}
+
+.view-switcher button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    border-radius: 50%;
+    color: #536171;
+    background: transparent;
+    cursor: pointer;
+}
+
+.view-switcher button.active {
+    color: #006591;
+    background: #dce9ff;
+}
+
+/* Danh sách buổi học */
+.schedule-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.schedule-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    min-width: 0;
+    padding: 15px 18px;
+    overflow: hidden;
+    border: 1px solid #edf0f7;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 2px 4px rgba(15, 35, 65, .025);
+    transition: box-shadow .2s ease, transform .2s ease;
+}
+
+.schedule-item:hover {
+    box-shadow: 0 5px 15px rgba(15, 35, 65, .06);
+    transform: translateY(-1px);
+}
+
+.schedule-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 5px;
+    background: #0ca5e9;
+}
+
+.schedule-item:nth-child(2)::before { background: #4edea3; }
+.schedule-item:nth-child(3)::before { background: #ffb2b7; }
+.schedule-item:nth-child(4)::before { background: #c9e6ff; }
+.schedule-item:nth-child(5)::before { background: #bec8d2; }
+
+.schedule-finished {
+    opacity: .82;
+}
+
+.date-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 68px;
+    padding: 6px 8px;
+    border-radius: 9px;
+    background: #eff4ff;
+    text-align: center;
+}
+
+.date-box span {
+    color: #006591;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.date-box strong {
+    font-size: 19px;
+    line-height: 1.2;
+}
+
+.time-box {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 118px;
+}
+
+.time-box strong {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.time-box strong .material-symbols-outlined {
+    font-size: 15px;
+}
+
+.time-box > span {
+    color: #536171;
+    font-size: 11px;
+}
+
+.lesson-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.lesson-title-row {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.lesson-info h3 {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.lesson-type {
+    padding: 3px 6px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.type-practice { color: #006591; background: #c9e6ff; }
+.type-theory { color: #005c3e; background: #65f5bd; }
+.type-lab { color: #92002a; background: #ffdadb; }
+.type-general { color: #536171; background: #e5eeff; }
+
+.lesson-info p {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin: 3px 0 0;
+    color: #536171;
+    font-size: 11px;
+}
+
+.lesson-info p .material-symbols-outlined {
+    font-size: 14px;
+}
+
+.meta-separator {
+    padding: 0 3px;
+    color: #b6c2d0;
+}
+
+.lesson-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.room-badge,
+.lesson-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    white-space: nowrap;
+}
+
+.room-badge {
+    color: #006591;
+    background: #dce9ff;
+}
+
+.room-badge .material-symbols-outlined,
+.lesson-status .material-symbols-outlined {
+    font-size: 14px;
+}
+
+.status-live {
+    color: #005c3e;
+    background: #65f5bd;
+}
+
+.status-live .status-dot {
+    background: #00845f;
+}
+
+.status-soon {
+    color: #006591;
+    background: #dce9ff;
+}
+
+.status-not-started,
+.status-finished {
+    color: #536171;
+    background: #e5eeff;
+}
+
+.more-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex: 0 0 30px;
+    border: 0;
+    border-radius: 50%;
+    color: #536171;
+    background: transparent;
+    cursor: pointer;
+}
+
+.more-button:hover {
+    background: #eff4ff;
+}
+
+.empty-message {
+    padding: 25px;
+    border-radius: 14px;
+    color: #536171;
+    background: #fff;
+    text-align: center;
+}
+
+/* Thẻ lưu ý và hỗ trợ */
+.guidance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+    padding-top: 2px;
+}
+
+.guidance-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 20px;
+    border: 1px solid #edf0f7;
+    border-radius: 18px;
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(0, 0, 0, .025);
+}
+
+.guidance-main {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.guidance-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    flex: 0 0 46px;
+    border-radius: 12px;
+}
+
+.guidance-icon .material-symbols-outlined {
+    font-size: 24px;
+}
+
+.blue-icon {
+    color: #006591;
+    background: #c9e6ff;
+}
+
+.red-icon {
+    color: #bc0b3b;
+    background: #ffdadb;
+}
+
+.guidance-card h3 {
+    margin: 0 0 5px;
+    font-size: 16px;
+}
+
+.guidance-card p {
+    margin-bottom: 0;
+    color: #536171;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.guidance-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.attendance-rate {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: #087d52;
+    font-size: 11px;
+}
+
+.attendance-rate .material-symbols-outlined {
+    font-size: 16px;
+}
+
+.text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    border: 0;
+    color: #006591;
+    background: transparent;
+    font-family: inherit;
+    font-size: 11px;
+    cursor: pointer;
+}
+
+.text-link .material-symbols-outlined {
+    font-size: 15px;
+}
+
+.hotline {
+    color: #536171;
+    font-size: 11px;
+}
+
+.hotline strong {
+    color: #0b1c30;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .schedule-page {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
+
+    .featured-class {
+        gap: 18px;
+        padding: 20px;
+    }
+
+    .schedule-item {
+        gap: 12px;
+    }
+
+    .lesson-actions {
+        gap: 6px;
+    }
+
+    .room-badge,
+    .lesson-status {
+        padding: 5px 8px;
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .schedule-page-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .schedule-header-actions {
+        flex-wrap: wrap;
+    }
+
+    .featured-class {
+        flex-direction: column;
+    }
+
+    .attendance-card {
+        width: 100%;
+        min-width: 0;
+    }
+
+    .schedule-item {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .lesson-info {
+        flex-basis: calc(100% - 220px);
+    }
+
+    .lesson-actions {
+        width: 100%;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+    }
+
+    .guidance-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .schedule-page {
+        padding: 76px 12px 24px;
+    }
+
+    .schedule-page h1 {
+        font-size: 25px;
+    }
+
+    .schedule-heading > p {
+        font-size: 12px;
+    }
+
+    .schedule-header-actions {
+        width: 100%;
+    }
+
+    .schedule-header-actions .btn {
+        flex: 1;
+        padding: 9px 10px;
+        font-size: 11px;
+    }
+
+    .featured-class {
+        padding: 16px;
+        border-radius: 15px;
+    }
+
+    .featured-main h2 {
+        font-size: 19px;
+    }
+
+    .class-time {
+        margin: 8px 0 0;
+    }
+
+    .class-details {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .attendance-card {
+        padding: 14px;
+    }
+
+    .schedule-tools {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .schedule-search {
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    .view-switcher {
+        align-self: flex-start;
+    }
+
+    .schedule-item {
+        gap: 10px;
+        padding: 14px 12px 14px 16px;
+    }
+
+    .date-box {
+        min-width: 60px;
+    }
+
+    .time-box {
+        min-width: calc(100% - 80px);
+    }
+
+    .lesson-info {
+        flex-basis: 100%;
+    }
+
+    .lesson-info h3 {
+        font-size: 13px;
+    }
+
+    .lesson-actions {
+        justify-content: flex-start;
+    }
+
+    .guidance-card {
+        padding: 16px;
+    }
+
+    .guidance-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media print {
+    .schedule-page {
+        padding: 10px;
+        background: #fff;
+    }
+
+    .schedule-header-actions,
+    .day-filter-list,
+    .schedule-tools,
+    .more-button,
+    #sidebar-container,
+    #topbar-container,
+    #footer-container {
+        display: none !important;
+    }
+
+    .featured-class,
+    .schedule-item,
+    .guidance-card {
+        break-inside: avoid;
+        box-shadow: none;
+    }
+}
+
+/* ==========================================
+   CHẾ ĐỘ TỐI - đặt cuối file CSS
+   Kích hoạt khi <html>/<body> có data-theme="dark",
+   class "dark" / "dark-mode", hoặc hệ điều hành đang bật dark
+   ========================================== */
+
+:is([data-theme="dark"], .dark, .dark-mode) .schedule-page {
+    --bg: #0b1220;
+    --surface: #151e2e;
+    --surface-2: #1d2940;
+    --border: #2a3750;
+    --text: #e8eef8;
+    --muted: #a3b1c6;
+    --subtle: #46556f;
+    --primary: #38bdf8;
+    --primary-text: #7dd3fc;
+    --green-text: #6cf8bb;
+    --red-text: #ffb2b7;
+    --primary-soft: rgba(56, 189, 248, .16);
+    --green-soft: rgba(78, 222, 163, .16);
+    --red-soft: rgba(255, 107, 129, .16);
+    --gray-soft: rgba(163, 177, 198, .14);
+}
+
+@media (prefers-color-scheme: dark) {
+    html:not([data-theme="light"]):not(.light) .schedule-page {
+        --bg: #0b1220;
+        --surface: #151e2e;
+        --surface-2: #1d2940;
+        --border: #2a3750;
+        --text: #e8eef8;
+        --muted: #a3b1c6;
+        --subtle: #46556f;
+        --primary: #38bdf8;
+        --primary-text: #7dd3fc;
+        --green-text: #6cf8bb;
+        --red-text: #ffb2b7;
+        --primary-soft: rgba(56, 189, 248, .16);
+        --green-soft: rgba(78, 222, 163, .16);
+        --red-soft: rgba(255, 107, 129, .16);
+        --gray-soft: rgba(163, 177, 198, .14);
+    }
+}
+
+/* Áp dụng các biến (chỉ có tác dụng khi biến dark được khai báo) */
+.schedule-page { background: var(--bg, #f7f8ff); color: var(--text, #0b1c30); }
+
+.schedule-heading > p,
+.class-time,
+.detail-label,
+.attendance-info p,
+.time-box > span,
+.lesson-info p,
+.guidance-card p,
+.hotline,
+.empty-message,
+.more-button,
+.view-switcher button,
+.schedule-search { color: var(--muted, #536171); }
+
+.progress-heading,
+.hotline strong,
+.schedule-search input { color: var(--text, #0b1c30); }
+
+.semester-label,
+.detail-icon,
+.room-badge,
+.status-soon,
+.type-practice,
+.blue-icon { background: var(--primary-soft, #dce9ff); color: var(--primary-text, #006591); }
+
+.progress-heading strong,
+.date-box span,
+.text-link,
+.view-switcher button.active { color: var(--primary-text, #006591); }
+
+.class-status,
+.open-badge,
+.status-live,
+.type-theory { background: var(--green-soft, #65f5bd); color: var(--green-text, #005c3e); }
+
+.attendance-message,
+.attendance-rate { color: var(--green-text, #087d52); }
+
+.type-lab,
+.red-icon,
+.btn-danger-soft { background: var(--red-soft, #ffdadb); color: var(--red-text, #92002a); }
+
+.type-general,
+.status-not-started,
+.status-finished { background: var(--gray-soft, #e5eeff); color: var(--muted, #536171); }
+
+/* Các khối nền */
+.btn-light,
+.featured-class,
+.day-filter-pill,
+.view-switcher,
+.schedule-item,
+.empty-message,
+.guidance-card { background: var(--surface, #fff); }
+
+.btn-light { color: var(--text, #0b1c30); }
+.day-filter-pill { color: var(--text, #263446); }
+
+.attendance-card,
+.schedule-search,
+.date-box { background: var(--surface-2, #eff4ff); }
+
+.attendance-symbol { background: var(--surface, #fff); color: var(--primary-text, #006591); }
+
+.progress-track { background: var(--surface-2, #e5eeff); }
+
+.schedule-item,
+.guidance-card { border-color: var(--border, #edf0f7); }
+
+.meta-separator { color: var(--subtle, #b6c2d0); }
+
+/* Hover / active */
+.btn-light:hover,
+.day-filter-pill:hover,
+.more-button:hover { background: var(--surface-2, #eaf1ff); }
+
+.view-switcher button.active { background: var(--primary-soft, #dce9ff); }
+
+.btn-danger-soft:hover { filter: brightness(1.15); }
+
+/* Chấm "hôm nay" */
+.today-dot { background: var(--primary, #006591); }
+.day-filter-pill.active .today-dot { background: #fff; }
+
+/* Nút primary/success giữ nguyên màu nhưng đảm bảo chữ luôn sáng */
+.btn-primary,
+.day-filter-pill.active { color: #fff; }
+
+/* Hiệu ứng tối ưu cho nền tối */
+:is([data-theme="dark"], .dark, .dark-mode) .featured-class::before { background: rgba(78, 222, 163, .12); }
+
+:is([data-theme="dark"], .dark, .dark-mode) .featured-class,
+:is([data-theme="dark"], .dark, .dark-mode) .schedule-item,
+:is([data-theme="dark"], .dark, .dark-mode) .guidance-card { box-shadow: 0 2px 12px rgba(0, 0, 0, .35); }
+
+:is([data-theme="dark"], .dark, .dark-mode) .schedule-item:hover { box-shadow: 0 6px 18px rgba(0, 0, 0, .5); }
+
+:is([data-theme="dark"], .dark, .dark-mode) .schedule-item::before { opacity: .9; }
+.schedule-empty{width:100%;padding:42px 24px;text-align:center;border:1px dashed #cbd5e1;border-radius:16px;background:var(--card-bg,#fff);color:var(--text-color,#334155)}
+.schedule-empty .material-symbols-outlined{font-size:40px;color:#718096}.schedule-empty h2{margin:8px 0}.schedule-empty p{color:#718096}
