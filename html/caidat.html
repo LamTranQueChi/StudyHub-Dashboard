@@ -164,13 +164,14 @@
                             <div class="form-group">
                                 <label for="phone">Số điện thoại</label>
                                 <input
+                                    type="tel"
                                     id="phone"
                                     name="phone"
-                                    type="tel"
-                                    value="012345678"
-                                    pattern="[-0-9+(). ]{9,16}"
-                                    maxlength="16"
-                                    autocomplete="tel"
+                                    value="0123456789"
+                                    pattern="[0-9+(). -]{9,20}"
+                                    maxlength="20"
+                                    inputmode="numeric"
+                                    title="Số điện thoại phải đúng định dạng, ví dụ: 0123456789"
                                 >
                             </div>
 

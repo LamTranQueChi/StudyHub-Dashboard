@@ -1,9 +1,3 @@
-/* =====================================================
-   StudyHub - main.js
-   Nạp Sidebar, Topbar, Footer và đồng bộ hồ sơ người dùng.
-   Chọn 10 học kỳ trong 5 năm học (4 năm chính + 1 năm dự phòng).
-   ===================================================== */
-
 if (!window.__studyHubMainInitialized) {
     window.__studyHubMainInitialized = true;
     if (document.readyState === "loading") {
@@ -213,12 +207,59 @@ function initUserProfile() {
 }
 function initSearch() {
     const searchInput = document.getElementById("searchInput");
-    if (!searchInput) return;
-    searchInput.addEventListener("input", () => {
-        const keyword = searchInput.value.trim().toLowerCase();
-        document.querySelectorAll("[data-search]").forEach(item => {
-            item.style.display = item.dataset.search.toLowerCase().includes(keyword) ? "" : "none";
+    if (!searchInput || searchInput.dataset.searchReady === "true") return;
+    searchInput.dataset.searchReady = "true";
+
+    let resultBox = document.getElementById("topbarSearchResults");
+    if (!resultBox) {
+        resultBox = document.createElement("div");
+        resultBox.id = "topbarSearchResults";
+        resultBox.className = "topbar-search-results";
+        resultBox.setAttribute("role", "listbox");
+        searchInput.closest(".search-box")?.appendChild(resultBox);
+    }
+
+    const pages = [
+        ["Tổng quan", "dashboard.html", ["dashboard", "tổng quan", "thống kê"]],
+        ["Sinh viên", "sinhvien.html", ["sinh viên", "hồ sơ", "bảng điểm", "mã số sinh viên"]],
+        ["Môn học", "monhoc.html", ["môn học", "khóa học", "tín chỉ"]],
+        ["Bài tập", "baitap.html", ["bài tập", "nộp bài", "hạn nộp"]],
+        ["Lịch học", "lichhoc.html", ["lịch học", "thời khóa biểu", "lịch"]],
+        ["Cài đặt", "caidat.html", ["cài đặt", "tài khoản", "điện thoại", "ghi chú"]]
+    ];
+    function renderResults() {
+        const keyword = searchInput.value.trim().toLocaleLowerCase("vi");
+        resultBox.innerHTML = "";
+        if (!keyword) { resultBox.hidden = true; return; }
+        const matches = pages.filter(page =>
+            page[0].toLocaleLowerCase("vi").includes(keyword) ||
+            page[2].some(term => term.toLocaleLowerCase("vi").includes(keyword))
+        );
+        matches.forEach(page => {
+            const link = document.createElement("a");
+            link.href = page[1];
+            link.textContent = page[0];
+            link.setAttribute("role", "option");
+            resultBox.appendChild(link);
         });
+        if (!matches.length) {
+            const empty = document.createElement("p");
+            empty.textContent = "Không tìm thấy mục phù hợp.";
+            resultBox.appendChild(empty);
+        }
+        resultBox.hidden = false;
+    }
+    searchInput.addEventListener("input", renderResults);
+    searchInput.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+            const first = resultBox.querySelector("a");
+            if (first) window.location.href = first.href;
+            else renderResults();
+        }
+        if (event.key === "Escape") { resultBox.hidden = true; searchInput.blur(); }
+    });
+    document.addEventListener("click", event => {
+        if (!event.target.closest(".search-box")) resultBox.hidden = true;
     });
 }
     /* Thông báo nổi khi lưu học kỳ thành công */

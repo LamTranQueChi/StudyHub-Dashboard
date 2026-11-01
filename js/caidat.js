@@ -1,12 +1,4 @@
-/* =====================================================
-   STUDYHUB - CAI DAT TAI KHOAN
-   - Quan ly ho so sinh vien
-   - Luu du lieu bang localStorage
-   - Quan ly anh dai dien
-   - Luu tuy chon giao dien
-   ===================================================== */
-
-document.addEventListener("DOMContentLoaded", async function () {
+    document.addEventListener("DOMContentLoaded", async function () {
     "use strict";
     // Kiểm tra hệ thống xác thực
     if (!window.StudyHubAuth) {
@@ -19,11 +11,8 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Lấy thông tin sinh viên sau khi xác thực thành công
     const currentUser = await window.StudyHubAuth.getCurrentUser();
     if (!currentUser) return;
-
-    // =====================================================
+    
     // 1. THONG TIN HO SO
-    // =====================================================
-
     const profileForm = document.getElementById("profileForm");
     const profileMessage = document.getElementById("profileMessage");
     const bioInput = document.getElementById("bio");
@@ -60,7 +49,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         fullName: "Lâm Trần Quế Chi",
         studentId: "110124012",
         email: "110124012@st.tvu",
-        phone: "012345678",
+        phone: "0123456789",
         studentClass: "DA24TTA",
         major: "Công nghệ thông tin",
         bio: "Sinh viên Công nghệ thông tin, quan tâm đến Frontend Development.",
@@ -92,10 +81,10 @@ document.addEventListener("DOMContentLoaded", async function () {
     // Dùng một nguồn thông tin thống nhất cho trang Cài đặt và topbar.
     function getIdentityProfile() {
         return {
-            fullName: "Lâm Trần Quế Chi",
-            studentId: (currentUser && currentUser.studentId) || defaultProfile.studentId,
+            fullName: currentUser.full_name || currentUser.fullName || defaultProfile.fullName,
+            studentId: currentUser.student_number || currentUser.studentId || defaultProfile.studentId,
             email: currentUser.email || defaultProfile.email,
-            studentClass: currentUser.class_name || defaultProfile.studentClass,
+            studentClass: currentUser.class_name || currentUser.studentClass || defaultProfile.studentClass,
             major: currentUser.major || defaultProfile.major
         };
     }
@@ -237,13 +226,19 @@ document.addEventListener("DOMContentLoaded", async function () {
         }
     }
 
+    function loadProfileFromStorage() {
+        try { return JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}") || {}; }
+        catch (_) { return {}; }
+    }
+
     // Lưu hồ sơ
     function saveProfile(profile) {
         try {
-            localStorage.setItem(
-                PROFILE_KEY,
-                JSON.stringify(profile)
-            );
+            const previous = JSON.parse(localStorage.getItem(PROFILE_KEY) || "{}");
+            const merged = { ...previous, ...profile };
+            if (!String(merged.phone || "").trim()) merged.phone = "0123456789";
+            localStorage.setItem(PROFILE_KEY, JSON.stringify(merged));
+            window.dispatchEvent(new CustomEvent("studyhub:profile-updated", { detail: merged }));
             return true;
         } catch (error) {
             console.error("Không thể lưu hồ sơ:", error);
@@ -273,6 +268,7 @@ document.addEventListener("DOMContentLoaded", async function () {
             console.error("Lỗi đọc hồ sơ:", error);
         }
         Object.assign(profile, getIdentityProfile());
+        if (!String(profile.phone || "").trim()) profile.phone = "0123456789";
         fillProfileForm(profile);
         lockIdentityFields();
         updateTopbarProfile(profile);
@@ -308,8 +304,11 @@ document.addEventListener("DOMContentLoaded", async function () {
                 return;
             }
             const profile = getProfileFromForm();
-            // Luôn dùng thông tin định danh chuẩn, không nhận dữ liệu từ form.
-            Object.assign(profile, getIdentityProfile());
+            // Giữ nguyên thông tin định danh; chỉ cập nhật các trường được phép chỉnh sửa.
+            const previous = loadProfileFromStorage();
+            Object.assign(profile, getIdentityProfile(), {
+                phone: profile.phone || previous.phone || "0123456789"
+            });
             if (!profile.fullName) {
                 showMessage(
                     profileMessage,
