@@ -127,13 +127,17 @@ app.get('/api/student/dashboard',auth,(req,res)=>{
     ORDER BY ss.session_date,ss.start_time`).all(req.student.class_name,selectedSemester,selectedSemester);
   const graded=courses.filter(x=>x.score!==null && x.score!==undefined);
   const average=graded.length ? Math.round(graded.reduce((n,x)=>n+Number(x.score),0)/graded.length*100)/100 : null;
-  const submitted=assignments.filter(x=>x.submission_status==='submitted').length;
-  const pending=assignments.length-submitted;
-  const active=courses.filter(x=>x.status==='enrolled');
-  const progress=active.length?Math.round(active.reduce((n,x)=>n+Number(x.progress||0),0)/active.length):(courses.length?100:0);
+  // Các trạng thái graded/completed cũng là bài đã hoàn thành, không chỉ submitted.
+  const isAssignmentCompleted = item => ['submitted','graded','completed'].includes(String(item.submission_status || '').toLowerCase());
+  const completedAssignments = assignments.filter(isAssignmentCompleted).length;
+  const pending = assignments.length - completedAssignments;
+  // Tiến độ học tập được tính theo tỷ lệ bài tập đã hoàn thành trong học kỳ.
+  const progress = assignments.length
+    ? Math.round(completedAssignments / assignments.length * 100)
+    : 0;
   const distribution={excellent:0,good:0,average:0,weak:0};
   graded.forEach(x=>{const v=Number(x.score); if(v>=8.5)distribution.excellent++;else if(v>=7)distribution.good++;else if(v>=5)distribution.average++;else distribution.weak++;});
-  res.json({student:safeStudent(req.student),summary:{courseCount:courses.length,assignmentPending:pending,averageScore:average,progress,completedAssignments:submitted,totalAssignments:assignments.length},courses,assignments,schedule,grades:graded.map(x=>({course:x.course_name,code:x.course_code,score:Number(x.score),semester:x.sequence_no})),distribution,gradeDataSource:'enrollments.score'});
+  res.json({student:safeStudent(req.student),summary:{courseCount:courses.length,assignmentPending:pending,averageScore:average,progress,completedAssignments,totalAssignments:assignments.length},courses,assignments,schedule,grades:graded.map(x=>({course:x.course_name,code:x.course_code,score:Number(x.score),semester:x.sequence_no})),distribution,gradeDataSource:'enrollments.score'});
 });
 app.get('/api/semesters',(req,res)=>res.json({semesters:db.prepare('SELECT id,sequence_no,term_no,school_year,label,semester_type,status,source_from_excel FROM semesters ORDER BY sequence_no').all()}));
 app.get('/api/curriculum',(req,res)=>{
