@@ -1,30 +1,79 @@
-STUDYHUB - HUONG DAN CHAY BAN DA SUA
+# STUDYHUB DASHBOARD
+## HƯỚNG DẪN TẢI VÀ CÀI ĐẶT DỰ ÁN
 
-YEU CAU: Cai Node.js 22.
+### 1. Yêu cầu môi trường
+- Node.js phiên bản 22.
+- Visual Studio Code.
+- Trình duyệt Google Chrome.
+- Extension Live Server trong VS Code.
 
-1. Giai nen toan bo ZIP vao mot thu muc moi.
-2. Mo VS Code -> File -> Open Folder -> chon thu muc dashboard-hoc-tap.
-3. Mo Terminal trong VS Code va chay:
-   cd backend
-   npm install
-   npm start
-4. Giu cua so Backend mo. Kiem tra API:
-   http://localhost:3000/api/health
-5. Mo mot cua so VS Code/Terminal khac, chon Open Folder la thu muc dashboard-hoc-tap.
-6. Mo index.html bang Live Server (khong mo file bang cach double-click).
+### 2. Tải mã nguồn từ GitHub
+1. Truy cập repository GitHub của dự án.
+2. Chọn **Code → Download ZIP**.
+3. Giải nén dự án vào một thư mục trên máy tính.
+4. Mở Visual Studio Code.
+5. Chọn **File → Open Folder** và mở thư mục `dashboard-hoc-tap`.
 
-DATABASE:
-- Backend su dung backend/data/studyhub.sqlite.
-- File nay da duoc tao lai tu studyhub.sql va kiem tra SQLite integrity_check = ok.
-- Du lieu mau hien co: 10 sinh vien, 8 hoc ky (5 hoc ky co dang ky mon), 33 mon trong chuong trinh, 330 luot dang ky, 33 bai tap, 330 bai nop, 132 buoi lich lop.
-- Neu database bi hong, backend se giu file loi voi ten .corrupt-* va tao lai tu studyhub.sql.
-- KHONG chay node src/seed.js vi script seed demo co the xoa va tao lai du lieu.
-- Khong xoa file database cu/backup neu chua sao luu.
+### 3. Cài đặt và chạy Backend
+1. Mở Terminal trong VS Code.
+2. Di chuyển vào thư mục Backend:
 
-DANG NHAP MAU:
-Email: 110124012@st.tvu.edu.vn
-Mat khau: 15092006
+```bash
+cd backend
+```
 
-Neu dang nhap loi:
-- Kiem tra Terminal Backend, khong chi xem Console trinh duyet.
-- Gui lai nguyen dong loi dau tien trong Terminal.
+3. Cài đặt các thư viện cần thiết:
+
+```bash
+npm install
+```
+
+4. Khởi động Backend:
+
+```bash
+npm start
+```
+
+5. Giữ cửa sổ Terminal đang chạy Backend.
+
+Kiểm tra API tại địa chỉ:
+
+http://localhost:3000/api/health
+
+### 4. Chạy Frontend
+1. Mở thư mục dự án `dashboard-hoc-tap` trong VS Code.
+2. Mở file `index.html`.
+3. Nhấn chuột phải và chọn **Open with Live Server**.
+4. Website sẽ được mở trên trình duyệt.
+
+Lưu ý: Không mở file bằng cách double-click trực tiếp.
+
+### 5. Thông tin Database
+- Hệ quản trị cơ sở dữ liệu: SQLite.
+- Thư viện kết nối: better-sqlite3.
+- File Database: `backend/data/studyhub.sqlite`.
+- File dữ liệu khởi tạo: `backend/data/studyhub.sql`.
+
+Database được khởi tạo từ file SQL khi chưa có Database. Backend cũng kiểm tra tính toàn vẹn của Database khi khởi chạy.
+
+**Lưu ý:**
+- Không chạy `node src/seed.js` vì script seed dữ liệu mẫu có thể xóa và tạo lại dữ liệu.
+- Không tự ý xóa file Database hoặc các file sao lưu khi chưa sao lưu dữ liệu.
+
+### 6. Tài khoản đăng nhập mẫu
+
+Email: `110124012@st.tvu.edu.vn`
+
+Mật khẩu: `15092006`
+
+### 7. Xử lý lỗi thường gặp
+
+Nếu đăng nhập hoặc chạy website gặp lỗi:
+- Kiểm tra Backend đã khởi động thành công chưa.
+- Kiểm tra địa chỉ API và kết nối giữa Frontend với Backend.
+- Kiểm tra Terminal Backend để xem thông báo lỗi.
+- Nếu cần hỗ trợ, lưu lại và gửi nguyên dòng lỗi đầu tiên trong Terminal.
+
+---
+
+**StudyHub Dashboard – Hệ thống hỗ trợ sinh viên quản lý và theo dõi quá trình học tập.**
