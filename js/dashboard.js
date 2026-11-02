@@ -32,10 +32,15 @@
   }
   function render(d) {
     const s=d.summary;
+    // Tính số bài chưa hoàn thành ngay từ danh sách bài tập thực tế,
+    // tránh hiển thị số liệu cũ/sai nếu Backend trả summary chưa đồng bộ.
+    const isCompleted = a => ['submitted','graded','completed'].includes(String(a.submission_status || '').trim().toLowerCase());
+    const pendingAssignments=(d.assignments || []).filter(a=>!isCompleted(a));
+    const pendingCount=pendingAssignments.length;
     const stats=document.querySelector('.stats-grid');
     if(stats) stats.innerHTML=[
       ['Môn học',s.courseCount,'calendar_today','mint'],
-      ['Bài tập cần nộp',s.assignmentPending,'assignment_late','pink'],
+      ['Bài tập cần nộp',pendingCount,'assignment_late','pink'],
       ['Điểm trung bình',money(s.averageScore),'verified_user','blue'],
       ['Tiến độ học tập',`${s.progress}%`,'military_tech','orange']
     ].map(x=>`<article class="stat-card"><div class="stat-icon ${x[3]}"><span class="material-symbols-outlined">${x[2]}</span></div><div class="stat-info"><span class="stat-label">${x[0]}</span><strong>${x[1]}</strong></div></article>`).join('');
@@ -46,7 +51,7 @@
     }
     const list=document.querySelector('.assignment-list');
     if(list) {
-      const pending=d.assignments.filter(a=>a.submission_status!=='submitted');
+      const pending=pendingAssignments;
       list.innerHTML=pending.length?pending.slice(0,5).map(a=>`<div class="assignment-item"><div class="assignment-main"><div class="assignment-icon pink"><span class="material-symbols-outlined">description</span></div><div class="assignment-info"><h3>${esc(a.title)}</h3><p>${esc(a.course_name||'Môn học')} · Hạn: ${a.due_at?new Date(a.due_at).toLocaleDateString('vi-VN'):'Chưa có hạn'}</p></div></div><span class="deadline warning">Chưa nộp</span></div>`).join(''):'<p>Bạn đã hoàn thành tất cả bài tập!</p>';
       const badge=document.querySelector('.assignments-panel .panel-badge'); if(badge) badge.textContent=pending.length;
     }
