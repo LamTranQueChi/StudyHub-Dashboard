@@ -92,7 +92,7 @@ function renderComponents() {
             '<button class="sidebar-toggle" id="sidebarToggle" type="button" aria-label="Mở menu" aria-controls="sidebar" aria-expanded="false">' +
             '<span class="material-symbols-outlined" aria-hidden="true">menu</span></button>' +
             '<div class="search-box"><span class="material-symbols-outlined" aria-hidden="true">search</span>' +
-            '<input type="text" id="searchInput" placeholder="Tìm kiếm khóa học, tài liệu, lớp..." aria-label="Tìm kiếm"></div>' +
+            '<input type="text" id="searchInput" placeholder="Tìm kiếm trang: Tổng quan, Sinh viên, Môn học..." aria-label="Tìm kiếm trang trong Sidebar"></div>' +
             '<div class="topbar-right"><button class="notification-btn" type="button" aria-label="Thông báo" title="Thông báo">' +
             '<span class="material-symbols-outlined" aria-hidden="true">notifications</span><span class="notification-dot" aria-hidden="true"></span></button>' +
             '<div class="user-profile"><div class="user-info"><strong id="topbarUserName">Xin chào, Lâm Trần Quế Chi!</strong>' +

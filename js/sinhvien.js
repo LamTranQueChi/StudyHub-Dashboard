@@ -75,20 +75,17 @@ document.addEventListener("DOMContentLoaded", async function () {
     setText("studentBio", profile.bio);
     setText("studentProfileNote", profile.profileNote);
 
-    // Đồng bộ danh sách sinh viên.
-    const select = $("studentSelect");
+    // Hiển thị đúng tên và MSSV của tài khoản đang đăng nhập.
+    // Không cho chọn hồ sơ sinh viên khác trên tài khoản sinh viên.
+    const currentStudent = $("studentSelectName");
 
-    if (select) {
-      const option = document.createElement("option");
+    if (currentStudent) {
+      const fullName = String(profile.fullName || "").trim();
+      const studentId = String(profile.studentId || "").trim();
 
-      option.value = profile.studentId || "";
-      option.textContent = profile.fullName
-        ? `${profile.fullName} (${profile.studentId || "Chưa cập nhật"})`
+      currentStudent.textContent = fullName
+        ? `${fullName} (${studentId || "Chưa cập nhật MSSV"})`
         : "Chưa cập nhật thông tin sinh viên";
-
-      option.selected = true;
-
-      select.replaceChildren(option);
     }
 
     // Đồng bộ ảnh đại diện.
