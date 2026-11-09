@@ -3,7 +3,7 @@
     "use strict";
 
     // Backend API
-    const API_BASE = "https://studyhub-api-4ecd.onrender.com/api";
+    const API_BASE = window.STUDYHUB_CONFIG?.API_BASE || "https://studyhub-api-4ecd.onrender.com/api";
 
     const PROFILE_KEY = "studyHubProfile";
     const TOKEN_KEY = "studyHubAuthToken";
