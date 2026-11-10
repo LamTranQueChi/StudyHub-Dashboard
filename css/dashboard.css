@@ -545,3 +545,35 @@ body.dark-theme .dashboard .panel { border-color: #374151; }
 
 .dashboard-locked{margin:32px auto;max-width:760px;min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:10px;border:1px dashed #cbd5e1;border-radius:18px;background:var(--card-bg,#fff);padding:40px 24px}
 .dashboard-locked .material-symbols-outlined{font-size:44px;color:#718096}.dashboard-locked h2{margin:0}.dashboard-locked p{max-width:520px;color:#718096}
+
+
+/* Ghi chú nhanh trên trang Tổng quan */
+.quick-note-panel {
+    margin: 0 0 28px; padding: 22px 24px; background: var(--white);
+    border: 1px solid #f0f2f8; border-radius: var(--radius-card); box-shadow: var(--shadow-card);
+}
+.quick-note-heading, .quick-note-title, .quick-note-footer, .quick-note-footer > div {
+    display: flex; align-items: center;
+}
+.quick-note-heading { justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.quick-note-title { gap: 13px; min-width: 0; }
+.quick-note-icon { width: 46px; height: 46px; display: grid; place-items: center; border-radius: 14px; background: var(--blue); color: #008ee0; }
+.quick-note-icon .material-symbols-outlined { font-size: 25px; }
+.quick-note-title h2 { margin: 0 0 2px; font-size: 18px; font-weight: 800; }
+.quick-note-title p { margin: 0; color: var(--text-secondary); font-size: 13px; }
+.quick-note-sync { display: inline-flex; align-items: center; gap: 5px; color: var(--text-secondary); font-size: 12px; white-space: nowrap; }
+.quick-note-sync .material-symbols-outlined { font-size: 17px; }
+.quick-note-panel textarea { width: 100%; min-height: 100px; resize: vertical; padding: 13px 15px; border: 1px solid var(--input-border); border-radius: 12px; outline: none; background: var(--input-bg); color: var(--text); line-height: 1.6; }
+.quick-note-panel textarea:focus { border-color: var(--primary); box-shadow: 0 0 0 3px rgba(7,159,227,.10); }
+.quick-note-footer { justify-content: space-between; gap: 12px; margin-top: 11px; color: var(--text-secondary); font-size: 12px; }
+.quick-note-footer > div { gap: 12px; }
+#quickNoteStatus { color: var(--success); }
+.quick-note-save { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border: 0; border-radius: 10px; background: var(--primary); color: #fff; font-weight: 700; }
+.quick-note-save:hover { filter: brightness(.95); }
+.quick-note-save .material-symbols-outlined { font-size: 18px; }
+@media (max-width: 600px) {
+    .quick-note-panel { padding: 17px; }
+    .quick-note-heading { align-items: flex-start; flex-direction: column; }
+    .quick-note-footer { align-items: flex-start; flex-direction: column; }
+    .quick-note-footer > div { width: 100%; justify-content: space-between; }
+}

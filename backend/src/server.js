@@ -77,11 +77,50 @@ app.get('/api/student/assignments',auth,(req,res)=>{
   res.json({assignments:rows});
 });
 app.get('/api/student/schedule',auth,(req,res)=>{
+  const semesterNumber = req.query.semester ? Number(req.query.semester) : null;
+  if (semesterNumber !== null && (!Number.isInteger(semesterNumber) || semesterNumber < 1 || semesterNumber > 8)) {
+    return res.status(400).json({message:'Học kỳ không hợp lệ.'});
+  }
+
+  const semester = semesterNumber === null ? null : db.prepare(`
+    SELECT id,sequence_no,label,school_year,status,start_date,end_date
+    FROM semesters WHERE sequence_no=?
+  `).get(semesterNumber);
+
+  if (semesterNumber !== null && !semester) {
+    return res.status(404).json({message:'Không tìm thấy thông tin học kỳ.'});
+  }
+
+  // Xác định trạng thái hiển thị từ ngày học thực tế; dữ liệu cũ có thể
+  // đang lưu status='configured' nhưng ngày kết thúc đã qua.
+  if (semester) {
+    const dateParts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: 'Asia/Ho_Chi_Minh', year: 'numeric', month: '2-digit', day: '2-digit'
+    }).formatToParts(new Date());
+    const part = type => dateParts.find(item => item.type === type)?.value || '';
+    const today = `${part('year')}-${part('month')}-${part('day')}`;
+
+    if (semester.status === 'locked') {
+      semester.display_status = 'locked';
+    } else if (semester.status === 'completed' || (semester.end_date && semester.end_date < today)) {
+      semester.display_status = 'completed';
+    } else if (semester.status === 'planned' || (semester.start_date && semester.start_date > today)) {
+      semester.display_status = 'planned';
+    } else {
+      semester.display_status = 'in_progress';
+    }
+  }
+
   const rows=db.prepare(`SELECT ss.id,ss.title,ss.session_date,ss.start_time,ss.end_time,ss.room,ss.lecturer,
     c.course_code,c.course_name FROM class_schedule_sessions ss LEFT JOIN courses c ON c.id=ss.course_id
-    WHERE ss.class_name=? AND (? IS NULL OR ss.semester_id=(SELECT id FROM semesters WHERE sequence_no=?))
-    ORDER BY ss.session_date,ss.start_time`).all(req.student.class_name,req.query.semester?Number(req.query.semester):null,req.query.semester?Number(req.query.semester):null);
-  res.json({schedule:rows,shared:true,class_name:req.student.class_name});
+    WHERE ss.class_name=? AND (? IS NULL OR ss.semester_id=?)
+    ORDER BY ss.session_date,ss.start_time`).all(
+      req.student.class_name,
+      semester ? semester.id : null,
+      semester ? semester.id : null
+    );
+
+  res.json({schedule:rows,shared:true,class_name:req.student.class_name,semester});
 });
 app.get('/api/student/attendance',auth,(req,res)=>{
   const rows=db.prepare(`SELECT a.id,a.status,a.note,ss.title,ss.session_date,ss.start_time,ss.end_time,c.course_code,c.course_name FROM attendance a JOIN schedule_sessions ss ON ss.id=a.session_id LEFT JOIN courses c ON c.id=ss.course_id WHERE a.student_id=? ORDER BY ss.session_date DESC`).all(req.student.id);

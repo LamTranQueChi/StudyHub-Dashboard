@@ -68,5 +68,34 @@
     const name=document.getElementById('topbarUserName'); if(name) name.textContent=`Xin chào, ${d.student.full_name}!`;
     const cls=document.getElementById('topbarUserClass'); if(cls) cls.textContent=d.student.class_name;
   }
-  document.addEventListener('DOMContentLoaded',loadDashboard);
+  function initQuickNote() {
+    const input = document.getElementById('dashboardQuickNote');
+    const saveButton = document.getElementById('saveQuickNote');
+    const count = document.getElementById('quickNoteCount');
+    const status = document.getElementById('quickNoteStatus');
+    if (!input || !saveButton) return;
+    const PROFILE_KEY = 'studyHubProfile';
+    const readProfile = () => {
+      try { return JSON.parse(localStorage.getItem(PROFILE_KEY) || '{}') || {}; }
+      catch { return {}; }
+    };
+    const profile = readProfile();
+    input.value = String(profile.profileNote || '').slice(0, 1000);
+    const updateCount = () => { if (count) count.textContent = `${input.value.length}/1000 ký tự`; };
+    input.addEventListener('input', updateCount);
+    updateCount();
+    saveButton.addEventListener('click', () => {
+      try {
+        const latest = readProfile();
+        latest.profileNote = input.value.trim();
+        localStorage.setItem(PROFILE_KEY, JSON.stringify(latest));
+        window.dispatchEvent(new CustomEvent('studyhub:profile-updated', { detail: latest }));
+        if (status) status.textContent = 'Đã lưu ghi chú!';
+      } catch (error) {
+        console.error('Không thể lưu ghi chú:', error);
+        if (status) status.textContent = 'Không thể lưu. Vui lòng thử lại!';
+      }
+    });
+  }
+  document.addEventListener('DOMContentLoaded', () => { initQuickNote(); loadDashboard(); });
 })();

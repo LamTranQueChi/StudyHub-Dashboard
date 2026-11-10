@@ -13,6 +13,7 @@ async function initStudyHub() {
     renderComponents();
     if (window.StudyHubTheme && typeof window.StudyHubTheme.load === "function") window.StudyHubTheme.load();
     initSidebarNavigation();
+    initSidebarLogout();
     initSidebarToggle();
     initTopbarActions();
     initUserProfile();
@@ -67,7 +68,19 @@ function renderComponents() {
             nav.appendChild(link);
         });
 
-        sidebarTop.append(brand, nav);
+        // Đường phân cách giúp tách nhóm điều hướng và thao tác tài khoản.
+        const logoutDivider = document.createElement("div");
+        logoutDivider.className = "sidebar-divider";
+        logoutDivider.setAttribute("role", "separator");
+        logoutDivider.setAttribute("aria-orientation", "horizontal");
+
+        const logoutButton = document.createElement("button");
+        logoutButton.type = "button";
+        logoutButton.className = "sidebar-logout";
+        logoutButton.id = "sidebarLogoutButton";
+        logoutButton.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">logout</span><span>Đăng xuất</span>';
+
+        sidebarTop.append(brand, nav, logoutDivider, logoutButton);
         const semesterCard = document.createElement("button");
         semesterCard.type = "button";
         semesterCard.className = "semester-card";
@@ -136,6 +149,17 @@ function initSidebarNavigation() {
             event.preventDefault();
             navigateToPage(target);
         });
+    });
+}
+
+function initSidebarLogout() {
+    const button = document.getElementById("sidebarLogoutButton");
+    if (!button || button.dataset.logoutReady === "true") return;
+    button.dataset.logoutReady = "true";
+    button.addEventListener("click", function () {
+        if (window.confirm("Bạn có chắc muốn đăng xuất khỏi StudyHub không?")) {
+            window.StudyHubAuth?.logout?.();
+        }
     });
 }
 
@@ -219,6 +243,11 @@ function initSearch() {
         searchInput.closest(".search-box")?.appendChild(resultBox);
     }
 
+    // Ẩn ngay từ lúc khởi tạo; tránh xuất hiện khung trắng khi chưa tìm kiếm.
+    resultBox.hidden = true;
+    searchInput.setAttribute("aria-controls", resultBox.id);
+    searchInput.setAttribute("aria-expanded", "false");
+
     const pages = [
         ["Tổng quan", "dashboard.html", ["dashboard", "tổng quan", "thống kê"]],
         ["Sinh viên", "sinhvien.html", ["sinh viên", "hồ sơ", "bảng điểm", "mã số sinh viên"]],
@@ -227,42 +256,78 @@ function initSearch() {
         ["Lịch học", "lichhoc.html", ["lịch học", "thời khóa biểu", "lịch"]],
         ["Cài đặt", "caidat.html", ["cài đặt", "tài khoản", "điện thoại", "ghi chú"]]
     ];
+
+    function closeResults(clearInput = false) {
+        resultBox.hidden = true;
+        resultBox.replaceChildren();
+        searchInput.setAttribute("aria-expanded", "false");
+        if (clearInput) searchInput.value = "";
+    }
+
     function renderResults() {
         const keyword = searchInput.value.trim().toLocaleLowerCase("vi");
-        resultBox.innerHTML = "";
-        if (!keyword) { resultBox.hidden = true; return; }
+        resultBox.replaceChildren();
+
+        if (!keyword) {
+            closeResults();
+            return;
+        }
+
         const matches = pages.filter(page =>
             page[0].toLocaleLowerCase("vi").includes(keyword) ||
             page[2].some(term => term.toLocaleLowerCase("vi").includes(keyword))
         );
+
         matches.forEach(page => {
             const link = document.createElement("a");
             link.href = page[1];
             link.textContent = page[0];
             link.setAttribute("role", "option");
+            link.addEventListener("click", () => closeResults(true));
             resultBox.appendChild(link);
         });
+
         if (!matches.length) {
             const empty = document.createElement("p");
             empty.textContent = "Không tìm thấy mục phù hợp.";
             resultBox.appendChild(empty);
         }
+
         resultBox.hidden = false;
+        searchInput.setAttribute("aria-expanded", "true");
     }
+
     searchInput.addEventListener("input", renderResults);
+    searchInput.addEventListener("focus", () => {
+        if (searchInput.value.trim()) renderResults();
+        else closeResults();
+    });
     searchInput.addEventListener("keydown", event => {
         if (event.key === "Enter") {
             const first = resultBox.querySelector("a");
-            if (first) window.location.href = first.href;
-            else renderResults();
+            if (!resultBox.hidden && first) {
+                event.preventDefault();
+                window.location.href = first.href;
+            } else {
+                renderResults();
+            }
         }
-        if (event.key === "Escape") { resultBox.hidden = true; searchInput.blur(); }
+        if (event.key === "Escape") {
+            closeResults(true);
+            searchInput.blur();
+        }
     });
+
     document.addEventListener("click", event => {
-        if (!event.target.closest(".search-box")) resultBox.hidden = true;
+        if (!event.target.closest(".search-box")) closeResults();
     });
-}
-    /* Thông báo nổi khi lưu học kỳ thành công */
+
+    // Đảm bảo không lưu lại dropdown hoặc từ khóa cũ khi rời trang/quay lại.
+    window.addEventListener("pagehide", () => closeResults(true));
+    window.addEventListener("pageshow", () => {
+        if (!searchInput.value.trim()) closeResults();
+    });
+}    /* Thông báo nổi khi lưu học kỳ thành công */
     function showSaveToast() {
         let toast = document.getElementById("saveToast");
         if (!toast) {

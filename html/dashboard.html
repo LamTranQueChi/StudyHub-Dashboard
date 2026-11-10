@@ -106,6 +106,22 @@
                 </div>
             </section>
 
+            <!-- Ghi chú nhanh: dùng chung ghi chú cá nhân ở trang Cài đặt -->
+            <section class="quick-note-panel" aria-labelledby="quickNoteTitle">
+                <div class="quick-note-heading">
+                    <div class="quick-note-title">
+                        <div class="quick-note-icon"><span class="material-symbols-outlined">edit_note</span></div>
+                        <div><h2 id="quickNoteTitle">Ghi chú nhanh</h2><p>Ghi lại việc cần làm hoặc điều cần nhớ trong học tập</p></div>
+                    </div>
+                    <span class="quick-note-sync"><span class="material-symbols-outlined">sync</span> Đồng bộ với Cài đặt</span>
+                </div>
+                <textarea id="dashboardQuickNote" rows="4" maxlength="1000" placeholder="Ví dụ: Ôn tập JavaScript DOM, hoàn thành bài tập Cơ sở dữ liệu..."></textarea>
+                <div class="quick-note-footer">
+                    <small id="quickNoteCount">0/1000 ký tự</small>
+                    <div><span id="quickNoteStatus" role="status" aria-live="polite"></span><button type="button" id="saveQuickNote" class="quick-note-save"><span class="material-symbols-outlined">save</span> Lưu ghi chú</button></div>
+                </div>
+            </section>
+
             <!-- Môn học -->
             <section class="courses-section">
                 <div class="section-heading">

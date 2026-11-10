@@ -1144,3 +1144,64 @@
 :is([data-theme="dark"], .dark, .dark-mode) .schedule-item::before { opacity: .9; }
 .schedule-empty{width:100%;padding:42px 24px;text-align:center;border:1px dashed #cbd5e1;border-radius:16px;background:var(--card-bg,#fff);color:var(--text-color,#334155)}
 .schedule-empty .material-symbols-outlined{font-size:40px;color:#718096}.schedule-empty h2{margin:8px 0}.schedule-empty p{color:#718096}
+
+
+/* Trạng thái học kỳ và lịch sử thời khóa biểu */
+.semester-state-banner {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    border: 1px solid #dbe5f2;
+    border-radius: 14px;
+    background: #f8fafc;
+    color: #334155;
+}
+.semester-state-banner > .material-symbols-outlined {
+    flex: 0 0 auto;
+    font-size: 22px;
+}
+.semester-state-banner strong {
+    display: block;
+    margin-bottom: 3px;
+    font-size: 13px;
+}
+.semester-state-banner p {
+    margin: 0;
+    color: #64748b;
+    font-size: 12px;
+    line-height: 1.5;
+}
+.semester-state-banner.is-completed {
+    border-color: #d8dee8;
+    background: #f1f5f9;
+}
+.semester-state-banner.is-completed > .material-symbols-outlined {
+    color: #64748b;
+}
+.semester-state-banner.is-upcoming {
+    border-color: #bae6fd;
+    background: #f0f9ff;
+}
+.semester-state-banner.is-upcoming > .material-symbols-outlined {
+    color: #0284c7;
+}
+.class-status-archived {
+    color: #475569;
+    background: #e2e8f0;
+}
+.class-status-archived .material-symbols-outlined {
+    font-size: 15px;
+}
+.archive-description {
+    margin: 0 0 16px;
+    color: #64748b;
+    font-size: 13px;
+}
+.status-review {
+    color: #92400e;
+    background: #fef3c7;
+}
+.schedule-finished {
+    opacity: .88;
+}
