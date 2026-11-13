@@ -223,7 +223,7 @@ dashboard-hoc-tap/
 └── package-lock.json       # Khóa phiên bản package
 ```
 
-## 7. Cài đặt và chạy dự án
+## 7. Hướng dẫn cài đặt và chạy dự án
 
 ### 7.1. Môi trường cần có
 
