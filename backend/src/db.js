@@ -167,6 +167,19 @@ CREATE TABLE IF NOT EXISTS attendance (
   note TEXT DEFAULT '',
   UNIQUE(session_id, student_id)
 );
+-- Lưu số buổi vắng do sinh viên tự khai báo khi chưa có dữ liệu điểm danh chính thức.
+-- UNIQUE(student_id, semester_id) cho phép cập nhật lại khai báo của từng học kỳ.
+CREATE TABLE IF NOT EXISTS student_attendance_reports (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  student_id INTEGER NOT NULL REFERENCES students(id) ON DELETE CASCADE,
+  semester_id INTEGER NOT NULL REFERENCES semesters(id) ON DELETE CASCADE,
+  absent_sessions INTEGER NOT NULL DEFAULT 0 CHECK(absent_sessions >= 0),
+  confirmed_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  UNIQUE(student_id, semester_id)
+);
+CREATE INDEX IF NOT EXISTS idx_attendance_report_student_semester
+ON student_attendance_reports(student_id, semester_id);
 CREATE TABLE IF NOT EXISTS certificates (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   student_id INTEGER NOT NULL REFERENCES students(id) ON DELETE CASCADE,

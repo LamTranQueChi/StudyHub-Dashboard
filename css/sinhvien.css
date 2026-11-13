@@ -760,7 +760,7 @@
 }
 
 /* Responsive cho tablet và điện thoại */
-@media (max-width: 1200px) {
+@media (max-width: 1350px) {
     .student-page {
         padding-right: 20px;
         padding-left: 20px;
@@ -916,12 +916,40 @@
 #semesterGradeLegend { display: flex; flex-wrap: wrap; gap: 14px 24px; justify-content: center; padding: 12px 8px 4px; color: #64748b; font-size: 13px; }
 
 
-/* Attendance self-report: integrated into the existing student profile card. */
+/* Nhập số buổi vắng trực tiếp trong thẻ tỷ lệ chuyên cần. */
+.attendance-stat-card {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow: visible;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 14px;
+}
+
+.attendance-stat-card .stat-body {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 0;
+}
+
 .attendance-title-row {
     position: relative;
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 7px;
+    min-width: 0;
+    width: 100%;
+    align-self: stretch;
+}
+
+.attendance-stat-card .stat-note {
+    margin: 0;
+    min-height: 32px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
 }
 
 .attendance-info-button {
@@ -936,6 +964,33 @@
     background: #e8f2ff;
     cursor: pointer;
     flex: 0 0 auto;
+    position: relative;
+    isolation: isolate;
+    animation: attendance-info-attention 2.8s ease-in-out infinite;
+}
+
+.attendance-info-button::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    z-index: -1;
+    border: 1.5px solid rgba(0, 145, 210, .42);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: attendance-info-ring 2.8s ease-out infinite;
+}
+
+@keyframes attendance-info-attention {
+    0%, 72%, 100% { transform: scale(1); }
+    78% { transform: scale(1.12); }
+    84% { transform: scale(1); }
+    90% { transform: scale(1.07); }
+}
+
+@keyframes attendance-info-ring {
+    0%, 70%, 100% { opacity: 0; transform: scale(.82); }
+    78% { opacity: .65; transform: scale(1.18); }
+    92% { opacity: 0; transform: scale(1.48); }
 }
 
 .attendance-info-button .material-symbols-outlined {
@@ -948,14 +1003,33 @@
     background: #c9e6ff;
     outline: 2px solid rgba(0, 145, 210, .22);
     outline-offset: 2px;
+    animation-play-state: paused;
+}
+
+.attendance-info-button:hover::after,
+.attendance-info-button:focus-visible::after,
+.attendance-info-button[aria-expanded="true"]::after {
+    animation-play-state: paused;
+    opacity: 0;
+}
+
+.attendance-info-button[aria-expanded="true"] {
+    animation: none;
 }
 
 .attendance-info-popover {
     position: absolute;
     top: calc(100% + 9px);
-    left: 0;
     z-index: 40;
-    width: min(300px, calc(100vw - 56px));
+    /* Giới hạn theo chiều rộng thực của thẻ, không theo 100vw (vốn có thể rộng hơn
+       vùng nội dung khi sidebar vẫn chiếm chỗ trên màn hình nhỏ). */
+    left: 0;
+    right: 0;
+    width: auto;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
     padding: 12px 14px;
     border: 1px solid var(--theme-border);
     border-radius: 12px;
@@ -968,126 +1042,73 @@
 }
 
 .attendance-info-popover[hidden],
-.attendance-report-button[hidden],
-.attendance-form-error[hidden] {
+.attendance-form-error[hidden],
+.attendance-inline-form[hidden] {
     display: none !important;
 }
 
-.attendance-report-button {
-    align-self: flex-start;
-    padding: 8px 12px;
-    border: 0;
-    border-radius: 10px;
-    color: #006591;
-    background: #e8f2ff;
-    font: inherit;
-    font-size: 11px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: background .18s ease, transform .18s ease;
-}
-
-.attendance-report-button:hover {
-    background: #d7eaff;
-    transform: translateY(-1px);
-}
-
-.attendance-dialog {
-    width: min(510px, calc(100vw - 30px));
-    max-width: 510px;
-    max-height: min(90vh, 760px);
-    padding: 0;
-    overflow: auto;
-    border: 1px solid var(--theme-border);
-    border-radius: 20px;
-    color: var(--theme-text);
-    background: var(--theme-surface);
-    box-shadow: 0 24px 70px rgba(15, 35, 70, .24);
-}
-
-.attendance-dialog::backdrop {
-    background: rgba(15, 23, 42, .52);
-    backdrop-filter: blur(4px);
-}
-
-.attendance-dialog-form {
+.attendance-inline-form {
     display: grid;
-    gap: 18px;
-    padding: 26px;
-}
-
-.attendance-dialog-heading {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
-}
-
-.attendance-dialog-heading h2 {
-    margin: 0 0 6px;
-    color: var(--theme-text);
-    font-size: 21px;
-}
-
-.attendance-dialog-heading p {
-    margin: 0;
-    color: var(--theme-text-muted);
-    font-size: 13px;
-    line-height: 1.55;
-}
-
-.attendance-dialog-close {
-    display: grid;
-    place-items: center;
-    width: 34px;
-    height: 34px;
-    flex: 0 0 auto;
-    border: 0;
-    border-radius: 10px;
-    color: var(--theme-text-muted);
+    gap: 11px;
+    width: 100%;
+    min-width: 0;
+    padding: 12px;
+    box-sizing: border-box;
+    border: 1px solid rgba(7, 155, 216, .16);
+    border-radius: 14px;
     background: var(--theme-surface-muted);
-    cursor: pointer;
 }
 
 .attendance-session-count {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 12px;
-    padding: 14px 16px;
-    border-radius: 13px;
-    color: var(--theme-text);
-    background: var(--theme-surface-muted);
-    font-size: 13px;
+    gap: 8px;
+    min-width: 0;
+    color: var(--theme-text-muted);
+    font-size: 11px;
+    line-height: 1.4;
 }
 
 .attendance-session-count strong {
     color: #007caf;
-    font-size: 20px;
+    font-size: 15px;
     white-space: nowrap;
 }
 
 .attendance-input-group {
     display: grid;
-    gap: 8px;
+    gap: 6px;
+    min-width: 0;
 }
 
 .attendance-input-group label {
     color: var(--theme-text);
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 800;
 }
 
+.attendance-input-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: stretch;
+    gap: 7px;
+    min-width: 0;
+}
+
 .attendance-input-group input {
+    display: block;
     width: 100%;
-    min-height: 46px;
-    padding: 10px 13px;
+    min-width: 0;
+    min-height: 40px;
+    padding: 8px 10px;
+    box-sizing: border-box;
     border: 1px solid var(--theme-border);
-    border-radius: 11px;
-    color: var(--theme-text);
-    background: var(--theme-surface);
+    border-radius: 10px;
+    color: var(--theme-input-text, var(--theme-text));
+    background: var(--theme-input-bg, var(--theme-surface));
     font: inherit;
-    font-size: 15px;
+    font-size: 13px;
     outline: none;
 }
 
@@ -1096,88 +1117,82 @@
     box-shadow: 0 0 0 3px rgba(7, 155, 216, .12);
 }
 
+.attendance-input-group input:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+}
+
 .attendance-input-group small {
     color: var(--theme-text-muted);
+    font-size: 10px;
+    line-height: 1.45;
+}
+
+.attendance-save-button {
+    min-width: 58px;
+    min-height: 40px;
+    padding: 0 12px;
+    border: 1px solid #079bd8;
+    border-radius: 10px;
+    color: #fff;
+    background: #079bd8;
+    font: inherit;
     font-size: 11px;
-    line-height: 1.5;
-}
-
-.attendance-confirm-label {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    color: var(--theme-text);
-    font-size: 12px;
-    line-height: 1.55;
+    font-weight: 800;
     cursor: pointer;
+    white-space: nowrap;
+    transition: background .18s ease, transform .18s ease;
 }
 
-.attendance-confirm-label input {
-    width: 17px;
-    height: 17px;
-    margin: 1px 0 0;
-    accent-color: #079bd8;
-    flex: 0 0 auto;
+.attendance-save-button:hover:not(:disabled) {
+    background: #078dcc;
+    transform: translateY(-1px);
+}
+
+.attendance-save-button:disabled {
+    opacity: .6;
+    cursor: not-allowed;
 }
 
 .attendance-form-error {
     margin: 0;
-    padding: 10px 12px;
-    border-radius: 10px;
+    padding: 8px 10px;
+    border-radius: 9px;
     color: #b4233d;
     background: rgba(220, 53, 69, .09);
-    font-size: 12px;
-    line-height: 1.5;
-}
-
-.attendance-dialog-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    padding-top: 2px;
-}
-
-.attendance-cancel-button,
-.attendance-save-button {
-    min-height: 42px;
-    padding: 0 17px;
-    border-radius: 11px;
-    font: inherit;
-    font-size: 13px;
-    font-weight: 800;
-    cursor: pointer;
-}
-
-.attendance-cancel-button {
-    border: 1px solid var(--theme-border);
-    color: var(--theme-text);
-    background: var(--theme-surface);
-}
-
-.attendance-save-button {
-    border: 1px solid #079bd8;
-    color: #fff;
-    background: #079bd8;
-}
-
-.attendance-save-button:disabled {
-    opacity: .65;
-    cursor: wait;
+    font-size: 11px;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
 }
 
 @media (max-width: 560px) {
-    .attendance-dialog-form {
-        padding: 20px;
+    .attendance-stat-card {
+        gap: 12px;
     }
-    .attendance-session-count {
-        align-items: flex-start;
-        flex-direction: column;
+
+    .attendance-inline-form {
+        padding: 11px;
     }
-    .attendance-dialog-actions {
-        flex-direction: column-reverse;
+
+    .attendance-input-row {
+        grid-template-columns: minmax(0, 1fr) 76px;
     }
-    .attendance-cancel-button,
+}
+
+@media (max-width: 360px) {
+    .attendance-input-row {
+        grid-template-columns: 1fr;
+    }
+
     .attendance-save-button {
         width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .attendance-info-button,
+    .attendance-info-button::after {
+        animation: none !important;
+        transition: none !important;
     }
 }
