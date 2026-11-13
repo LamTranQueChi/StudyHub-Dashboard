@@ -131,6 +131,256 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
+
+  // Chuyên cần: ưu tiên dữ liệu điểm danh chính thức; nếu chưa có,
+  // sinh viên tự khai báo số buổi vắng dựa trên thời khóa biểu đã đồng bộ.
+  let latestAttendanceSummary = null;
+
+  function attendanceText(value) {
+    return window.StudyHubI18n?.t(value) || value;
+  }
+
+  function renderAttendanceSummary(summary) {
+    latestAttendanceSummary = summary || null;
+
+    const rateElement = $("attendanceRate");
+    const noteElement = $("attendanceSummary");
+    const statusElement = $("attendanceStatusTag");
+    const reportButton = $("attendanceReportButton");
+    if (!rateElement || !noteElement) return;
+
+    const total = Number(summary?.totalScheduledSessions ?? summary?.total ?? 0);
+    const hasData = Boolean(summary?.hasData);
+    const source = summary?.source || "none";
+    const official = source === "official";
+    const invalidReport = Boolean(summary?.invalidReport);
+
+    if (total <= 0) {
+      rateElement.textContent = "—";
+      noteElement.textContent = attendanceText("Chưa có buổi học đã diễn ra");
+      if (statusElement) statusElement.textContent = attendanceText("Chưa có dữ liệu");
+      if (reportButton) reportButton.hidden = true;
+      return;
+    }
+
+    if (invalidReport) {
+      rateElement.textContent = "—";
+      noteElement.textContent = attendanceText("Số buổi vắng đã khai báo vượt quá số buổi theo thời khóa biểu. Vui lòng cập nhật lại.");
+      if (statusElement) statusElement.textContent = attendanceText("Cần cập nhật");
+      if (reportButton) {
+        reportButton.hidden = false;
+        reportButton.textContent = attendanceText("Cập nhật khai báo");
+      }
+      return;
+    }
+
+    if (!hasData) {
+      rateElement.textContent = "—";
+      noteElement.textContent = `${total} ${attendanceText("buổi đã diễn ra")} · ${attendanceText("Chưa khai báo số buổi vắng")}`;
+      if (statusElement) statusElement.textContent = attendanceText("Chưa khai báo");
+      if (reportButton) {
+        reportButton.hidden = false;
+        reportButton.textContent = attendanceText("Khai báo buổi vắng");
+      }
+      return;
+    }
+
+    const participated = Number(summary.participated ?? summary.present ?? 0);
+    const absent = Number(summary.absent || 0);
+    const denominator = Number(summary.total || total);
+
+    rateElement.textContent = `${Number(summary.rate)}%`;
+    noteElement.textContent = `${participated}/${denominator} ${attendanceText("buổi đã tham gia")} · ${absent} ${attendanceText("buổi vắng")}`;
+
+    if (statusElement) {
+      statusElement.textContent = official
+        ? attendanceText("Dữ liệu đã đồng bộ")
+        : attendanceText("Đã khai báo");
+    }
+
+    if (reportButton) {
+      reportButton.hidden = official;
+      reportButton.textContent = attendanceText("Cập nhật khai báo");
+    }
+
+    noteElement.title = official
+      ? attendanceText("Tỷ lệ được tính từ dữ liệu điểm danh đã đồng bộ.")
+      : attendanceText("Tỷ lệ được tính từ thời khóa biểu và số buổi vắng bạn tự khai báo.");
+  }
+
+  async function loadAttendanceSummary() {
+    const rateElement = $("attendanceRate");
+    const noteElement = $("attendanceSummary");
+    if (!rateElement || !noteElement) return;
+
+    rateElement.textContent = "—";
+    noteElement.textContent = attendanceText("Đang tải tỷ lệ chuyên cần...");
+
+    const auth = window.StudyHubAuth;
+    if (!auth) {
+      noteElement.textContent = attendanceText("Không thể tải dữ liệu chuyên cần. Vui lòng thử lại.");
+      return;
+    }
+
+    try {
+      const isLoggedIn = await auth.requireLogin();
+      if (!isLoggedIn) return;
+
+      const semester = selectedSemester();
+      const response = await auth.apiFetch(`/student/attendance?semester=${semester}`);
+      const data = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(data.message || "Không thể tải dữ liệu chuyên cần. Vui lòng thử lại.");
+
+      renderAttendanceSummary(data.summary || {});
+    } catch (error) {
+      console.error("Không tải được tỷ lệ chuyên cần:", error);
+      rateElement.textContent = "—";
+      noteElement.textContent = attendanceText("Không thể tải dữ liệu chuyên cần. Vui lòng thử lại.");
+      noteElement.title = error.message || "";
+      const statusElement = $("attendanceStatusTag");
+      if (statusElement) statusElement.textContent = attendanceText("Chưa có dữ liệu");
+    }
+  }
+
+  function initAttendanceReport() {
+    const dialog = $("attendanceReportDialog");
+    const reportButton = $("attendanceReportButton");
+    const form = $("attendanceReportForm");
+    const input = $("attendanceAbsentInput");
+    const totalLabel = $("attendanceTotalSessions");
+    const confirm = $("attendanceHonestConfirm");
+    const errorBox = $("attendanceFormError");
+    const saveButton = $("attendanceDialogSave");
+    const infoButton = $("attendanceInfoButton");
+    const infoPopover = $("attendanceInfoPopover");
+
+    if (infoButton && infoPopover) {
+      infoButton.addEventListener("click", event => {
+        event.stopPropagation();
+        const willOpen = infoPopover.hidden;
+        infoPopover.hidden = !willOpen;
+        infoButton.setAttribute("aria-expanded", String(willOpen));
+      });
+
+      document.addEventListener("click", event => {
+        if (!infoPopover.hidden && !infoPopover.contains(event.target) && !infoButton.contains(event.target)) {
+          infoPopover.hidden = true;
+          infoButton.setAttribute("aria-expanded", "false");
+        }
+      });
+    }
+
+    const closeDialog = () => {
+      if (dialog?.open) dialog.close();
+      if (errorBox) {
+        errorBox.hidden = true;
+        errorBox.textContent = "";
+      }
+    };
+
+    $("attendanceDialogClose")?.addEventListener("click", closeDialog);
+    $("attendanceDialogCancel")?.addEventListener("click", closeDialog);
+
+    reportButton?.addEventListener("click", async () => {
+      if (!latestAttendanceSummary) await loadAttendanceSummary();
+      const summary = latestAttendanceSummary || {};
+      const total = Number(summary.totalScheduledSessions ?? summary.total ?? 0);
+
+      if (summary.source === "official") {
+        window.alert(attendanceText("Dữ liệu điểm danh chính thức đã được đồng bộ. Bạn không thể thay đổi số liệu này bằng khai báo cá nhân."));
+        return;
+      }
+      if (total <= 0) {
+        window.alert(attendanceText("Chưa có buổi học đã diễn ra để khai báo."));
+        return;
+      }
+
+      if (totalLabel) totalLabel.textContent = String(total);
+      if (input) {
+        input.max = String(total);
+        input.value = summary.declaredAbsences == null ? "" : String(summary.declaredAbsences);
+      }
+      if (confirm) confirm.checked = false;
+      if (errorBox) {
+        errorBox.hidden = true;
+        errorBox.textContent = "";
+      }
+      if (dialog?.showModal) dialog.showModal();
+      else if (dialog) dialog.setAttribute("open", "");
+      input?.focus();
+    });
+
+    dialog?.addEventListener("click", event => {
+      if (event.target === dialog) closeDialog();
+    });
+
+    form?.addEventListener("submit", async event => {
+      event.preventDefault();
+      if (!input || !confirm || !saveButton) return;
+
+      const raw = input.value.trim();
+      const absentSessions = Number(raw);
+      const total = Number(latestAttendanceSummary?.totalScheduledSessions ?? latestAttendanceSummary?.total ?? 0);
+
+      const showError = message => {
+        if (!errorBox) return;
+        errorBox.textContent = attendanceText(message);
+        errorBox.hidden = false;
+      };
+
+      if (!raw || !Number.isInteger(absentSessions) || absentSessions < 0) {
+        showError("Vui lòng nhập số buổi vắng hợp lệ.");
+        input.focus();
+        return;
+      }
+      if (absentSessions > total) {
+        showError("Số buổi vắng không thể lớn hơn tổng số buổi đã diễn ra.");
+        input.focus();
+        return;
+      }
+      if (!confirm.checked) {
+        showError("Vui lòng xác nhận thông tin trước khi lưu.");
+        confirm.focus();
+        return;
+      }
+
+      const auth = window.StudyHubAuth;
+      if (!auth) {
+        showError("Không thể kết nối máy chủ. Vui lòng thử lại.");
+        return;
+      }
+
+      const originalLabel = attendanceText("Lưu khai báo");
+      saveButton.disabled = true;
+      saveButton.textContent = attendanceText("Đang lưu...");
+
+      try {
+        const response = await auth.apiFetch("/student/attendance/self-report", {
+          method: "PUT",
+          body: JSON.stringify({
+            semester: selectedSemester(),
+            absentSessions,
+            confirmed: true
+          })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.message || "Không thể lưu khai báo chuyên cần.");
+
+        renderAttendanceSummary(data.summary || {});
+        closeDialog();
+      } catch (error) {
+        showError(error.message || "Không thể lưu khai báo chuyên cần.");
+      } finally {
+        saveButton.disabled = false;
+        saveButton.textContent = originalLabel;
+      }
+    });
+
+    window.addEventListener("studyhub:language-changed", () => {
+      if (latestAttendanceSummary) renderAttendanceSummary(latestAttendanceSummary);
+    });
+  }
+
   // Quy đổi điểm chữ.
   function letterGrade(score) {
     if (score >= 8.5) return "A";
@@ -391,8 +641,10 @@ document.addEventListener("DOMContentLoaded", async function () {
   });
 
   // Tải hồ sơ và bảng điểm ban đầu.
+  initAttendanceReport();
   loadStudentProfile();
   loadSemesterGrades();
+  loadAttendanceSummary();
 
   // Cập nhật khi dữ liệu localStorage thay đổi từ tab khác.
   window.addEventListener("storage", event => {
@@ -402,6 +654,7 @@ document.addEventListener("DOMContentLoaded", async function () {
 
     if (event.key === "studyHubSemesterSettings") {
       loadSemesterGrades();
+      loadAttendanceSummary();
     }
   });
 

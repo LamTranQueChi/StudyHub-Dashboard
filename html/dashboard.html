@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../css/dashboard.css">
     <link rel="stylesheet" href="../css/theme.css">
     
+    <link rel="stylesheet" href="../css/hieuung.css">
 </head>
 
 <body>
@@ -106,19 +107,32 @@
                 </div>
             </section>
 
-            <!-- Ghi chú nhanh: dùng chung ghi chú cá nhân ở trang Cài đặt -->
-            <section class="quick-note-panel" aria-labelledby="quickNoteTitle">
-                <div class="quick-note-heading">
-                    <div class="quick-note-title">
-                        <div class="quick-note-icon"><span class="material-symbols-outlined">edit_note</span></div>
-                        <div><h2 id="quickNoteTitle">Ghi chú nhanh</h2><p>Ghi lại việc cần làm hoặc điều cần nhớ trong học tập</p></div>
+            <!-- Ghi chú nhanh dạng tiện ích nổi: thu gọn thành icon, bấm để mở rộng -->
+            <section class="quick-note-widget" id="quickNoteWidget" aria-label="Tiện ích ghi chú nhanh">
+                <button type="button" id="quickNoteToggle" class="quick-note-launcher"
+                        aria-expanded="false" aria-controls="quickNotePanel"
+                        aria-label="Mở ghi chú nhanh" title="Mở ghi chú nhanh">
+                    <span class="material-symbols-outlined" aria-hidden="true">edit_note</span>
+                    <span class="quick-note-pulse" aria-hidden="true"></span>
+                </button>
+
+                <div class="quick-note-popover" id="quickNotePanel" aria-labelledby="quickNoteTitle" hidden>
+                    <div class="quick-note-heading">
+                        <div class="quick-note-title">
+                            <div class="quick-note-icon"><span class="material-symbols-outlined">edit_note</span></div>
+                            <div><h2 id="quickNoteTitle">Ghi chú nhanh</h2><p>Ghi lại việc cần làm hoặc điều cần nhớ trong học tập</p></div>
+                        </div>
+                        <button type="button" id="collapseQuickNote" class="quick-note-collapse"
+                                aria-label="Thu nhỏ ghi chú" title="Thu nhỏ">
+                            <span class="material-symbols-outlined" aria-hidden="true">keyboard_arrow_down</span>
+                        </button>
                     </div>
-                    <span class="quick-note-sync"><span class="material-symbols-outlined">sync</span> Đồng bộ với Cài đặt</span>
-                </div>
-                <textarea id="dashboardQuickNote" rows="4" maxlength="1000" placeholder="Ví dụ: Ôn tập JavaScript DOM, hoàn thành bài tập Cơ sở dữ liệu..."></textarea>
-                <div class="quick-note-footer">
-                    <small id="quickNoteCount">0/1000 ký tự</small>
-                    <div><span id="quickNoteStatus" role="status" aria-live="polite"></span><button type="button" id="saveQuickNote" class="quick-note-save"><span class="material-symbols-outlined">save</span> Lưu ghi chú</button></div>
+                    <div class="quick-note-sync"><span class="material-symbols-outlined" aria-hidden="true">sync</span> Đồng bộ với Cài đặt</div>
+                    <textarea id="dashboardQuickNote" rows="4" maxlength="1000" placeholder="Ví dụ: Ôn tập JavaScript DOM, hoàn thành bài tập Cơ sở dữ liệu..."></textarea>
+                    <div class="quick-note-footer">
+                        <small id="quickNoteCount">0/1000 ký tự</small>
+                        <div><span id="quickNoteStatus" role="status" aria-live="polite"></span><button type="button" id="saveQuickNote" class="quick-note-save"><span class="material-symbols-outlined">save</span> Lưu ghi chú</button></div>
+                    </div>
                 </div>
             </section>
 
@@ -410,6 +424,8 @@
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
     <script src="../js/char.js"></script>
+    <script src="../js/ngonngu.js"></script>
+    <script src="../js/hieuung.js"></script>
     <script src="../js/config.js"></script>
   <script src="../js/auth.js"></script>
     <script src="../js/main.js"></script>

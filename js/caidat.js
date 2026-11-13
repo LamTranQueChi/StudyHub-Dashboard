@@ -161,7 +161,9 @@
         
         const messageText = document.createElement("span");
         messageText.className = "studyhub-toast-message";
-        messageText.textContent = formatToastMessage(message);
+        const rawMessage = String(message || "").trim();
+        const translatedMessage = window.StudyHubI18n?.t?.(rawMessage) || rawMessage;
+        messageText.textContent = formatToastMessage(translatedMessage);
 
         const closeButton = document.createElement("button");
         closeButton.className = "studyhub-toast-close";
@@ -508,6 +510,8 @@
     // 3. TUY CHON GIAO DIEN
     const themeSelect =
         document.getElementById("themeSelect");
+    const languageSelect =
+        document.getElementById("languageSelect");
     const notificationsToggle =
         document.getElementById("notificationsToggle");
     const savePreferencesButton =
@@ -546,6 +550,7 @@
         }
         const theme = saved.theme === "dark" ? "dark" : "light";
         if (themeSelect) themeSelect.value = theme;
+        if (languageSelect) languageSelect.value = window.StudyHubI18n?.get?.() || (saved.language === "en" ? "en" : "vi");
         if (notificationsToggle && typeof saved.notifications === "boolean") {
             notificationsToggle.checked = saved.notifications;
         }
@@ -569,6 +574,7 @@
             const preferences = {
                 ...existing,
                 theme: themeSelect && themeSelect.value === "dark" ? "dark" : "light",
+                language: languageSelect && languageSelect.value === "en" ? "en" : "vi",
                 notifications: notificationsToggle
                     ? notificationsToggle.checked
                     : (typeof existing.notifications === "boolean" ? existing.notifications : true)
@@ -576,6 +582,7 @@
             try {
                 localStorage.setItem(PREFERENCES_KEY, JSON.stringify(preferences));
                 applyTheme(preferences.theme);
+                window.StudyHubI18n?.setLanguage?.(preferences.language);
                 showMessage(preferencesMessage, "Đã lưu tùy chọn thành công.", false);
             } catch (error) {
                 console.error("Lỗi lưu tùy chọn:", error);
@@ -660,7 +667,7 @@
 
     if (logoutButton) {
         logoutButton.addEventListener("click", function () {
-            if (confirm("Bạn có chắc muốn đăng xuất khỏi StudyHub không?")) {
+            if (confirm(window.StudyHubI18n?.t?.("Bạn có chắc muốn đăng xuất khỏi StudyHub không?") || "Bạn có chắc muốn đăng xuất khỏi StudyHub không?")) {
                 window.StudyHubAuth.logout();
             }
         });

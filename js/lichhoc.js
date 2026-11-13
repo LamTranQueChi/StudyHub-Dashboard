@@ -29,7 +29,7 @@
 
   function formatDate(value) {
     if (!value) return 'Chưa cập nhật';
-    return new Date(`${value}T00:00:00`).toLocaleDateString('vi-VN', {
+    return new Date(`${value}T00:00:00`).toLocaleDateString(window.StudyHubI18n?.get?.() === 'en' ? 'en-US' : 'vi-VN', {
       day: '2-digit', month: '2-digit', year: 'numeric'
     });
   }
@@ -75,13 +75,42 @@
     header.insertAdjacentElement('afterend', notice);
   }
 
+  async function loadAttendanceSummary(semesterNumber) {
+    const target = document.getElementById('scheduleAttendanceText');
+    if (!target) return;
+
+    const t = value => window.StudyHubI18n?.t(value) || value;
+    target.textContent = `${t('Tỷ lệ chuyên cần kỳ này:')} ${t('Đang tải tỷ lệ chuyên cần...')}`;
+
+    try {
+      const response = await window.StudyHubAuth.apiFetch(`/student/attendance?semester=${semesterNumber}`);
+      if (!response.ok) throw new Error('Không tải được dữ liệu điểm danh.');
+      const data = await response.json();
+      const summary = data.summary || {};
+
+      if (!summary.hasData || !Number(summary.total)) {
+        const total = Number(summary.totalScheduledSessions || 0);
+        target.textContent = `${t('Tỷ lệ chuyên cần kỳ này:')} ${total > 0 ? t('Chưa khai báo số buổi vắng') : t('Chưa có dữ liệu điểm danh')}`;
+        return;
+      }
+
+      target.textContent = `${t('Tỷ lệ chuyên cần kỳ này:')} ${Number(summary.rate || 0)}%`;
+      target.title = `${t('Đã tham gia')}: ${Number(summary.participated ?? summary.present ?? 0)} · ${t('Buổi vắng')}: ${Number(summary.absent || 0)}`;
+    } catch (error) {
+      console.error('Không tải được tỷ lệ chuyên cần:', error);
+      target.textContent = `${t('Tỷ lệ chuyên cần kỳ này:')} ${t('Chưa có dữ liệu điểm danh')}`;
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', async () => {
     if (!(await window.StudyHubAuth?.requireLogin?.())) return;
+
+    const number = selectedSemester();
+    loadAttendanceSummary(number);
 
     const container = document.getElementById('schedule-container');
     if (!container) return;
 
-    const number = selectedSemester();
     const header = document.querySelector('.schedule-page-header');
     const featured = document.querySelector('.featured-class');
     const filters = document.querySelector('.day-filter-list');
@@ -150,7 +179,7 @@
         filters.innerHTML = '<button type="button" class="day-filter-pill active" data-day="all">Tất cả buổi học</button>' +
           dates.map(date => {
             const dateObject = new Date(`${date}T00:00:00`);
-            return `<button type="button" class="day-filter-pill" data-day="${esc(date)}">${dayNames[dateObject.getDay()]} (${dateObject.toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'})})</button>`;
+            return `<button type="button" class="day-filter-pill" data-day="${esc(date)}">${dayNames[dateObject.getDay()]} (${dateObject.toLocaleDateString(window.StudyHubI18n?.get?.() === 'en' ? 'en-US' : 'vi-VN',{day:'2-digit',month:'2-digit'})})</button>`;
           }).join('');
       }
 
@@ -169,7 +198,7 @@
           const date = new Date(`${row.session_date}T00:00:00`);
           const state = getSessionState(row, semesterStatus, now);
           return `<article class="schedule-item ${state.className === 'status-finished' ? 'schedule-finished' : ''}" data-day="${dayKeys[date.getDay()]}">
-            <div class="date-box"><span>${esc(dayNames[date.getDay()].toUpperCase())}</span><strong>${date.toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit'})}</strong></div>
+            <div class="date-box"><span>${esc(dayNames[date.getDay()].toUpperCase())}</span><strong>${date.toLocaleDateString(window.StudyHubI18n?.get?.() === 'en' ? 'en-US' : 'vi-VN',{day:'2-digit',month:'2-digit'})}</strong></div>
             <div class="time-box"><strong><span class="material-symbols-outlined">schedule</span> ${esc(row.start_time)} - ${esc(row.end_time)}</strong><span>${row.start_time < '12:00' ? 'Ca sáng' : 'Ca chiều'}</span></div>
             <div class="lesson-info"><div class="lesson-title-row"><h3>${esc(row.course_name || row.title)}</h3><span class="lesson-type type-theory">Theo lịch lớp</span></div>
             <p><span class="material-symbols-outlined">person</span> ${esc(row.lecturer || 'Chưa cập nhật')} <span class="meta-separator">•</span> Mã HP: ${esc(row.course_code || '—')}</p></div>
@@ -216,7 +245,7 @@
           featured.innerHTML = `<div class="featured-main">
             <div>
               <div class="class-status"><span class="status-dot"></span>${heading}</div>
-              <div class="class-time"><span class="material-symbols-outlined">schedule</span>${esc(upcoming.start_time)} - ${esc(upcoming.end_time)} · ${date.toLocaleDateString('vi-VN')}</div>
+              <div class="class-time"><span class="material-symbols-outlined">schedule</span>${esc(upcoming.start_time)} - ${esc(upcoming.end_time)} · ${date.toLocaleDateString(window.StudyHubI18n?.get?.() === 'en' ? 'en-US' : 'vi-VN')}</div>
               <h2>${esc(upcoming.course_name || upcoming.title)}</h2>
               <div class="class-details">
                 <div class="detail-item"><div class="detail-icon"><span class="material-symbols-outlined">person</span></div><div><span class="detail-label">Giảng viên</span><strong>${esc(upcoming.lecturer || 'Chưa cập nhật')}</strong></div></div>
@@ -232,9 +261,9 @@
     }
 
     document.getElementById('exportScheduleButton')?.addEventListener('click', () => window.print());
-    document.getElementById('syncCalendarButton')?.addEventListener('click', () => alert('Chức năng đồng bộ Google Calendar cần được kết nối với tài khoản Google.'));
-    document.getElementById('attendanceButton')?.addEventListener('click', () => alert('Chức năng điểm danh sẽ hoạt động khi backend được bổ sung phiên điểm danh.'));
-    document.getElementById('attendanceHistoryButton')?.addEventListener('click', () => alert('Chưa có dữ liệu điểm danh để hiển thị.'));
-    document.getElementById('reportRoomButton')?.addEventListener('click', () => alert('Vui lòng liên hệ cán bộ quản lý giảng đường để báo sự cố.'));
+    document.getElementById('syncCalendarButton')?.addEventListener('click', () => alert(window.StudyHubI18n?.t('Chức năng đồng bộ Google Calendar cần được kết nối với tài khoản Google.') || 'Chức năng đồng bộ Google Calendar cần được kết nối với tài khoản Google.'));
+    document.getElementById('attendanceButton')?.addEventListener('click', () => alert(window.StudyHubI18n?.t('Xác nhận có mặt trực tiếp chưa được kết nối với hệ thống điểm danh của trường. Bạn có thể khai báo số buổi vắng tại trang Hồ sơ sinh viên.') || 'Xác nhận có mặt trực tiếp chưa được kết nối với hệ thống điểm danh của trường. Bạn có thể khai báo số buổi vắng tại trang Hồ sơ sinh viên.'));
+    document.getElementById('attendanceHistoryButton')?.addEventListener('click', () => alert(window.StudyHubI18n?.t('Chưa có dữ liệu điểm danh chính thức để hiển thị.') || 'Chưa có dữ liệu điểm danh chính thức để hiển thị.'));
+    document.getElementById('reportRoomButton')?.addEventListener('click', () => alert(window.StudyHubI18n?.t('Vui lòng liên hệ cán bộ quản lý giảng đường để báo sự cố.') || 'Vui lòng liên hệ cán bộ quản lý giảng đường để báo sự cố.'));
   });
 })();

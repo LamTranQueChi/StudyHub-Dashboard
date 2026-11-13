@@ -1,9 +1,3 @@
-/* =====================================================
-   STUDYHUB - THEME.JS
-   Quản lý theme toàn website.
-   Không xử lý bố cục hoặc điều hướng component.
-   ===================================================== */
-
 (function () {
     "use strict";
 
@@ -42,6 +36,11 @@
         if (document.body) {
             document.body.classList.toggle("dark-theme", selectedTheme === "dark");
         }
+
+        // Thông báo cho các thành phần cần vẽ lại theo màu theme (ví dụ Chart.js).
+        window.dispatchEvent(new CustomEvent("studyhub:theme-changed", {
+            detail: { theme: selectedTheme }
+        }));
 
         return selectedTheme;
     }

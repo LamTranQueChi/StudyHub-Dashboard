@@ -1173,3 +1173,6 @@ body.dark-theme #studyHubToastContainer .studyhub-toast.error {
         font-size: 20px !important;
     }
 }
+
+.preferences-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+@media (max-width: 640px) { .preferences-grid { grid-template-columns: 1fr; } }

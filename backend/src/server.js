@@ -122,10 +122,200 @@ app.get('/api/student/schedule',auth,(req,res)=>{
 
   res.json({schedule:rows,shared:true,class_name:req.student.class_name,semester});
 });
-app.get('/api/student/attendance',auth,(req,res)=>{
-  const rows=db.prepare(`SELECT a.id,a.status,a.note,ss.title,ss.session_date,ss.start_time,ss.end_time,c.course_code,c.course_name FROM attendance a JOIN schedule_sessions ss ON ss.id=a.session_id LEFT JOIN courses c ON c.id=ss.course_id WHERE a.student_id=? ORDER BY ss.session_date DESC`).all(req.student.id);
-  const total=rows.length; const present=rows.filter(x=>x.status==='present').length;
-  res.json({attendance:rows,summary:{total,present,absent:rows.filter(x=>x.status==='absent').length,rate:total?Math.round(present/total*100):0}});
+
+function getVietnamDateTime() {
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Ho_Chi_Minh',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute: '2-digit',
+    hourCycle: 'h23'
+  }).formatToParts(new Date());
+  const part = type => parts.find(item => item.type === type)?.value || '';
+  return {
+    date: `${part('year')}-${part('month')}-${part('day')}`,
+    time: `${part('hour')}:${part('minute')}`
+  };
+}
+
+function countPastScheduledSessions(student, semesterId, now = getVietnamDateTime()) {
+  const classResult = db.prepare(`
+    SELECT COUNT(*) AS total
+    FROM class_schedule_sessions
+    WHERE class_name = ? AND semester_id = ?
+      AND (session_date < ? OR (session_date = ? AND end_time <= ?))
+  `).get(student.class_name, semesterId, now.date, now.date, now.time);
+
+  if (Number(classResult?.total || 0) > 0) return Number(classResult.total);
+
+  // Fallback for installations that use student-specific schedule rows.
+  const personalResult = db.prepare(`
+    SELECT COUNT(*) AS total
+    FROM schedule_sessions
+    WHERE student_id = ? AND semester_id = ?
+      AND (session_date < ? OR (session_date = ? AND end_time <= ?))
+  `).get(student.id, semesterId, now.date, now.date, now.time);
+
+  return Number(personalResult?.total || 0);
+}
+
+function buildAttendanceSummary(student, semesterNumber) {
+  const semester = db.prepare(`
+    SELECT id, sequence_no, label, school_year
+    FROM semesters WHERE sequence_no = ?
+  `).get(semesterNumber);
+
+  if (!semester) return null;
+
+  const now = getVietnamDateTime();
+  const officialRows = db.prepare(`
+    SELECT a.id, a.status, a.note, ss.title, ss.session_date, ss.start_time, ss.end_time,
+      c.course_code, c.course_name
+    FROM attendance a
+    JOIN schedule_sessions ss ON ss.id = a.session_id
+    LEFT JOIN courses c ON c.id = ss.course_id
+    WHERE a.student_id = ? AND ss.semester_id = ?
+      AND (ss.session_date < ? OR (ss.session_date = ? AND ss.end_time <= ?))
+    ORDER BY ss.session_date DESC, ss.start_time DESC
+  `).all(student.id, semester.id, now.date, now.date, now.time);
+
+  const normalized = value => String(value || '').trim().toLowerCase();
+  const isNotMarked = row => ['', 'not_marked', 'not-marked', 'pending', 'unmarked'].includes(normalized(row.status));
+  const markedRows = officialRows.filter(row => !isNotMarked(row));
+
+  // Official attendance always takes priority and cannot be overwritten by a personal report.
+  if (markedRows.length) {
+    const presentStatuses = ['present', 'on_time', 'checked_in'];
+    const lateStatuses = ['late', 'present_late'];
+    const present = markedRows.filter(row => presentStatuses.includes(normalized(row.status))).length;
+    const late = markedRows.filter(row => lateStatuses.includes(normalized(row.status))).length;
+    const total = markedRows.length;
+    const participated = present + late;
+    const absent = Math.max(0, total - participated);
+
+    return {
+      attendance: officialRows,
+      summary: {
+        total,
+        scheduled: officialRows.length,
+        totalScheduledSessions: officialRows.length,
+        present,
+        late,
+        absent,
+        participated,
+        rate: Math.round(participated / total * 100),
+        hasData: true,
+        source: 'official',
+        declared: false,
+        declaredAbsences: null,
+        invalidReport: false
+      }
+    };
+  }
+
+  const total = countPastScheduledSessions(student, semester.id, now);
+  const report = db.prepare(`
+    SELECT absent_sessions, confirmed_at, updated_at
+    FROM student_attendance_reports
+    WHERE student_id = ? AND semester_id = ?
+  `).get(student.id, semester.id);
+
+  const declared = Boolean(report);
+  const declaredAbsences = declared ? Number(report.absent_sessions) : null;
+  const invalidReport = declared && declaredAbsences > total;
+  const absent = declared && !invalidReport ? declaredAbsences : null;
+  const participated = declared && !invalidReport ? Math.max(0, total - absent) : null;
+  const hasData = declared && total > 0 && !invalidReport;
+
+  return {
+    attendance: [],
+    summary: {
+      total,
+      scheduled: total,
+      totalScheduledSessions: total,
+      present: participated,
+      late: 0,
+      absent,
+      participated,
+      rate: hasData ? Math.round(participated / total * 100) : null,
+      hasData,
+      source: declared ? 'student_report' : 'none',
+      declared,
+      declaredAbsences,
+      confirmedAt: report?.confirmed_at || null,
+      updatedAt: report?.updated_at || null,
+      invalidReport
+    }
+  };
+}
+
+app.get('/api/student/attendance', auth, (req, res) => {
+  const semesterNumber = req.query.semester ? Number(req.query.semester) : 5;
+  if (!Number.isInteger(semesterNumber) || semesterNumber < 1 || semesterNumber > 8) {
+    return res.status(400).json({ message: 'Học kỳ không hợp lệ.' });
+  }
+
+  const result = buildAttendanceSummary(req.student, semesterNumber);
+  if (!result) return res.status(404).json({ message: 'Không tìm thấy thông tin học kỳ.' });
+  res.json(result);
+});
+
+app.put('/api/student/attendance/self-report', auth, (req, res) => {
+  const semesterNumber = Number(req.body?.semester);
+  const absentSessions = Number(req.body?.absentSessions);
+  const confirmed = req.body?.confirmed === true;
+
+  if (!Number.isInteger(semesterNumber) || semesterNumber < 1 || semesterNumber > 8) {
+    return res.status(400).json({ message: 'Học kỳ không hợp lệ.' });
+  }
+  if (!confirmed) {
+    return res.status(400).json({ message: 'Vui lòng xác nhận thông tin trước khi lưu.' });
+  }
+  if (!Number.isInteger(absentSessions) || absentSessions < 0) {
+    return res.status(400).json({ message: 'Vui lòng nhập số buổi vắng hợp lệ.' });
+  }
+
+  const semester = db.prepare('SELECT id FROM semesters WHERE sequence_no = ?').get(semesterNumber);
+  if (!semester) return res.status(404).json({ message: 'Không tìm thấy thông tin học kỳ.' });
+
+  const now = getVietnamDateTime();
+  const total = countPastScheduledSessions(req.student, semester.id, now);
+  if (total <= 0) {
+    return res.status(400).json({ message: 'Học kỳ này chưa có buổi học nào đã diễn ra.' });
+  }
+  if (absentSessions > total) {
+    return res.status(400).json({ message: `Số buổi vắng không thể lớn hơn ${total} buổi đã diễn ra.` });
+  }
+
+  const officialCount = db.prepare(`
+    SELECT COUNT(*) AS total
+    FROM attendance a
+    JOIN schedule_sessions ss ON ss.id = a.session_id
+    WHERE a.student_id = ? AND ss.semester_id = ?
+      AND LOWER(TRIM(a.status)) NOT IN ('', 'not_marked', 'not-marked', 'pending', 'unmarked')
+      AND (ss.session_date < ? OR (ss.session_date = ? AND ss.end_time <= ?))
+  `).get(req.student.id, semester.id, now.date, now.date, now.time);
+
+  if (Number(officialCount?.total || 0) > 0) {
+    return res.status(409).json({
+      message: 'Dữ liệu điểm danh chính thức đã được đồng bộ. Khai báo cá nhân không thể thay thế dữ liệu này.'
+    });
+  }
+
+  db.prepare(`
+    INSERT INTO student_attendance_reports
+      (student_id, semester_id, absent_sessions, confirmed_at, updated_at)
+    VALUES (?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
+    ON CONFLICT(student_id, semester_id) DO UPDATE SET
+      absent_sessions = excluded.absent_sessions,
+      confirmed_at = CURRENT_TIMESTAMP,
+      updated_at = CURRENT_TIMESTAMP
+  `).run(req.student.id, semester.id, absentSessions);
+
+  const result = buildAttendanceSummary(req.student, semesterNumber);
+  res.json({ ok: true, ...result });
 });
 app.get('/api/student/certificates',auth,(req,res)=>res.json({certificates:db.prepare('SELECT id,title,issuer,issued_at,certificate_code,file_url FROM certificates WHERE student_id=? ORDER BY issued_at DESC').all(req.student.id)}));
 app.get('/api/student/settings',auth,(req,res)=>{

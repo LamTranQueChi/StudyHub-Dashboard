@@ -914,3 +914,270 @@
 #semesterGradeNotice h2 { margin: 0 0 8px; }
 #semesterGradeNotice p { margin: 0; color: #475569; line-height: 1.6; }
 #semesterGradeLegend { display: flex; flex-wrap: wrap; gap: 14px 24px; justify-content: center; padding: 12px 8px 4px; color: #64748b; font-size: 13px; }
+
+
+/* Attendance self-report: integrated into the existing student profile card. */
+.attendance-title-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.attendance-info-button {
+    display: inline-grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: #006591;
+    background: #e8f2ff;
+    cursor: pointer;
+    flex: 0 0 auto;
+}
+
+.attendance-info-button .material-symbols-outlined {
+    font-size: 14px;
+    line-height: 1;
+}
+
+.attendance-info-button:hover,
+.attendance-info-button:focus-visible {
+    background: #c9e6ff;
+    outline: 2px solid rgba(0, 145, 210, .22);
+    outline-offset: 2px;
+}
+
+.attendance-info-popover {
+    position: absolute;
+    top: calc(100% + 9px);
+    left: 0;
+    z-index: 40;
+    width: min(300px, calc(100vw - 56px));
+    padding: 12px 14px;
+    border: 1px solid var(--theme-border);
+    border-radius: 12px;
+    color: var(--theme-text);
+    background: var(--theme-surface);
+    box-shadow: 0 12px 32px rgba(20, 40, 80, .16);
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.attendance-info-popover[hidden],
+.attendance-report-button[hidden],
+.attendance-form-error[hidden] {
+    display: none !important;
+}
+
+.attendance-report-button {
+    align-self: flex-start;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: 10px;
+    color: #006591;
+    background: #e8f2ff;
+    font: inherit;
+    font-size: 11px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background .18s ease, transform .18s ease;
+}
+
+.attendance-report-button:hover {
+    background: #d7eaff;
+    transform: translateY(-1px);
+}
+
+.attendance-dialog {
+    width: min(510px, calc(100vw - 30px));
+    max-width: 510px;
+    max-height: min(90vh, 760px);
+    padding: 0;
+    overflow: auto;
+    border: 1px solid var(--theme-border);
+    border-radius: 20px;
+    color: var(--theme-text);
+    background: var(--theme-surface);
+    box-shadow: 0 24px 70px rgba(15, 35, 70, .24);
+}
+
+.attendance-dialog::backdrop {
+    background: rgba(15, 23, 42, .52);
+    backdrop-filter: blur(4px);
+}
+
+.attendance-dialog-form {
+    display: grid;
+    gap: 18px;
+    padding: 26px;
+}
+
+.attendance-dialog-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.attendance-dialog-heading h2 {
+    margin: 0 0 6px;
+    color: var(--theme-text);
+    font-size: 21px;
+}
+
+.attendance-dialog-heading p {
+    margin: 0;
+    color: var(--theme-text-muted);
+    font-size: 13px;
+    line-height: 1.55;
+}
+
+.attendance-dialog-close {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto;
+    border: 0;
+    border-radius: 10px;
+    color: var(--theme-text-muted);
+    background: var(--theme-surface-muted);
+    cursor: pointer;
+}
+
+.attendance-session-count {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 14px 16px;
+    border-radius: 13px;
+    color: var(--theme-text);
+    background: var(--theme-surface-muted);
+    font-size: 13px;
+}
+
+.attendance-session-count strong {
+    color: #007caf;
+    font-size: 20px;
+    white-space: nowrap;
+}
+
+.attendance-input-group {
+    display: grid;
+    gap: 8px;
+}
+
+.attendance-input-group label {
+    color: var(--theme-text);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.attendance-input-group input {
+    width: 100%;
+    min-height: 46px;
+    padding: 10px 13px;
+    border: 1px solid var(--theme-border);
+    border-radius: 11px;
+    color: var(--theme-text);
+    background: var(--theme-surface);
+    font: inherit;
+    font-size: 15px;
+    outline: none;
+}
+
+.attendance-input-group input:focus {
+    border-color: #079bd8;
+    box-shadow: 0 0 0 3px rgba(7, 155, 216, .12);
+}
+
+.attendance-input-group small {
+    color: var(--theme-text-muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.attendance-confirm-label {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--theme-text);
+    font-size: 12px;
+    line-height: 1.55;
+    cursor: pointer;
+}
+
+.attendance-confirm-label input {
+    width: 17px;
+    height: 17px;
+    margin: 1px 0 0;
+    accent-color: #079bd8;
+    flex: 0 0 auto;
+}
+
+.attendance-form-error {
+    margin: 0;
+    padding: 10px 12px;
+    border-radius: 10px;
+    color: #b4233d;
+    background: rgba(220, 53, 69, .09);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.attendance-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding-top: 2px;
+}
+
+.attendance-cancel-button,
+.attendance-save-button {
+    min-height: 42px;
+    padding: 0 17px;
+    border-radius: 11px;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.attendance-cancel-button {
+    border: 1px solid var(--theme-border);
+    color: var(--theme-text);
+    background: var(--theme-surface);
+}
+
+.attendance-save-button {
+    border: 1px solid #079bd8;
+    color: #fff;
+    background: #079bd8;
+}
+
+.attendance-save-button:disabled {
+    opacity: .65;
+    cursor: wait;
+}
+
+@media (max-width: 560px) {
+    .attendance-dialog-form {
+        padding: 20px;
+    }
+    .attendance-session-count {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .attendance-dialog-actions {
+        flex-direction: column-reverse;
+    }
+    .attendance-cancel-button,
+    .attendance-save-button {
+        width: 100%;
+    }
+}

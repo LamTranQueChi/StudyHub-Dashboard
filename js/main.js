@@ -95,6 +95,7 @@ function renderComponents() {
 
         sidebar.append(sidebarTop, semesterCard);
         sidebarContainer.appendChild(sidebar);
+        window.StudyHubI18n?.apply?.(window.StudyHubI18n.get(), sidebar);
     }
 
     if (topbarContainer) {
@@ -106,12 +107,16 @@ function renderComponents() {
             '<span class="material-symbols-outlined" aria-hidden="true">menu</span></button>' +
             '<div class="search-box"><span class="material-symbols-outlined" aria-hidden="true">search</span>' +
             '<input type="text" id="searchInput" placeholder="Tìm kiếm trang: Tổng quan, Sinh viên, Môn học..." aria-label="Tìm kiếm trang trong Sidebar"></div>' +
-            '<div class="topbar-right"><button class="notification-btn" type="button" aria-label="Thông báo" title="Thông báo">' +
+            '<div class="topbar-right"><div class="language-switch" role="group" aria-label="Chọn ngôn ngữ">' +
+            '<button type="button" class="language-option" data-language-option="vi" aria-pressed="true">VI</button>' +
+            '<button type="button" class="language-option" data-language-option="en" aria-pressed="false">EN</button>' +
+            '</div><button class="notification-btn" type="button" aria-label="Thông báo" title="Thông báo">' +
             '<span class="material-symbols-outlined" aria-hidden="true">notifications</span><span class="notification-dot" aria-hidden="true"></span></button>' +
             '<div class="user-profile"><div class="user-info"><strong id="topbarUserName">Xin chào, Lâm Trần Quế Chi!</strong>' +
             '<span id="topbarUserClass">DA24TTA</span></div><button class="user-avatar" id="topbarAvatarButton" type="button" aria-label="Mở cài đặt tài khoản" title="Cài đặt tài khoản">' +
             '<img id="topbarAvatar" src="../assets/images/avatar_macdinh.jpg" alt="Ảnh đại diện tài khoản"></button></div></div>';
         topbarContainer.appendChild(header);
+        window.StudyHubI18n?.apply?.(window.StudyHubI18n.get(), header);
     }
 
     if (footerContainer) {
@@ -157,7 +162,7 @@ function initSidebarLogout() {
     if (!button || button.dataset.logoutReady === "true") return;
     button.dataset.logoutReady = "true";
     button.addEventListener("click", function () {
-        if (window.confirm("Bạn có chắc muốn đăng xuất khỏi StudyHub không?")) {
+        if (window.confirm(window.StudyHubI18n?.t("Bạn có chắc muốn đăng xuất khỏi StudyHub không?") || "Bạn có chắc muốn đăng xuất khỏi StudyHub không?")) {
             window.StudyHubAuth?.logout?.();
         }
     });
@@ -199,7 +204,7 @@ function initSidebarToggle() {
 
 function initTopbarActions() {
     const button = document.querySelector(".notification-btn");
-    if (button) button.addEventListener("click", () => alert("Bạn hiện không có thông báo mới."));
+    if (button) button.addEventListener("click", () => alert(window.StudyHubI18n?.t("Bạn hiện không có thông báo mới.") || "Bạn hiện không có thông báo mới."));
 }
 
 function initUserProfile() {
@@ -345,6 +350,7 @@ function initSearch() {
             `;
             document.body.appendChild(toast);
         }
+        window.StudyHubI18n?.apply?.(window.StudyHubI18n.get(), toast);
         toast.classList.add("show");
 
         clearTimeout(window.saveToastTimer);
@@ -382,6 +388,7 @@ function initSearch() {
     dialog.append(icon, title, message, actions);
     overlay.appendChild(dialog);
     document.body.appendChild(overlay);
+    window.StudyHubI18n?.apply?.(window.StudyHubI18n.get(), overlay);
     function dismiss() { overlay.remove(); }
     close.addEventListener("click", dismiss);
     overlay.addEventListener("click", event => { if (event.target === overlay) dismiss(); });
@@ -446,6 +453,7 @@ function initSemesterSettings() {
           <div class="semester-modal-actions"><button type="button" class="semester-cancel">Hủy</button><button type="button" class="semester-save">Lưu lựa chọn</button></div>`;
         overlay.appendChild(modal);
         document.body.appendChild(overlay);
+        window.StudyHubI18n?.apply?.(window.StudyHubI18n.get(), overlay);
         const yearSelect = modal.querySelector("#semesterYearChoice");
         const termSelect = modal.querySelector("#semesterChoice");
         const hint = modal.querySelector("#semesterHint");
@@ -453,9 +461,7 @@ function initSemesterSettings() {
         termSelect.value = selectedTerm;
         function updateHint() {
             const n = semesterNumber(yearSelect.value, termSelect.value);
-            hint.textContent = n <= 5
-              ? `Học kỳ ${n} đã có dữ liệu học tập.`
-              : `Học kỳ ${n} chưa mở. Khi chọn, StudyHub chỉ hiển thị thông báo khóa học chưa mở.`;
+            hint.textContent = window.StudyHubI18n?.t(n <= 5 ? `Học kỳ ${n} đã có dữ liệu học tập.` : `Học kỳ ${n} chưa mở. Khi chọn, StudyHub chỉ hiển thị thông báo học kỳ chưa mở.`) || (n <= 5 ? `Học kỳ ${n} đã có dữ liệu học tập.` : `Học kỳ ${n} chưa mở. Khi chọn, StudyHub chỉ hiển thị thông báo học kỳ chưa mở.`);
         }
         yearSelect.addEventListener("change", updateHint);
         termSelect.addEventListener("change", updateHint);

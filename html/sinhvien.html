@@ -13,8 +13,9 @@
 
     <!-- CSS chung của dự án và CSS riêng trang hồ sơ -->
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/sinhvien.css">
+    <link rel="stylesheet" href="../css/theme.css">
+    <link rel="stylesheet" href="../css/hieuung.css">
 </head>
 <body>
     <div id="sidebar-container"></div>
@@ -104,19 +105,68 @@
                             <div class="mini-progress"><span></span></div>
                         </article>
 
-                        <article class="stat-card">
+                        <article class="stat-card attendance-stat-card">
                             <div class="stat-top">
                                 <div class="stat-icon icon-red"><span class="material-symbols-outlined">event_available</span></div>
-                                <span class="stat-tag tag-blue">Chăm chỉ</span>
+                                <span class="stat-tag tag-blue" id="attendanceStatusTag">Chưa khai báo</span>
                             </div>
                             <div class="stat-body">
-                                <p>Tỷ lệ chuyên cần</p>
-                                <div class="stat-number red-number">96%</div>
+                                <div class="attendance-title-row">
+                                    <p>Tỷ lệ chuyên cần</p>
+                                    <button type="button" class="attendance-info-button" id="attendanceInfoButton"
+                                            aria-label="Thông tin về tỷ lệ chuyên cần" aria-expanded="false" title="Cách tính tỷ lệ chuyên cần">
+                                        <span class="material-symbols-outlined" aria-hidden="true">info</span>
+                                    </button>
+                                    <div class="attendance-info-popover" id="attendanceInfoPopover" role="tooltip" hidden>
+                                        Số buổi học được đếm từ thời khóa biểu đã đồng bộ vào StudyHub và chỉ tính các buổi đã kết thúc. Bạn cần khai báo trung thực số buổi đã vắng. Vắng có phép hay không phép đều tính là một buổi. Tỷ lệ này dùng để tự theo dõi, không thay thế dữ liệu điểm danh chính thức của Trường Đại học Trà Vinh.
+                                    </div>
+                                </div>
+                                <div class="stat-number red-number" id="attendanceRate">—</div>
                             </div>
-                            <p class="stat-note"><span class="material-symbols-outlined">done_all</span> Vắng: 0 buổi có phép</p>
+                            <p class="stat-note"><span class="material-symbols-outlined">done_all</span> <span id="attendanceSummary">Chưa khai báo số buổi vắng</span></p>
+                            <button type="button" class="attendance-report-button" id="attendanceReportButton" hidden>Khai báo buổi vắng</button>
                         </article>
                     </div>
                 </section>
+
+
+                <dialog class="attendance-dialog" id="attendanceReportDialog" aria-labelledby="attendanceDialogTitle">
+                    <form id="attendanceReportForm" class="attendance-dialog-form">
+                        <div class="attendance-dialog-heading">
+                            <div>
+                                <h2 id="attendanceDialogTitle">Khai báo số buổi vắng</h2>
+                                <p>Vui lòng nhập chính xác số buổi bạn đã vắng trong học kỳ đang chọn.</p>
+                            </div>
+                            <button type="button" class="attendance-dialog-close" id="attendanceDialogClose" aria-label="Đóng">
+                                <span class="material-symbols-outlined" aria-hidden="true">close</span>
+                            </button>
+                        </div>
+
+                        <div class="attendance-session-count">
+                            <span>Tổng số buổi theo thời khóa biểu đã diễn ra</span>
+                            <strong id="attendanceTotalSessions">—</strong>
+                        </div>
+
+                        <div class="attendance-input-group">
+                            <label for="attendanceAbsentInput">Số buổi vắng</label>
+                            <input type="number" id="attendanceAbsentInput" name="absentSessions"
+                                   min="0" step="1" inputmode="numeric" placeholder="Nhập số buổi vắng" required>
+                            <small>Mỗi buổi vắng đều được tính như nhau, không phân biệt có phép hay không phép.</small>
+                        </div>
+
+                        <label class="attendance-confirm-label" for="attendanceHonestConfirm">
+                            <input type="checkbox" id="attendanceHonestConfirm" required>
+                            <span>Tôi xác nhận số buổi vắng đã khai báo là trung thực và chính xác.</span>
+                        </label>
+
+                        <p class="attendance-form-error" id="attendanceFormError" role="alert" hidden></p>
+
+                        <div class="attendance-dialog-actions">
+                            <button type="button" class="attendance-cancel-button" id="attendanceDialogCancel">Hủy</button>
+                            <button type="submit" class="attendance-save-button" id="attendanceDialogSave">Lưu khai báo</button>
+                        </div>
+                    </form>
+                </dialog>
 
                 <section id="semesterGradeNotice" class="panel" hidden style="margin-bottom:18px;padding:22px;">
                     <h2 id="semesterGradeNoticeTitle">Thông tin học kỳ</h2>
@@ -188,6 +238,8 @@
         <div id="footer-container"></div>
     </div>
 
+    <script src="../js/ngonngu.js"></script>
+    <script src="../js/hieuung.js"></script>
     <script src="../js/config.js"></script>
   <script src="../js/auth.js"></script>
     <script src="../js/main.js"></script>

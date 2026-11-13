@@ -12,7 +12,7 @@
       return (yearIndex < 0 ? 2 : yearIndex) * 2 + (saved?.semester === 'II' ? 2 : 1);
     } catch { return 5; }
   }
-  const formatDate = value => value ? new Date(value).toLocaleDateString('vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'}) : 'Chưa có hạn nộp';
+  const formatDate = value => value ? new Date(value).toLocaleDateString(window.StudyHubI18n?.get?.() === 'en' ? 'en-US' : 'vi-VN',{day:'2-digit',month:'2-digit',year:'numeric'}) : 'Chưa có hạn nộp';
   document.addEventListener('DOMContentLoaded', async () => {
     if (!(await window.StudyHubAuth?.requireLogin?.())) return;
     const container = document.getElementById('assignmentsContainer');
@@ -92,7 +92,7 @@
       const button = event.target.closest('button[data-task-id]');
       if (!button) return;
       const item = assignments.find(x => String(x.id) === button.dataset.taskId);
-      if (item) alert(`${item.title}\nMôn học: ${item.course_name}\nTrạng thái: ${isCompleted(item) ? 'Đã hoàn thành' : 'Chưa hoàn thành'}${item.score != null ? `\nĐiểm: ${item.score}/10` : ''}`);
+      if (item) { const t = value => window.StudyHubI18n?.t(value) || value; alert(`${item.title}\n${t('Môn học:')} ${item.course_name}\n${t('Trạng thái')}: ${t(isCompleted(item) ? 'Đã hoàn thành' : 'Chưa hoàn thành')}${item.score != null ? `\n${t('Điểm')}: ${item.score}/10` : ''}`); }
     });
     document.getElementById('sortButton')?.addEventListener('click', () => {
       assignments.sort((a,b) => String(a.due_at || '').localeCompare(String(b.due_at || '')));
@@ -100,12 +100,12 @@
     });
     const addNoteButton = [...document.querySelectorAll('button')].find(button => button.textContent.includes('Thêm ghi chú'));
     addNoteButton?.addEventListener('click', () => {
-      const note = prompt('Nhập ghi chú học tập của bạn:');
+      const note = prompt(window.StudyHubI18n?.t('Nhập ghi chú học tập của bạn:') || 'Nhập ghi chú học tập của bạn:');
       if (note?.trim()) {
         const saved = JSON.parse(localStorage.getItem('studyHubNotes') || '[]');
         saved.push({text:note.trim(),createdAt:new Date().toISOString()});
         localStorage.setItem('studyHubNotes',JSON.stringify(saved));
-        alert('Đã lưu ghi chú học tập!');
+        alert(window.StudyHubI18n?.t('Đã lưu ghi chú học tập!') || 'Đã lưu ghi chú học tập!');
       }
     });
     render();

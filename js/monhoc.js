@@ -80,6 +80,6 @@
     } catch (e) {
       grid.innerHTML = `<p class="api-error">${esc(e.message)}</p>`;
     }
-    document.getElementById('syllabusButton')?.addEventListener('click', () => alert('Chưa có file đề cương được đính kèm cho học kỳ này.'));
+    document.getElementById('syllabusButton')?.addEventListener('click', () => alert(window.StudyHubI18n?.t('Chưa có file đề cương được đính kèm cho học kỳ này.') || 'Chưa có file đề cương được đính kèm cho học kỳ này.'));
   });
 })();

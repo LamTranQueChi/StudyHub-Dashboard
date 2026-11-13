@@ -1,4 +1,3 @@
-
 # STUDYHUB – DASHBOARD HỌC TẬP
 
 <p align="center">
@@ -51,37 +50,45 @@ Bên cạnh việc xây dựng giao diện Frontend, đề tài còn tìm hiểu
 ## 4. CÁC CHỨC NĂNG CHÍNH
 
 ### 4.1. Đăng nhập
+
 - Hỗ trợ sinh viên đăng nhập vào hệ thống.
 - Kiểm tra thông tin tài khoản.
 - Xác thực người dùng thông qua Backend.
 
 ### 4.2. Dashboard – Tổng quan
+
 - Hiển thị thông tin tổng quan về quá trình học tập.
 - Cung cấp giao diện theo dõi các thông tin học tập.
 - Giúp sinh viên dễ dàng quan sát tình hình học tập.
 
 ### 4.3. Quản lý sinh viên
+
 - Hiển thị thông tin sinh viên.
 - Theo dõi danh sách và thông tin liên quan.
 
 ### 4.4. Quản lý môn học
+
 - Hiển thị danh sách môn học.
 - Theo dõi thông tin và dữ liệu liên quan đến môn học.
 
 ### 4.5. Quản lý bài tập
+
 - Theo dõi danh sách bài tập.
 - Hỗ trợ quản lý tiến độ hoàn thành bài tập.
 
 ### 4.6. Lịch học
+
 - Hiển thị lịch học theo thời gian.
 - Hỗ trợ theo dõi lịch học trong quá trình học tập.
 
 ### 4.7. Cài đặt
+
 - Cập nhật thông tin cá nhân.
 - Tùy chỉnh giao diện.
 - Hỗ trợ chuyển đổi giao diện sáng và tối.
 
 ### 4.8. Backend API
+
 - Xử lý yêu cầu từ Frontend.
 - Hỗ trợ đăng nhập và xác thực người dùng.
 - Quản lý và lưu trữ dữ liệu thông qua SQLite.
@@ -95,6 +102,7 @@ Thời gian thực hiện đề tài được chia thành 4 giai đoạn theo k�
 **Thời gian:** 12/10/2026 – 18/10/2026
 
 **Công việc thực hiện:**
+
 - Tìm hiểu tổng quan về đề tài.
 - Thu thập tài liệu liên quan đến HTML, CSS và JavaScript.
 - Nghiên cứu cấu trúc và nguyên lý hoạt động của JavaScript DOM.
@@ -102,6 +110,7 @@ Thời gian thực hiện đề tài được chia thành 4 giai đoạn theo k�
 - Tìm hiểu các phương thức xử lý sự kiện trong DOM.
 
 **Kết quả đạt được:**
+
 - Hoàn thành việc thu thập và tổng hợp tài liệu.
 - Nắm được kiến thức cơ bản về JavaScript DOM.
 - Có thể vận dụng các thao tác DOM thông qua những ví dụ minh họa.
@@ -111,6 +120,7 @@ Thời gian thực hiện đề tài được chia thành 4 giai đoạn theo k�
 **Thời gian:** 02/11/2026 – 08/11/2026
 
 **Công việc thực hiện:**
+
 - Phân tích yêu cầu và xác định các chức năng cần có của hệ thống.
 - Xây dựng bố cục tổng thể cho Dashboard học tập.
 - Thiết kế Sidebar, Topbar và các khu vực hiển thị nội dung.
@@ -118,6 +128,7 @@ Thời gian thực hiện đề tài được chia thành 4 giai đoạn theo k�
 - Thiết kế giao diện phù hợp với máy tính và thiết bị di động.
 
 **Kết quả đạt được:**
+
 - Hoàn thành bố cục giao diện chính của StudyHub.
 - Xây dựng được các trang giao diện cơ bản.
 - Hình thành cấu trúc thư mục và tổ chức mã nguồn dự án.
@@ -127,6 +138,7 @@ Thời gian thực hiện đề tài được chia thành 4 giai đoạn theo k�
 **Thời gian:** 23/11/2026 – 29/11/2026
 
 **Công việc thực hiện:**
+
 - Sử dụng JavaScript DOM để xây dựng các chức năng tương tác.
 - Xử lý sự kiện click, nhập liệu và thao tác trên giao diện.
 - Xây dựng chức năng đăng nhập và quản lý thông tin người dùng.
@@ -135,6 +147,7 @@ Thời gian thực hiện đề tài được chia thành 4 giai đoạn theo k�
 - Sử dụng SQLite để lưu trữ dữ liệu hệ thống.
 
 **Kết quả dự kiến:**
+
 - Hoàn thiện các chức năng chính của Dashboard.
 - Các thành phần giao diện có khả năng tương tác.
 - Hoàn thành kết nối cơ bản giữa Frontend và Backend.
@@ -144,6 +157,7 @@ Thời gian thực hiện đề tài được chia thành 4 giai đoạn theo k�
 **Thời gian:** 14/12/2026 – 20/12/2026
 
 **Công việc thực hiện:**
+
 - Kiểm tra hoạt động của các chức năng trên hệ thống.
 - Phát hiện và khắc phục các lỗi trong quá trình sử dụng.
 - Kiểm tra khả năng hiển thị trên nhiều kích thước màn hình.
@@ -153,12 +167,12 @@ Thời gian thực hiện đề tài được chia thành 4 giai đoạn theo k�
 - Hoàn thiện báo cáo và tài liệu hướng dẫn sử dụng.
 
 **Kết quả dự kiến:**
+
 - Website StudyHub hoàn chỉnh và có thể truy cập trực tuyến.
 - Các chức năng chính hoạt động ổn định.
 - Hoàn thiện mã nguồn và báo cáo đồ án.
 
 ## 6. CẤU TRÚC THƯ MỤC DỰ ÁN
-
 
 ```text
 dashboard-hoc-tap/
@@ -183,6 +197,7 @@ dashboard-hoc-tap/
 ├── .nojekyll               # Cấu hình GitHub Pages
 ├── README.md               # Tài liệu dự án
 └── package-lock.json       # Khóa phiên bản package
+```
 
 ## 7. HƯỚNG DẪN CÀI ĐẶT VÀ CHẠY DỰ ÁN
 
@@ -235,25 +250,23 @@ http://127.0.0.1:5500/html/login.html
 
 Frontend của StudyHub được triển khai thông qua GitHub Pages.
 
-### Các bước thực hiện
+**Các bước thực hiện:**
 
 1. Đưa mã nguồn dự án lên repository GitHub.
 2. Truy cập repository trên GitHub.
-3. Chọn Settings.
-4. Chọn mục Pages.
-5. Tại Build and deployment, chọn Deploy from a branch.
+3. Chọn **Settings**.
+4. Chọn mục **Pages**.
+5. Tại **Build and deployment**, chọn **Deploy from a branch**.
 6. Chọn branch `main`.
 7. Chọn thư mục `/(root)`.
-8. Nhấn Save.
+8. Nhấn **Save**.
 
 Sau khi triển khai thành công, GitHub Pages sẽ cung cấp đường dẫn truy cập website.
 
-**Repository GitHub:**
-
+**Repository GitHub:**  
 https://github.com/LamTranQueChi/StudyHub-Dashboard
 
-**Website Demo:**
-
+**Website Demo:**  
 Chưa cập nhật – bổ sung sau khi triển khai thành công.
 
 ## 9. TRIỂN KHAI BACKEND LÊN RENDER
@@ -263,10 +276,11 @@ Backend sử dụng Node.js, Express.js và SQLite, được triển khai thông
 ### 9.1. Tạo Web Service
 
 1. Truy cập Render.
-2. Chọn New → Web Service.
+2. Chọn **New → Web Service**.
 3. Kết nối tài khoản GitHub.
 4. Chọn repository `StudyHub-Dashboard`.
-5. Cấu hình các thông số:
+
+**Cấu hình các thông số:**
 
 | Thuộc tính | Giá trị |
 |---|---|
@@ -288,9 +302,13 @@ Backend sử dụng Node.js, Express.js và SQLite, được triển khai thông
 
 ### 9.3. Cấu hình Persistent Disk
 
-Để tránh mất dữ liệu SQLite khi dịch vụ được triển khai lại, cần cấu hình Persistent Disk trên Render:
+Để tránh mất dữ liệu SQLite khi dịch vụ được triển khai lại, cần cấu hình Persistent Disk trên Render.
 
-- Mount Path: `/var/data`
+**Mount Path:**
+
+```text
+/var/data
+```
 
 Database sẽ được lưu tại:
 
@@ -308,8 +326,7 @@ https://TEN-SERVICE.onrender.com/api/health
 
 Nếu API trả về JSON có giá trị `"ok": true`, Backend đã hoạt động.
 
-**Backend URL:**
-
+**Backend URL:**  
 Chưa cập nhật – bổ sung sau khi Render cấp URL thực tế.
 
 ## 10. KẾT NỐI FRONTEND VỚI BACKEND
@@ -328,13 +345,13 @@ const productionApi = "https://YOUR-STUDYHUB-BACKEND.onrender.com/api";
 
 Thay thế bằng URL Backend thực tế do Render cung cấp.
 
-Ví dụ:
+**Ví dụ:**
 
 ```javascript
 const productionApi = "https://studyhub-api.onrender.com/api";
 ```
 
-Sau khi cập nhật:
+**Sau khi cập nhật:**
 
 1. Lưu file `config.js`.
 2. Thực hiện Git Add, Commit và Push.
@@ -365,7 +382,7 @@ Hệ thống sử dụng dữ liệu minh họa để phục vụ quá trình ki
 | Email | `MSSV@st.tvu.edu.vn` |
 | Mật khẩu | Ngày sinh dạng `ddmmyyyy` |
 
-Ví dụ:
+**Ví dụ:**
 
 ```text
 Email: 110124012@st.tvu.edu.vn
@@ -375,6 +392,7 @@ Mật khẩu: 15092006
 Trong đó, mật khẩu trên chỉ là ví dụ minh họa cho định dạng ngày sinh.
 
 **Lưu ý:**
+
 - Tài khoản demo phụ thuộc vào dữ liệu được khởi tạo trong hệ thống.
 - Nếu không đăng nhập được, cần kiểm tra dữ liệu tài khoản và trạng thái Backend.
 - Không nên sử dụng mật khẩu ngày sinh cho hệ thống thực tế.
@@ -426,8 +444,6 @@ Trong tương lai, StudyHub có thể được mở rộng với các chức nă
 - Lịch học là dữ liệu minh họa phục vụ kiểm thử giao diện, không phải thời khóa biểu chính thức.
 - Dữ liệu học kỳ HK1–HK5 có sẵn; HK6–HK8 hiển thị trạng thái chưa mở.
 
----
-
 ## 16. THÔNG TIN SINH VIÊN THỰC HIỆN
 
 | Thông tin | Nội dung |
@@ -439,6 +455,62 @@ Trong tương lai, StudyHub có thể được mở rộng với các chức nă
 | Khoa | Công nghệ Thông tin |
 | Giảng viên hướng dẫn | Đoàn Phước Miền |
 | Tên đề tài | Tìm hiểu về JavaScript DOM và xây dựng trang Dashboard học tập |
+
+---
+
+## 17. CẬP NHẬT EN/VI VÀ CHỨC NĂNG CHUYÊN CẦN
+
+### 17.1. Chuyển đổi ngôn ngữ
+
+- Hoàn thiện bản dịch cho hộp thoại chọn học kỳ/năm học, các thông báo, xác nhận, trạng thái và nội dung bảng.
+- Sửa cụm từ bị dịch sai `Room học` thành `Classroom: View timetable`.
+- Các tên sinh viên, giảng viên và tên môn học được giữ nguyên.
+- Các thông báo `alert`, `confirm`, `prompt` cũng sử dụng ngôn ngữ đang chọn.
+- Biểu đồ phân bố điểm cập nhật nhãn tiếng Anh khi chuyển ngôn ngữ.
+
+### 17.2. Chuyên cần tự khai báo
+
+- Chức năng nằm ngay trong thẻ **Tỷ lệ chuyên cần** của trang Hồ sơ sinh viên, sử dụng các file hiện có; không tạo `chuyencan.css` hoặc `chuyencan.js`.
+- Tổng số buổi được đếm từ `class_schedule_sessions` theo lớp và học kỳ đã chọn. Chỉ tính các buổi đã kết thúc theo múi giờ `Asia/Ho_Chi_Minh`.
+- Khi chưa có dữ liệu điểm danh chính thức, sinh viên có thể tự khai báo số buổi vắng và xác nhận tính trung thực.
+- Vắng có phép hay không phép đều được tính là một buổi vắng.
+- Công thức:
+
+  \[
+  \text{Tỷ lệ chuyên cần} =
+  \frac{\text{Tổng buổi đã diễn ra} - \text{Số buổi vắng}}
+  {\text{Tổng buổi đã diễn ra}} \times 100\%
+  \]
+
+- Nếu đã có bản ghi điểm danh chính thức trong bảng `attendance`, hệ thống ưu tiên dữ liệu đó và không cho khai báo cá nhân ghi đè.
+- Số liệu tự khai báo chỉ dùng để tự theo dõi; không thay thế dữ liệu điểm danh chính thức của Trường Đại học Trà Vinh. Dự án hiện đếm từ thời khóa biểu đã được lưu/đồng bộ vào StudyHub, không tự nhận là đang truy vấn trực tiếp cổng điểm danh của trường.
+
+### 17.3. Các file đã thay đổi
+
+| File | Nội dung |
+|---|---|
+| `backend/src/db.js` | Thêm bảng lưu số buổi vắng do sinh viên tự khai báo |
+| `backend/src/server.js` | Tính số buổi theo thời khóa biểu, ưu tiên dữ liệu điểm danh chính thức, API lưu khai báo |
+| `html/sinhvien.html` | Thêm nút thông tin và hộp thoại khai báo trong thẻ chuyên cần |
+| `css/sinhvien.css` | Thiết kế dấu thông tin, nút và hộp thoại bằng CSS hiện có |
+| `js/sinhvien.js` | Tải, tính, hiển thị và lưu số buổi vắng |
+| `js/lichhoc.js` | Đồng bộ cách hiển thị chuyên cần và sửa thông báo điểm danh |
+| `js/ngonngu.js` | Bổ sung bản dịch, mẫu câu động và sự kiện đổi ngôn ngữ |
+| `js/main.js` | Dịch hộp thoại học kỳ và thông báo dùng chung |
+| `js/monhoc.js` | Dịch thông báo môn học |
+| `js/baitap.js` | Dịch thông báo, prompt và nội dung xem bài tập |
+| `js/dashboard.js` | Áp dụng bản dịch cho nội dung tải động |
+| `js/char.js` | Dịch nhãn biểu đồ phân bố điểm |
+| `README.md` | Ghi lại nội dung cập nhật |
+
+### 17.4. Kiểm tra sau khi cập nhật
+
+1. Khởi động Backend theo hướng dẫn trong `backend/README.md`.
+2. Đăng nhập bằng tài khoản sinh viên.
+3. Chọn học kỳ đang có thời khóa biểu.
+4. Mở **Sinh viên** → thẻ **Tỷ lệ chuyên cần** → bấm dấu `i` để xem cách tính.
+5. Chọn **Khai báo buổi vắng**, nhập số buổi, tích xác nhận trung thực và lưu.
+6. Chuyển VI/EN để kiểm tra hộp thoại, thông báo và bảng.
 
 ---
 
