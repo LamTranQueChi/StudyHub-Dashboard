@@ -521,4 +521,4 @@ STUDYHUB – DASHBOARD HỌC TẬP
 
 Đề tài thực tập đồ án cơ sở ngành
 
-Trường Đại học Trà Vinh
+Đại học Trà Vinh
